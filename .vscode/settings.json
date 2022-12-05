@@ -1,5 +1,0 @@
-{
-  "yaml.schemas": {
-    "https://json.schemastore.org/github-action.json": "file:///home/fedora/Documents/greencloud/docs/.github/workflows/deploy.yml"
-  }
-}
