@@ -2,46 +2,32 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Green Cloud - Welcome - !
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Its great to have you with us and we welcome you to the documentation pages for Green Cloud. Here you will be able to find detailed information about Green Cloud software tools we are creating. Please use this web site as a reference source of all things Green Cloud!
 
-## Getting Started
+If something doesn't quite look right - OR - its missing - please email us here -: hello@greencloudcomputing.io
 
-Get started by **creating a new site**.
+Below is an overview of the main constituent parts to the Green Cloud eco system.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+![Green Cloud Overview](./img/greencloud-overview.png)
 
-### What you'll need
+What we have created with Green Cloud has not been attempted before. As such we have been refining our approach with regards to how we will handle the workload that we will be presented with. 
 
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+The above diagram represents the fifth iteration of Green Cloud! 
 
-## Generate a new site
+What started out as simply getting one computer talking to another across the internet has grown in to a fully fledged scalable system that is capable of performing code tasks on almost any platform! 
 
-Generate a new Docusaurus site using the **classic template**.
+We have split the documentation in to the main sections of the Green Cloud software suite.
 
-The classic template will automatically be added to your project after you run the command:
+#### API
+ 
+ - This section documents all of the microservices that we use in Green Cloud and how to call them.
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+#### CLI
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+ - Possibly the most powerful tool in Green Cloud - this section documents its functionality and the best steps in how to use it.
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+#### Guide
 
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+ - In this section we go over some common issues and also techniques we have created when working with Green Cloud.

@@ -1,8 +1,8 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 ---
 
-# Congratulations!
+# Task
 
 You have just learned the **basics of Docusaurus** and made some changes to the **initial template**.
 
