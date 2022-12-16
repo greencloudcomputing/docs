@@ -1,32 +1,43 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
+import Translate from '@docusaurus/Translate';
 
 const FeatureList = [
   {
-    title: 'API',
-    Svg: require('@site/static/img/dashboard.svg').default,
+    title: "API",
+    Svg: require("@site/static/img/dashboard.svg").default,
     description: (
       <>
-        Learn about the API that we have created at Green Cloud. 
+        <Translate>
+          Learn about the API that we have created at Green Cloud.
+        </Translate>
       </>
     ),
   },
   {
-    title: 'The CLI',
-    Svg: require('@site/static/img/home.svg').default,
+    title: "The CLI",
+    Svg: require("@site/static/img/home.svg").default,
     description: (
       <>
-        We created a powerful command line tool that allows you to control all of your Green Cloud assets. Its fully documentated on this site and its the fastest way to get started with Green Cloud!
+        <Translate>
+          We created a powerful command line tool that allows you to control all
+          of your Green Cloud assets. Its fully documentated on this site and
+          its the fastest way to get started with Green Cloud!
+        </Translate>
       </>
     ),
   },
   {
-    title: 'Guide',
-    Svg: require('@site/static/img/account.svg').default,
+    title: "Guide",
+    Svg: require("@site/static/img/account.svg").default,
     description: (
       <>
-        Green Cloud is a new way to perform serverless compute with the least amount of Carbon. As such this section is full of useful topics that will help you get the best out of your Green Cloud account!
+        <Translate>
+        Green Cloud is a new way to perform serverless compute with the least
+        amount of Carbon. As such this section is full of useful topics that
+        will help you get the best out of your Green Cloud account!
+        </Translate>
       </>
     ),
   },

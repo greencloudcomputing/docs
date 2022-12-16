@@ -24,7 +24,31 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "en",
-    locales: ["en"],
+    locales: ["en", "fr", "es"],
+    localeConfigs: {
+      en: {
+        label: "English",
+        direction: "ltr",
+        htmlLang: "en-US",
+        calendar: "gregory",
+        path: "en",
+      },
+      // You can omit a locale (e.g. fr) if you don't need to override the defaults
+      fr: {
+        label: "French",
+        direction: "ltr",
+        htmlLang: "i18n/fr",
+        calendar: "gregory",
+        path: "fr",
+      },
+      es: {
+        label: "Spanish",
+        direction: "ltr",
+        htmlLang: "es",
+        calendar: "gregory",
+        path: "es",
+      },
+    },
   },
 
   presets: [
@@ -70,9 +94,13 @@ const config = {
             label: "Documentation",
           },
           // { to: "/blog", label: "Blog", position: "left" },
+          // {
+          //   href: "https://blog.greencloudcomputing.io/",
+          //   label: "Green Cloud Blog",
+          //   position: "right",
+          // },
           {
-            href: "https://blog.greencloudcomputing.io/",
-            label: "Green Cloud Blog",
+            type: "localeDropdown",
             position: "right",
           },
         ],
