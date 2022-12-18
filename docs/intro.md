@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# Green Cloud - Welcome - !
+# Green Cloud - Welcome!
 
-Its great to have you with us and we welcome you to the documentation pages for Green Cloud. Here you will be able to find detailed information about Green Cloud software tools we are creating. Please use this web site as a reference source of all things Green Cloud!
+It is great to have you with us and we welcome you to the documentation pages for Green Cloud. Here you will be able to find detailed information about Green Cloud software tools we are creating. Please use this web site as a reference source of all things Green Cloud!
 
 If something doesn't quite look right - OR - its missing - please email us here -: hello@greencloudcomputing.io
 

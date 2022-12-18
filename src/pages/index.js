@@ -17,7 +17,7 @@ function HomepageHeader() {
           <Translate>Green Cloud Computing</Translate>
         </h1>
         <p className="hero__subtitle">
-          <Translate>the ethical solution for cloud compute</Translate>
+          <Translate>pioneering the green computing revolution</Translate>
         </p>
         <div className={styles.buttons}>
           <Link

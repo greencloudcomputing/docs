@@ -4,9 +4,34 @@ sidebar_position: 3
 
 # Logging In And Out!
 
-Where to start! The CLI is one of the earliest tools that we created with Green Cloud and it really is where a lot of the 'power' lies with Green Cloud and a software developer.
+### Logging In
 
-- You will need to install [Docker](https://www.docker.com/) for your device as we use it extensively.
-- You will also need a valid Green Cloud account (create one here) [Green Cloud - Sign Up](https://app.greencloudcomputing.io/signup)
+You've downloaded the CLI tool and are ready to start. Before you can get going you need to sign into the account. 
 
-The rest of the pages in this section will be spent detailing the various niche calls in the CLI and how they work and inter-operate.
+If you have not created a Green Cloud account yet then you can do so [here](https://app.greencloudcomputing.io/signup)
+
+If all is in place simply type -:
+
+```console
+    ./gccli login
+```
+
+You will be prompted as follows -:
+
+![Login Prompt](../img/login.png)
+
+Enter the email that you used when you created your account! Next enter your password -:
+
+![Login Prompt](../img/password.png)
+
+You are now good to go and can start to create projects and Green Cloud functions! 
+
+### Logout
+
+To logout simply type -:
+
+```console
+    ./gccli logout
+```
+
+![Logout Prompt](../img/logout.png)

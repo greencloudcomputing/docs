@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# Publish a Function!
+# Publish a Function
 
 Where to start! The CLI is one of the earliest tools that we created with Green Cloud and it really is where a lot of the 'power' lies with Green Cloud and a software developer.
 

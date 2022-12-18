@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Green Cloud Computing",
-  tagline: "the ethical solution for cloud compute",
+  tagline: "pioneering the green computing revolution",
   url: "https://docs.greencloud.dev",
   baseUrl: "/",
   onBrokenLinks: "throw",
