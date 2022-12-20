@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# Running a Function - Locally...
+# 🏃 Running a Function - Locally...
 
 Where to start! The CLI is one of the earliest tools that we created with Green Cloud and it really is where a lot of the 'power' lies with Green Cloud and a software developer.
 

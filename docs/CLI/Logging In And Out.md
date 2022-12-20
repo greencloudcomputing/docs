@@ -2,11 +2,11 @@
 sidebar_position: 3
 ---
 
-# Logging In And Out!
+# 🔐 Logging In And Out!
 
 ### Logging In
 
-You've downloaded the CLI tool and are ready to start. Before you can get going you need to sign into the account. 
+You've downloaded the CLI tool and are ready to start. Before you can get going you need to sign into the account.
 
 If you have not created a Green Cloud account yet then you can do so [here](https://app.greencloudcomputing.io/signup)
 
@@ -24,7 +24,7 @@ Enter the email that you used when you created your account! Next enter your pas
 
 ![Login Prompt](../img/password.png)
 
-You are now good to go and can start to create projects and Green Cloud functions! 
+You are now good to go and can start to create projects and Green Cloud functions!
 
 ### Logout
 

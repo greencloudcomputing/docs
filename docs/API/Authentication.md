@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Authentication
+# 🔒️ Authentication
 
 Green Cloud has built in Authentication from the ground up. From the early days we realised that security is a big part of a cloud system. As such we use industry strength encryption and STRONGLY encourage our users to use 2FA which dramatically reduces the chances of an attack on an account.
 
@@ -15,7 +15,7 @@ Use this end point to register an account with Green Cloud. The succesful respon
 #### End Point: [http://localhost:3000/api/auth/register](http://localhost:3000/api/auth/register)
 
 ```js title="HTTP VERB"
-POST
+POST 
 ```
 
 ```js title="Content Header"
@@ -32,9 +32,9 @@ application/json
 }
 ```
 
-#### Response: 
+#### Response:
 
-HTTP 201 
+HTTP 201
 
 ![alt text for screen readers](../img/registerresponse.png "API repsonse after registration")
 
@@ -61,7 +61,7 @@ application/json
 
 #### Response
 
-HTTP 200 
+HTTP 200
 
 ![alt text for screen readers](../img/loginsuccess.png "API repsonse after successful login")
 
@@ -87,8 +87,7 @@ application/json
 
 #### Response
 
-HTTP 200 
-
+HTTP 200
 
 ## API KEY
 

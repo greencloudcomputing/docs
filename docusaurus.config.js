@@ -91,7 +91,7 @@ const config = {
             type: "doc",
             docId: "intro",
             position: "left",
-            label: "Documentation",
+            label: "📚 Documentation",
           },
           // { to: "/blog", label: "Blog", position: "left" },
           // {

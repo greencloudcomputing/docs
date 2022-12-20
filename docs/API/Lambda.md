@@ -2,5 +2,4 @@
 sidebar_position: 5
 ---
 
-# Lambda
-
+# 🌱 Lambda
