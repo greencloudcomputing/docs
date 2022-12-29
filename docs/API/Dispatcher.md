@@ -10,7 +10,7 @@ Welcome to the documentation on the GreenCloud Dispatcher. The Dispatcher can be
 - Developers can send many HTTP requests and await the responses.
 - The Dispatcher acts as a broker - matching up the incoming requests with the most appropriate node to handle the work load.
 
-In time Green Cloud will have multiple dispatchers around the globe. Our vision is to host multiple mini centers that will be powered by renewable energy to power these facilities. With our paradigm of farming out work load to members we anticipate that our energy requirements for Dispatcher will be dramatically less than the current modern data center.
+In time Green Cloud will have multiple dispatchers around the globe. Our vision is to host small centers that will be powered by onsite renewable energy. With our paradigm of farming out work load to members we anticipate that our energy requirements for Dispatcher will be dramatically less than the current modern data center.
 
 The Dispatcher consists of a suite of microservices all working together to perform the collective tasks that make up the Dispatcher. This includes but is not limited to -:
 
@@ -23,4 +23,14 @@ The Dispatcher consists of a suite of microservices all working together to perf
 - Payment - we pay our members for being part of Green Cloud - this microservices handles this.
 - Project - In Green Cloud we have the idea that you create a project that represents a collection of Lambdas/Functions.
 - Subscription - This Microservice handles your subscription.
+- Disptacher - The service that allocates the workload across the Green Cloud network.
 
+In detail the dispatcher can be thought of as an intelligent queue. People offering their machines for use arrive and depart depedent on three conditions -:
+
+1. They are available for work.
+2. They are un-available for work as they are currently processing work.
+3. They are un-avilable for work as they are not producing or running on renewable energy.
+
+The dispatcher checks the queue for incoming work loads. Should it find a request for work - it then checks its Node queue and allocates to work load to the most appropriate node to perform that task ( achieved through a capabilites check ).
+
+The workload is allocated - the Node is removed from the queue and the Dispatcher repeats the process for the next piece of work in the queue. This makes for a very rapid system of work allocation. Another way of viewing how the Dispatcher works is as a broker. "I have some work - who is available to perform it ?"
