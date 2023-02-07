@@ -29,8 +29,8 @@ In detail the dispatcher can be thought of as an intelligent queue. People offer
 
 1. They are available for work.
 2. They are un-available for work as they are currently processing work.
-3. They are un-avilable for work as they are not producing or running on renewable energy.
+3. They are un-available for work as they are not producing or running on renewable energy.
 
-The dispatcher checks the queue for incoming work loads. Should it find a request for work - it then checks its Node queue and allocates to work load to the most appropriate node to perform that task ( achieved through a capabilites check ).
+The dispatcher checks the queue for incoming work loads. Should it find a request for work - it then checks its Node queue and allocates to work load to the most appropriate node to perform that task ( achieved through a capabilities check ).
 
 The workload is allocated - the Node is removed from the queue and the Dispatcher repeats the process for the next piece of work in the queue. This makes for a very rapid system of work allocation. Another way of viewing how the Dispatcher works is as a broker. "I have some work - who is available to perform it ?"

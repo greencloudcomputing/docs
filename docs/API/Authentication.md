@@ -12,14 +12,14 @@ The first thing you will need to do is to Register an account.
 
 Use this end point to register an account with Green Cloud. The succesful response is a HTTP 201 response. An email will be sent to the person enabling them to complete the registration of their account.
 
-#### End Point: [http://localhost:3000/api/auth/register](http://localhost:3000/api/auth/register)
+#### End Point: [https://api.greencloud.dev/api/auth/register](https://api.greencloud.dev/api/auth/register)
 
 ```js title="HTTP VERB"
 POST 
 ```
 
 ```js title="Content Header"
-application/json
+Content-Type : application/json
 ```
 
 ```js title="Body"
@@ -42,14 +42,14 @@ HTTP 201
 
 Once a user has finished the Registration of their account. Then can then Login and get an access and refresh token.
 
-End Point: [http://localhost:3000/api/auth/login](http://localhost:3000/api/auth/login)
+End Point: [https://api.greencloud.dev/api/auth/login](https://api.greencloud.dev/api/auth/login)
 
 ```js title="HTTP VERB"
 POST
 ```
 
 ```js title="Content Header"
-application/json
+Content-Type : application/json
 ```
 
 ```js title="Body"
@@ -69,14 +69,14 @@ HTTP 200
 
 Once a user has been given an Access Token and a Refresh Token from the Login end point, you can use the Refresh Token to gain a new Access Token. Access Tokens are valid for 90 days.
 
-End Point: [http://localhost:3000/api/auth/refresh](http://localhost:3000/api/auth/refresh)
+End Point: [https://api.greencloud.dev/api/auth/refresh](https://api.greencloud.dev/api/auth/refresh)
 
 ```js title="HTTP VERB"
 POST
 ```
 
 ```js title="Content Header"
-application/json
+Content-Type : application/json
 ```
 
 ```js title="Body"
@@ -91,8 +91,140 @@ HTTP 200
 
 ## API KEY
 
+If you want to use the API with the amazing Command Line Interface ( CLI ) then you are going to need to get a copy of your API key. When you log into the CLI tool you will be prompted for the API key and it is this end point that allows you to get it. You can now also get this from your GreenCloud dashboard. 
+
+End Point: [https://api.greencloud.dev/api/auth/apiKey](https://api.greencloud.dev/api/auth/apiKey)
+
+```js title="HTTP VERB"
+POST
+```
+
+```js title="Content Header"
+Content-Type : application/json
+```
+
+```js title="Body"
+{
+	"key": ""
+}
+```
+
+#### Response
+
+HTTP 200
+
+```js title="Body"
+{
+	"expiresIn": 3590,
+	"accessToken": ""
+}
+```
+
 ## 2FA - ( Two Factor Authentication )
+
+GreenCloud take security VERY seriously. As such we make use of Two Factor Authentication. We strongly recommend that you enable 2FA on your GreenCloud account to ensure that you account does not become compromised by some malicious actor.
+
+If the account has 2FA enabled then you will need to pass to this end point the code from the 3rd parth authentication app you use to perform 2FA. IF you are not familiar with 2FA this is a good resource to understand it -: [What is 2FA](https://authy.com/what-is-2fa/)
+
+End Point: [https://api.greencloud.dev/api/auth/2FA](https://api.greencloud.dev/api/auth/2FA)
+
+```js title="HTTP VERB"
+POST
+```
+
+```js title="Content Header"
+Authorization : Token
+
+```
+
+```js title="Body"
+{
+	"key": ""
+}
+```
+
+#### Response
+
+HTTP 200
+
+```js title="Body"
+{
+
+}
+```
 
 ## Active 2FA
 
+When the user starts their account they will not have activated 2FA support. We call this endpoint to enable 2FA support. To use it we pass in a test code to sync with from an auth app.
+
+End Point: [https://api.greencloud.dev/api/auth/verify2FA](https://api.greencloud.dev/api/auth/verify2FA)
+
+```js title="HTTP VERB"
+POST
+```
+
+```js title="Content Header"
+Authorization : Token
+
+Content-Type : application/json
+```
+
+```js title="Body"
+{
+	"code": "069303"
+}
+```
+
+#### Response
+
+HTTP 200
+
 ## Disable 2FA
+
+When the user starts their account they will not have activated 2FA support. We call this endpoint to enable 2FA support. To use it we pass in a test code to sync with from an auth app.
+
+End Point: [https://api.greencloud.dev/api/auth/2FA](https://api.greencloud.dev/api/auth/2FA)
+
+```js title="HTTP VERB"
+DELETE
+```
+
+```js title="Content Header"
+Authorization : Token
+
+Content-Type : application/json
+```
+
+```js title="Body"
+{
+	"code": "12345"
+}
+```
+
+#### Response
+
+HTTP 200
+
+## Node
+
+We use this end point to authorise a node in the GreenCloud eco system.
+
+End Point: [https://api.greencloud.dev/api/auth/node/](https://api.greencloud.dev/api/auth/node/)
+
+```js title="HTTP VERB"
+POST
+```
+
+```js title="Content Header"
+Content-Type : application/json
+```
+
+```js title="Body"
+{
+	"id": "OF_THE_NODE"
+}
+```
+
+#### Response
+
+HTTP 200

@@ -1,10 +1,10 @@
 ---
-sidebar_position: 2
+sidebar_position: 4
 ---
 
-# 📡 Node
+# 🧾 Public Endpoint
 
-## Create
+## Use
 
 #### End Point: [https://api.greencloud.dev/gc/body response from function call](https://api.greencloud.dev/gc/body response from function call)
 
@@ -27,12 +27,12 @@ HTTP 200
 ```js title="API Response"
 ```
 
-## List
+## Create
 
-#### End Point: [https://api.greencloud.dev/api/node/list](https://api.greencloud.dev/api/node/list)
+#### End Point: [https://api.greencloud.dev/gc/body response from function call/endpoint](https://api.greencloud.dev/gc/body response from function call/endpoint)
 
 ```js title="HTTP VERB"
-GET 
+POST 
 ```
 
 ```js title="Content Header"
@@ -52,33 +52,10 @@ HTTP 200
 
 ## Delete
 
-#### End Point: [https://api.greencloud.dev/api/node/1a061cfd-df01-4b02-a067-5122c5941e14](https://api.greencloud.dev/api/pi/node/1a061cfd-df01-4b02-a067-5122c5941e14)
+#### End Point: [https://api.greencloud.dev/gc/body response from function call](https://api.greencloud.dev/gc/body response from function call)
 
 ```js title="HTTP VERB"
-DEL 
-```
-
-```js title="Content Header"
-Authorization , Valid-Access-Token
-```
-
-```js title="Body"
-N/A
-```
-
-#### Response:
-
-HTTP 200
-
-```js title="API Response"
-```
-
-## Restore
-
-#### End Point: [https://api.greencloud.dev/api/node/1a061cfd-df01-4b02-a067-5122c5941e14](https://api.greencloud.dev/api/pi/node/1a061cfd-df01-4b02-a067-5122c5941e14)
-
-```js title="HTTP VERB"
-PATCH 
+POST 
 ```
 
 ```js title="Content Header"
