@@ -222,25 +222,25 @@ HTTP 200
 ```js title="API Response"
 ```
 
-## Set Capabilities
+    ## Set Capabilities
 
-#### End Point: [https://api.greencloud.dev/api/lambda/capabilities](https://api.greencloud.dev/api/lambda/capabilities)
+    #### End Point: [https://api.greencloud.dev/api/lambda/capabilities](https://api.greencloud.dev/api/lambda/capabilities)
 
-```js title="HTTP VERB"
-POST 
-```
+    ```js title="HTTP VERB"
+    POST 
+    ```
 
-```js title="Content Header"
-Authorization , Valid-Access-Token
-```
+    ```js title="Content Header"
+    Authorization , Valid-Access-Token
+    ```
 
-```js title="Body"
-N/A
-```
+    ```js title="Body"
+    N/A
+    ```
 
-#### Response:
+    #### Response:
 
-HTTP 200
+    HTTP 200
 
-```js title="API Response"
-```
+    ```js title="API Response"
+    ```
