@@ -10,7 +10,7 @@ The first thing you will need to do is to Register an account.
 
 ## Register
 
-Use this end point to register an account with Green Cloud. The succesful response is a HTTP 201 response. An email will be sent to the person enabling them to complete the registration of their account.
+Use this end point to register an account with Green Cloud. The succesful response is an HTTP 201 response. An email will be sent to the email address used, enabling them to complete the registration of their account.
 
 #### End Point: [https://api.greencloud.dev/api/auth/register](https://api.greencloud.dev/api/auth/register)
 
@@ -36,11 +36,35 @@ Content-Type : application/json
 
 HTTP 201
 
-![alt text for screen readers](../img/registerresponse.png "API repsonse after registration")
+![201 response upon registering an account](../img/registerresponse.png "API repsonse after registration")
+
+## Activate
+
+Once a user has posted valid registration information to the Regsiter end point they will receive an email. In the email is a link that the user will click to activate their account. The email link will contain a code that is passed to this end point to 'activate' their account. The code is system generated.
+
+#### End Point: [https://api.greencloud.dev/api/auth/activate](https://api.greencloud.dev/api/auth/activate)
+
+```js title="HTTP VERB"
+POST 
+```
+
+```js title="Content Header"
+Content-Type : application/json
+```
+
+```js title="Body"
+{
+	"code": "-system-generated-"
+}
+```
+
+#### Response:
+
+HTTP 200
 
 ## Login
 
-Once a user has finished the Registration of their account. Then can then Login and get an access and refresh token.
+Used once a user has finished the Registration process of their account. They can now Login and upon success will receive an access and refresh token.
 
 End Point: [https://api.greencloud.dev/api/auth/login](https://api.greencloud.dev/api/auth/login)
 
@@ -63,11 +87,11 @@ Content-Type : application/json
 
 HTTP 200
 
-![alt text for screen readers](../img/loginsuccess.png "API repsonse after successful login")
+![successful login with token and refresh token](../img/loginsuccess.png "API repsonse after successful login")
 
 ## Refresh Token
 
-Once a user has been given an Access Token and a Refresh Token from the Login end point, you can use the Refresh Token to gain a new Access Token. Access Tokens are valid for 90 days.
+Once a user has been given an Access Token and a Refresh Token from the Login end point, you can use the Refresh Token to gain a new Access Token. An Access Tokens is valid for 90 days.
 
 End Point: [https://api.greencloud.dev/api/auth/refresh](https://api.greencloud.dev/api/auth/refresh)
 
@@ -91,7 +115,7 @@ HTTP 200
 
 ## API KEY
 
-If you want to use the API with the amazing Command Line Interface ( CLI ) then you are going to need to get a copy of your API key. When you log into the CLI tool you will be prompted for the API key and it is this end point that allows you to get it. You can now also get this from your GreenCloud dashboard. 
+If you want to use the Command Line Interface ( CLI ) then you are going to need to get a copy of your API key. When you log into the CLI tool you will be prompted for the API key on the first time that you login. It is this end point that allows you to get it. You can now also get this from your GreenCloud web site dashboard. 
 
 End Point: [https://api.greencloud.dev/api/auth/apiKey](https://api.greencloud.dev/api/auth/apiKey)
 
@@ -124,7 +148,7 @@ HTTP 200
 
 GreenCloud take security VERY seriously. As such we make use of Two Factor Authentication. We strongly recommend that you enable 2FA on your GreenCloud account to ensure that you account does not become compromised by some malicious actor.
 
-If the account has 2FA enabled then you will need to pass to this end point the code from the 3rd parth authentication app you use to perform 2FA. IF you are not familiar with 2FA this is a good resource to understand it -: [What is 2FA](https://authy.com/what-is-2fa/)
+If the account has 2FA enabled then you will need to pass to this end point the code from the 3rd party authentication app you use to perform 2FA. IF you are not familiar with 2FA this is a good resource to understand it -: [What is 2FA](https://authy.com/what-is-2fa/)
 
 End Point: [https://api.greencloud.dev/api/auth/2FA](https://api.greencloud.dev/api/auth/2FA)
 
@@ -181,7 +205,7 @@ HTTP 200
 
 ## Disable 2FA
 
-When the user starts their account they will not have activated 2FA support. We call this endpoint to enable 2FA support. To use it we pass in a test code to sync with from an auth app.
+Call this end point to disable 2FA support. You will need to pass the currently active 2FA value in your authenticator app. To re-enable 2FA - which we strongly recommend, simply post to the enable end point.
 
 End Point: [https://api.greencloud.dev/api/auth/2FA](https://api.greencloud.dev/api/auth/2FA)
 
