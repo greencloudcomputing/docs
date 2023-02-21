@@ -282,6 +282,8 @@ HTTP 200
 
 ## Set Capabilities
 
+In Green Cloud because of the disparate nature of the machines that will be connecting to the Dispatcher we use something called Capabailities to be able to clearly utilise the best suited machine to the computational task that the function requires. This is the purpose of Capabilities. In setting the capabilities of a function you can restrict the machines that that function executes on. The purpose of this is to run on the most optinal machine for the function.
+
 #### End Point: [https://api.greencloud.dev/api/lambda/capabilities](https://api.greencloud.dev/api/lambda/capabilities)
 
 ```js title="HTTP VERB"
@@ -293,7 +295,11 @@ Authorization , Valid-Access-Token
 ```
 
 ```js title="Body"
-N/A
+{
+	"cpuCount": 1,
+	"memSize": 1024,
+	"privileged": true
+}
 ```
 
 #### Response:
