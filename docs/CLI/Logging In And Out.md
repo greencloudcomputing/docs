@@ -39,7 +39,7 @@ $ █
 
 You are now good to go and get started with Green Cloud functions! 🎉️
 
-### Loggin out
+### Logging out
 
 If all is in place simply type `./gccli logout` -:
 
