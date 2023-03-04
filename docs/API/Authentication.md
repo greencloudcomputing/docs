@@ -10,245 +10,370 @@ The first thing you will need to do is to Register an account.
 
 ## Register
 
+:::info
 Use this end point to register an account with Green Cloud. The succesful response is an HTTP 201 response. An email will be sent to the email address used, enabling them to complete the registration of their account.
+:::
 
-#### End Point: [https://api.greencloud.dev/api/auth/register](https://api.greencloud.dev/api/auth/register)
+#### Endpoint
 
-```js title="HTTP VERB"
-POST 
-```
+| Method | Endpoint                                                             | Private |
+| ------ | -------------------------------------------------------------------- | ------- |
+| `POST` | [`/api/auth/register`](https://api.greencloud.dev/api/auth/register) | false   |
 
-```js title="Content Header"
-Content-Type : application/json
-```
+#### Request Headers
 
-```js title="Body"
+| Key            | Value              | Required |
+| -------------- | ------------------ | -------- |
+| `Content-Type` | `application/json` | true     |
+
+#### Request Body
+
+| Key                | Example        | Requirements                              |
+| ------------------ | -------------- | ----------------------------------------- |
+| `name`             | Richard        | `required` `min=8` `containsany=!@#$%&\*` |
+| `surname`          | Hill           | `required` `alpha` `max=20`               |
+| `email`            | <sampleEmail/> | `required`                                |
+| `password`         | Hello123!      | `required` `min=8` `containsany=!@#$%&*`  |
+| `address.company`  | Green Cloud    | `optional` `alphanumspace`                |
+| `address.street`   | Main st.       | `required` `alphanumspace`                |
+| `address.city`     | England        | `required` `alphaspace`                   |
+| `address.district` | South district | `optional` `alphaspace`                   |
+| `address.postCode` | YO31 8SB       | `required` `alphanumspace`                |
+| `address.country`  | GB             | `required` `iso3166_1_alpha2`             |
+
+#### Example Request
+
+```js
 {
-	"name": "Boris",
-	"surname": "Johnson",
-	"email": "your.email@here.com",
-	"password":"password-here",
-	"nationality": "Great Britain"
+	"name": "Richard",
+	"surname": "Hill",
+	"email": "richard.hill@greencloudcomputing.io",
+	"password":"Hello123!",
+	"address": {
+		"company": "Green cloud",
+		"street": "123 Hill St.",
+		"city": "England",
+		"district": "North district",
+		"postCode": "YO31 8SB",
+		"country": "UK"
+	},
 }
 ```
 
-#### Response:
+#### Example Response
 
-HTTP 201
-
-![201 response upon registering an account](../img/registerresponse.png "API repsonse after registration")
+```js title="Status: 201 Created"
+Empty body
+```
 
 ## Activate
 
-Once a user has posted valid registration information to the Regsiter end point they will receive an email. In the email is a link that the user will click to activate their account. The email link will contain a code that is passed to this end point to 'activate' their account. The code is system generated.
+:::info
+After successful registration using the Register endpoint, the user will receive an email containing an activation link to activate their account. The activation link will include a unique system-generated code that needs to be passed to the Account Activation endpoint.
+:::
 
-#### End Point: [https://api.greencloud.dev/api/auth/activate](https://api.greencloud.dev/api/auth/activate)
+#### Endpoint
 
-```js title="HTTP VERB"
-POST 
-```
+| Method | Endpoint                                                             | Private |
+| ------ | -------------------------------------------------------------------- | ------- |
+| `POST` | [`/api/auth/activate`](https://api.greencloud.dev/api/auth/activate) | false   |
 
-```js title="Content Header"
-Content-Type : application/json
-```
+#### Request Headers
 
-```js title="Body"
+| Key            | Value              | Required |
+| -------------- | ------------------ | -------- |
+| `Content-Type` | `application/json` | true     |
+
+#### Request Body
+
+| Key    | Example                          | Requirements |
+| ------ | -------------------------------- | ------------ |
+| `code` | ea6bdeeb005a4a80a43c444b8828ca4a | `required`   |
+
+#### Example Request
+
+```js
 {
-	"code": "-system-generated-"
+	"code": "ea6bdeeb005a4a80a43c444b8828ca4a"
 }
 ```
 
-#### Response:
+#### Example Response
 
-HTTP 200
+```js title="Status: 200 OK"
+Empty body
+```
 
 ## Login
 
-Used once a user has finished the Registration process of their account. They can now Login and upon success will receive an access and refresh token.
+:::info
+After successfully registering an account, users can now log in to their account. Upon successful login, the endpoint will return an access and refresh token.
+:::
 
-End Point: [https://api.greencloud.dev/api/auth/login](https://api.greencloud.dev/api/auth/login)
+#### Endpoint
 
-```js title="HTTP VERB"
-POST
-```
+| Method | Endpoint                                                       | Private |
+| ------ | -------------------------------------------------------------- | ------- |
+| `POST` | [`/api/auth/login`](https://api.greencloud.dev/api/auth/login) | false   |
 
-```js title="Content Header"
-Content-Type : application/json
-```
+#### Request Headers
 
-```js title="Body"
+| Key            | Value              | Required |
+| -------------- | ------------------ | -------- |
+| `Content-Type` | `application/json` | true     |
+
+#### Request Body
+
+| Key        | Example        | Requirements                             |
+| ---------- | -------------- | ---------------------------------------- |
+| `email`    | <sampleEmail/> | `required`                               |
+| `password` | Hello123!      | `required` `min=8` `containsany=!@#$%&*` |
+| `twofa`    | 123456         | required when 2FA is enabled             |
+
+#### Example Request
+
+```js
 {
-	"email": "boris.johnson@parliament.co.uk",
-	"password": "brexitisntdone"
+	"email": "richard.hill@greencloudcomputing.io",
+	"password":"Hello123!",
+	"twofa":"123456"
 }
 ```
 
-#### Response
+#### Example Response
 
-HTTP 200
-
-![successful login with token and refresh token](../img/loginsuccess.png "API repsonse after successful login")
+```js title="Status: 200 OK"
+{
+	"expiresIn": 3590,
+	"accessToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzc5MjU4NjQsImlhdCI6MTY3NzkyMjI2NCwiaXNzIjoiZ3JlZW5jbG91bmQuZGV2IiwianRpIjoiZDk5NTYyODctMzA3Ni00NjgwLWExMGMtZjRjYzhjMmJmYzJhIiwidXNlcklkIjoiNjNlZDFiNGY0MDVkOGE0NGJkYzQyYzE5In0.hXJWTDgjADXCgceXqIdiBsGxik_EAXj1u2KBdvdlk755OuCq_f7TS5N4Eaf3Qym0QEfxFaZA-mhGn--BZJoNOZ1z2kAYihUrnk4kyNhfDxfqLPJ_ZUoyrqFSZfdrCrXYojxTkk_0q47MCgQgbDWXIb8V8M3AJpyOwBA4Ju24WdleOoPBKWA-1TlxcZrCbGQKtHS8pmAeoFX-iwHbd2vOucGOto7_6A9_FUtmAR5JHP9zRUUDLgGU9R1To5UHkqIJrHVh_kd2KULw0wLLdPr2QSklIQcrLPBQdlKygq34VP99rmL5_bYSBFVnZ54YZAsfLoGuHGV0hv59GwH0vRLaCA",
+	"refreshToken": "40d6b6a52256ee2b6f52645bbf5d90d0a4011d341b4fda69a1bed448f3fddfa4c0f019fc4e58ed39d6b377b909df95310bc43a2d07654327eca9ae2d96f69b72319cc825601bfc40c1a19600bce5a719086e83b69f89caca131f8d9d969c866b661ddc2ee687a43b3acd9e8bfe310aac7c78401bc504b8fda9756563d9e5f11c2ca2161119084b2d0eb62f50fbab2c928800d2c8027f64f45b1a1895165e21f67ce95fd262568c304836d29ae06f035bf131b161ad05612fed7132ceee528e9d9f5543b75cba410a22f867633347b13e596254bdf76cddd4bbb8fa83ecf1cd15dfd972fee088844ffaada3c2053b72265dea4da0b7cc24ea0a552114f73d9a5b"
+}
+```
 
 ## Refresh Token
 
-Once a user has been given an Access Token and a Refresh Token from the Login end point, you can use the Refresh Token to gain a new Access Token. An Access Tokens is valid for 90 days.
+:::info
+After successful login, the user receives an Access Token and a Refresh Token. The Access Token is valid for 90 days, after which the user needs to refresh it using the Refresh Token.
+:::
 
-End Point: [https://api.greencloud.dev/api/auth/refresh](https://api.greencloud.dev/api/auth/refresh)
+#### Endpoint
 
-```js title="HTTP VERB"
-POST
-```
+| Method | Endpoint                                                           | Private |
+| ------ | ------------------------------------------------------------------ | ------- |
+| `POST` | [`/api/auth/refresh`](https://api.greencloud.dev/api/auth/refresh) | false   |
 
-```js title="Content Header"
-Content-Type : application/json
-```
+#### Request Headers
 
-```js title="Body"
+| Key            | Value              | Required |
+| -------------- | ------------------ | -------- |
+| `Content-Type` | `application/json` | true     |
+
+#### Request Body
+
+| Key            | Value                 | Requirements |
+| -------------- | --------------------- | ------------ |
+| `refreshToken` | _valid refresh token_ | `required`   |
+
+#### Example Request
+
+```js
 {
-	"refreshToken": "PUT YOUR REFRESH TOKEN HERE"
+	"refreshToken": "40d6b6a52256ee2b6f52645bbf5d90d0a4011d341b4fda69a1bed448f3fddfa4c0f019fc4e58ed39d6b377b909df95310bc43a2d07654327eca9ae2d96f69b72319cc825601bfc40c1a19600bce5a719086e83b69f89caca131f8d9d969c866b661ddc2ee687a43b3acd9e8bfe310aac7c78401bc504b8fda9756563d9e5f11c2ca2161119084b2d0eb62f50fbab2c928800d2c8027f64f45b1a1895165e21f67ce95fd262568c304836d29ae06f035bf131b161ad05612fed7132ceee528e9d9f5543b75cba410a22f867633347b13e596254bdf76cddd4bbb8fa83ecf1cd15dfd972fee088844ffaada3c2053b72265dea4da0b7cc24ea0a552114f73d9a5b",
 }
 ```
 
-#### Response
+#### Example Response
 
-HTTP 200
+```js title="Status: 200 OK"
+{
+	"expiresIn": 3590,
+	"accessToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzc5Mzc5OTQsImlhdCI6MTY3NzkzNDM5NCwiaXNzIjoiZ3JlZW5jbG91bmQuZGV2IiwianRpIjoiYjM3YzI5MDktMjI0ZS00Yjk1LTkzZDktNTZhZjc2ZmIxM2JiIiwidXNlcklkIjoiNjNlZDFiNGY0MDVkOGE0NGJkYzQyYzE5In0.TUO7BukLKHKc8KfeQFU_I7K1vjihCEkVljRGQt6EwRj8i6PC3MjwsLl65xopxEj7GfDhUkdzF_J80TSKm9gmqGBl9DGfVcT1Iy9IjbKrd2SXkZ6eiztxOjWWtDHEfDHA4svkRr49fpWJrzfu4mL8Mpvr5eKn_AJ1wZ-z8kQRBy06im3NWxCAKZW4vXsWdilxqcj_XLT68itABMHwt-nI6Grj0X8fpGDGfIMu2khEjpc6G9qv1eG7vWXtCPowO780YigU8soOTAzAsc1hz01TzUFPme_zObA_6wL_lKHg0peeDK6mW1qessUWrozGnpRupv7Y4BRjX1Df21rVKS9n8Q",
+	"refreshToken": "b5530e625c440cffc473c04a7a960bb1e36ab29563ec8b7c9fd2efddf41c793b9ec2cb16056063adcf5edd7ccefafcf473c93b8abf44300e02f61cbf710f6d839830c280b63bf7c59bc7e0d7cb286293953f689becd1e3bf996140bf1482da2f76d52f2a3deebac5e1c3595706e934619e7b8b04f491c4838c7b96e128593874e12d4c283c0a6d717edfa3483be1277c6dc8cb0eace7c04fb45f5eb35b1800d8c948a6955516051e12ca49943ae7d61d6d0bf6a2a1a61da0f45e19b084408b0f471cc668aa406a46db74a6c54383e3696bc7cf14be5fbfc5e9caf1d7054a94a1821a1317e1b80258eba94fb1b53806ee0f37f2c6ddfc8e24f626665d18275a5d"
+}
+```
 
 ## API KEY
 
-If you want to use the Command Line Interface ( CLI ) then you are going to need to get a copy of your API key. When you log into the CLI tool you will be prompted for the API key on the first time that you login. It is this end point that allows you to get it. You can now also get this from your GreenCloud web site dashboard. 
+:::info
+To use the Command Line Interface (CLI), users need to obtain their API key. The API key is required when logging into the CLI tool for the first time. It is this end point that allows that. Users can also obtain their API key from their GreenCloud web site [dashboard](https://app.greencloudcomputing.io/dashboard).
+:::
 
-End Point: [https://api.greencloud.dev/api/auth/apiKey](https://api.greencloud.dev/api/auth/apiKey)
+#### Endpoint
 
-```js title="HTTP VERB"
-POST
-```
+| Method | Endpoint                                                         | Private |
+| ------ | ---------------------------------------------------------------- | ------- |
+| `POST` | [`/api/auth/apiKey`](https://api.greencloud.dev/api/auth/apiKey) | false   |
 
-```js title="Content Header"
-Content-Type : application/json
-```
+#### Request Headers
 
-```js title="Body"
+| Key            | Value              | Required |
+| -------------- | ------------------ | -------- |
+| `Content-Type` | `application/json` | true     |
+
+#### Request Body
+
+| Key   | Example                              | Requirements |
+| ----- | ------------------------------------ | ------------ |
+| `key` | 92c85d5c-dcea-447d-9eac-0d6d64d8b340 | `required`   |
+
+#### Example Request
+
+```js
 {
-	"key": ""
+	"key": "92c85d5c-dcea-447d-9eac-0d6d64d8b340"
 }
 ```
 
-#### Response
+#### Example Response
 
-HTTP 200
-
-```js title="Body"
+```js
 {
-	"expiresIn": 3590,
-	"accessToken": ""
+"expiresIn": 3590,
+"accessToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzc5Mzg4MTMsImlhdCI6MTY3NzkzNTIxMywiaXNzIjoiZ3JlZW5jbG91bmQuZGV2IiwianRpIjoiYjUyOTMyOWUtZmJiOS00OTU5LTg1YTMtNTMxMTE1ZTY4MTJkIiwidXNlcklkIjoiNjNlZDFiNGY0MDVkOGE0NGJkYzQyYzE5In0.f6sYvMh5AKd0G7UnSojkE9G6PVTlFndtaGZ30EXhGoXgYf4ysZleX2Dx6YxFFVhKDVabg2QjmnprRgJbTxSqffRi0es2BkfnuX5T-iQqI5iHqF3D0x0EfK5bn0NxrkRVg6CddrOHfz8E5kvtDmXFNCgrLGD1jw_USTBzxry6U3mZNQ7CRMKPTozOQQU1q5DZZgEZ_mMOERcuTj_LA5XOPtrKWOFhs407l8isfrKY_CjVg2XHmfH3tXzjDtlyrAHgiJC09T_QgHlTHezv8RWkp0KFN5BARDWP56asthT-9_FGZBPA-N1QxXF6GWu86ZPJZfC2KS0Z2tolCFvQE8ySzg"
 }
 ```
 
 ## 2FA - ( Two Factor Authentication )
 
-GreenCloud take security VERY seriously. As such we make use of Two Factor Authentication. We strongly recommend that you enable 2FA on your GreenCloud account to ensure that you account does not become compromised by some malicious actor.
+:::info
+GreenCloud take security VERY seriously. To ensure the highest level of security, we make use of Two Factor Authentication (2FA) and strongly recommend that all users enable it on their accounts to keep their accounts from being compromised by malicious actors.
 
-If the account has 2FA enabled then you will need to pass to this end point the code from the 3rd party authentication app you use to perform 2FA. IF you are not familiar with 2FA this is a good resource to understand it -: [What is 2FA](https://authy.com/what-is-2fa/)
+Users who have enabled 2FA will need to pass the 6-digit code from their 2FA app to this endpoint. If you are not familiar with 2FA, please refer to this resource to understand it: [What is 2FA](https://authy.com/what-is-2fa/)
+:::
 
-End Point: [https://api.greencloud.dev/api/auth/2FA](https://api.greencloud.dev/api/auth/2FA)
+#### Endpoint
 
-```js title="HTTP VERB"
-POST
-```
+| Method | Endpoint                                                   | Private |
+| ------ | ---------------------------------------------------------- | ------- |
+| `POST` | [`/api/auth/2FA`](https://api.greencloud.dev/api/auth/2FA) | true    |
 
-```js title="Content Header"
-Authorization : Token
+#### Request Headers
 
-```
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
 
-```js title="Body"
+#### Example Response
+
+```js
 {
-	"key": ""
-}
-```
-
-#### Response
-
-HTTP 200
-
-```js title="Body"
-{
-
+	"seed": "PDMIY2255L4EKRUI5UWNSYHVZ22X5OM5"
 }
 ```
 
 ## Active 2FA
 
+:::info
 When the user starts their account they will not have activated 2FA support. We call this endpoint to enable 2FA support. To use it we pass in a test code to sync with from an auth app.
+By default, when a user starts their account, 2FA support will not be enabled. To enable 2FA support, the user can call this endpoint. At this step, we verify the code to sync with their 2FA app.
+:::
 
-End Point: [https://api.greencloud.dev/api/auth/verify2FA](https://api.greencloud.dev/api/auth/verify2FA)
+#### Endpoint
 
-```js title="HTTP VERB"
-POST
-```
+| Method | Endpoint                                                               | Private |
+| ------ | ---------------------------------------------------------------------- | ------- |
+| `POST` | [`/api/auth/verify2FA`](https://api.greencloud.dev/api/auth/verify2FA) | true    |
 
-```js title="Content Header"
-Authorization : Token
+#### Request Headers
 
-Content-Type : application/json
-```
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+| `Content-Type`  | `application/json`   | true     |
 
-```js title="Body"
+#### Request Body
+
+| Key    | Example | Requirements |
+| ------ | ------- | ------------ |
+| `code` | 069303  | `required`   |
+
+#### Example Request
+
+```js
 {
 	"code": "069303"
 }
 ```
 
-#### Response
+#### Example Response
 
-HTTP 200
+```js title="Status: 200 OK"
+Empty body
+```
 
 ## Disable 2FA
 
-Call this end point to disable 2FA support. You will need to pass the currently active 2FA value in your authenticator app. To re-enable 2FA - which we strongly recommend, simply post to the enable end point.
+:::info
+To disable 2FA support on your GreenCloud account, you can call this endpoint. You will be required to provide the currently active 2FA value from your authenticator app. To re-enable 2FA support - which we strongly recommend - simply call the `api/auth/verify2FA` endpoint.
+:::
 
-End Point: [https://api.greencloud.dev/api/auth/2FA](https://api.greencloud.dev/api/auth/2FA)
+#### Endpoint
 
-```js title="HTTP VERB"
-DELETE
-```
+| Method   | Endpoint                                                   | Private |
+| -------- | ---------------------------------------------------------- | ------- |
+| `DELETE` | [`/api/auth/2FA`](https://api.greencloud.dev/api/auth/2FA) | true    |
 
-```js title="Content Header"
-Authorization : Token
+#### Request Headers
 
-Content-Type : application/json
-```
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+| `Content-Type`  | `application/json`   | true     |
 
-```js title="Body"
+#### Request Body
+
+| Key    | Example | Requirements |
+| ------ | ------- | ------------ |
+| `code` | 069303  | `required`   |
+
+#### Example Request
+
+```js
 {
-	"code": "12345"
+	"code": "069303"
 }
 ```
 
-#### Response
+#### Example Response
 
-HTTP 200
+```js title="Status: 204 No Content"
+Empty body
+```
 
 ## Node
 
-We use this end point to authorise a node in the GreenCloud eco system.
+:::info
+To authorize a node within the GreenCloud ecosystem, you can use this endpoint.
+:::
 
-End Point: [https://api.greencloud.dev/api/auth/node/](https://api.greencloud.dev/api/auth/node/)
+#### Endpoint
 
-```js title="HTTP VERB"
-POST
-```
+| Method | Endpoint                                                     | Private |
+| ------ | ------------------------------------------------------------ | ------- |
+| `POST` | [`/api/auth/node`](https://api.greencloud.dev/api/auth/node) | false   |
 
-```js title="Content Header"
-Content-Type : application/json
-```
+#### Request Headers
 
-```js title="Body"
+| Key            | Value              | Required |
+| -------------- | ------------------ | -------- |
+| `Content-Type` | `application/json` | true     |
+
+#### Request Body
+
+| Key    | Example   | Requirements |
+| ------ | --------- | ------------ |
+| `code` | _node id_ | `required`   |
+
+#### Example Request
+
+```js
 {
-	"id": "OF_THE_NODE"
+	"id": "1a061cfd-df01-4b02-a067-5122c5941e15"
 }
 ```
 
-#### Response
+#### Example Response
 
-HTTP 200
+```js title="Status: 200 OK"
+Empty body
+```

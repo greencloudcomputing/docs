@@ -18,9 +18,9 @@ This endpoint allows authenticated users to get their account information.
 
 #### Request Headers
 
-| Key             | Value              | Required |
-| --------------- | ------------------ | -------- |
-| `Authorization` | Valid Access Token | true     |
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
 
 #### Request Body
 
@@ -67,10 +67,10 @@ This endpoint allows authenticated users to change their password. It also requi
 
 #### Request Headers
 
-| Key             | Value              | Required |
-| --------------- | ------------------ | -------- |
-| `Authorization` | Valid Access Token | true     |
-| `Content-Type`  | `application/json` | true     |
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+| `Content-Type`  | `application/json`   | true     |
 
 #### Request Body
 
@@ -112,9 +112,9 @@ This endpoint allows users to request a password reset code to be sent to their 
 
 #### Request Body
 
-| Key     | Example                                                | Requirements |
-| ------- | ------------------------------------------------------ | ------------ |
-| `email` | <a class="no-link">john.doe@greencloudcomputing.io</a> | `required`   |
+| Key     | Example        | Requirements |
+| ------- | -------------- | ------------ |
+| `email` | <sampleEmail/> | `required`   |
 
 #### Example Request
 
