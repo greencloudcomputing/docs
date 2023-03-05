@@ -13,16 +13,18 @@ Example usages we see for this are -:
 
 ## Create Tag
 
+:::info
 Call this end point to create a tag in GreenCloud. You pass the name and color in the body of the call. The response from the call is an HTTP 201 response along with a JSON object containig an ID attribute of the newly created tag.
+:::
 
 #### End Point: [https://api.greencloud.dev/api/tag/](https://api.greencloud.dev/api/tag/)
 
 ```js title="HTTP VERB"
-POST 
+POST
 ```
 
 ```js title="Content Header"
-Authorization , Valid-Access-Token
+Authorization, Valid - Access - Token
 ```
 
 ```js title="Body"
@@ -50,14 +52,15 @@ Call this endpoint to get a list of tags in this GreenCloud account. The succesf
 #### End Point: [https://api.greencloud.dev/api/tag/](https://api.greencloud.dev/api/tag/)
 
 ```js title="HTTP VERB"
-GET 
+GET
 ```
 
 ```js title="Content Header"
-Authorization , Valid-Access-Token
+Authorization, Valid - Access - Token
 ```
 
 ```js title="Body"
+
 ```
 
 #### Response:
@@ -65,27 +68,27 @@ Authorization , Valid-Access-Token
 HTTP 200
 
 ```js title="API Response"
-[
-	{
-		"id": "63f47d1c5bd6eeef8211c83e",
-		"name": "greencloud",
-		"color": "#00ff80"
-	}
+;[
+    {
+        id: "63f47d1c5bd6eeef8211c83e",
+        name: "greencloud",
+        color: "#00ff80",
+    },
 ]
 ```
 
 ## Edit A Tag
 
-Use this end point to edit a tag. Pass the id of the tag on the URL along with the updated JSON object for the tag. Succesful update results in a 204 response from the server. 
+Use this end point to edit a tag. Pass the id of the tag on the URL along with the updated JSON object for the tag. Succesful update results in a 204 response from the server.
 
 #### End Point: [https://api.greencloud.dev/api/tag/id_of_the_tag](https://api.greencloud.dev/api/tag/id_of_the_tag)
 
 ```js title="HTTP VERB"
-PATCH 
+PATCH
 ```
 
 ```js title="Content Header"
-Authorization , Valid-Access-Token
+Authorization, Valid - Access - Token
 ```
 
 ```js title="Body"
@@ -101,7 +104,7 @@ Authorization , Valid-Access-Token
 HTTP 204
 
 ```js title="API Response"
-N/A
+N / A
 ```
 
 ## Delete Tag
@@ -111,15 +114,15 @@ Call this end point to delete the tag from the GreenCloud account. Pass the id o
 #### End Point: [https://api.greencloud.dev/api/tag/id_of_the_tag](https://api.greencloud.dev/api/tag/id_of_the_tag)
 
 ```js title="HTTP VERB"
-DELETE 
+DELETE
 ```
 
 ```js title="Content Header"
-Authorization , Valid-Access-Token
+Authorization, Valid - Access - Token
 ```
 
 ```js title="Body"
-N/A
+N / A
 ```
 
 #### Response:
@@ -127,5 +130,5 @@ N/A
 HTTP 204
 
 ```js title="API Response"
-N/A
+N / A
 ```
