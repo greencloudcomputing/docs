@@ -4,23 +4,22 @@ sidebar_position: 5
 
 # 🌱 Function
 
-In GreenCloud we operate a system that runs small functions repeatedly. These functions are based around containers that are delivered and executed on remote devices. 
+In GreenCloud we operate a system that runs small functions repeatedly. These functions are based around containers that are delivered and executed on remote devices.
 
-A Function can be created using the CLI and is generally not something that is viewed by the end user. The main purpose of the Function is to act as a logical construct to represent the software/code that the software developer has written. 
+A Function can be created using the CLI and is generally not something that is viewed by the end user. The main purpose of the Function is to act as a logical construct to represent the software/code that the software developer has written.
 
-When a software developer asks to initiate a function - they will create a task which will also have a related Function to execute. 
+When a software developer asks to initiate a function - they will create a task which will also have a related Function to execute.
 
 A Lambda / Function consists of -:
 
 1. Name - a non unique character string used to represent the function.
-2. Language - the language that the lambda is written in. 
-    
+2. Language - the language that the lambda is written in.
+
     At the time of writing Green Cloud supports -:
-    
+
     GoLang, Node JS, Python, C#, Ruby
 
-    We are looking to add Rust, C / C++ and WASM in the near future. 
-        
+    We are looking to add Rust, C / C++ and WASM in the near future.
 
 ## Create
 
@@ -29,11 +28,11 @@ Use this end point to create a function to use in the Green Cloud system. The re
 #### End Point: [https://api.greencloud.dev/api/lambda/](https://api.greencloud.dev/api/lambda/)
 
 ```js title="HTTP VERB"
-POST 
+POST
 ```
 
 ```js title="Content Header"
-Authorization , Valid-Access-Token
+Authorization, Valid - Access - Token
 ```
 
 ```js title="Body"
@@ -65,11 +64,11 @@ Use this end point to edit the meta data about a function. You will need to pass
 #### End Point: [https://api.greencloud.dev/api/lambda/id](https://api.greencloud.dev/api/lambda/id)
 
 ```js title="HTTP VERB"
-PATCH 
+PATCH
 ```
 
 ```js title="Content Header"
-Authorization , Valid-Access-Token
+Authorization, Valid - Access - Token
 ```
 
 ```js title="Body"
@@ -84,6 +83,7 @@ Authorization , Valid-Access-Token
 HTTP 204
 
 ```js title="API Response"
+
 ```
 
 ## Get
@@ -93,15 +93,15 @@ Use this end point to get a list of details about the function. Note that you ne
 #### End Point: [https://api.greencloud.dev/api/lambda/id](https://api.greencloud.dev/api/lambda/id)
 
 ```js title="HTTP VERB"
-GET 
+GET
 ```
 
 ```js title="Content Header"
-Authorization , Valid-Access-Token
+Authorization, Valid - Access - Token
 ```
 
 ```js title="Body"
-N/A
+N / A
 ```
 
 #### Response:
@@ -133,15 +133,15 @@ Use this end point to get a list of functions in your Green Cloud account.
 #### End Point: [https://api.greencloud.dev/api/lambda/](https://api.greencloud.dev/api/lambda/)
 
 ```js title="HTTP VERB"
-GET 
+GET
 ```
 
 ```js title="Content Header"
-Authorization , Valid-Access-Token
+Authorization, Valid - Access - Token
 ```
 
 ```js title="Body"
-N/A
+N / A
 ```
 
 #### Response:
@@ -149,30 +149,30 @@ N/A
 HTTP 200
 
 ```js title="API Response"
-[
-	{
-		"id": "63e513f351d388749dc96e54",
-		"name": "array_of_functions"
-	},
+;[
+    {
+        id: "63e513f351d388749dc96e54",
+        name: "array_of_functions",
+    },
 ]
 ```
 
 ## List By Tag
 
-Use this end point to get a list of functions by tag. Note that you need to pass the tag you are interested in as a query parameter. We introduced Tags into Green Cloud as a means to be able to better manage your Green Cloud assets. Please see the Tag documentation for more details. 
+Use this end point to get a list of functions by tag. Note that you need to pass the tag you are interested in as a query parameter. We introduced Tags into Green Cloud as a means to be able to better manage your Green Cloud assets. Please see the Tag documentation for more details.
 
 #### End Point: [https://api.greencloud.dev/api/lambda/list?tag=greencloud](https://api.greencloud.dev/api/lambda/list?tag=greencloud)
 
 ```js title="HTTP VERB"
-GET 
+GET
 ```
 
 ```js title="Content Header"
-Authorization , Valid-Access-Token
+Authorization, Valid - Access - Token
 ```
 
 ```js title="Body"
-N/A
+N / A
 ```
 
 #### Response:
@@ -180,11 +180,11 @@ N/A
 HTTP 200
 
 ```js title="API Response"
-[
-	{
-		"id": "63e513f351d388749dc96e54",
-		"name": "name_of_function_that_is_tagged"
-	},
+;[
+    {
+        id: "63e513f351d388749dc96e54",
+        name: "name_of_function_that_is_tagged",
+    },
 ]
 ```
 
@@ -193,15 +193,15 @@ HTTP 200
 #### End Point: [https://api.greencloud.dev/api/lambda/](https://api.greencloud.dev/api/lambda/)
 
 ```js title="HTTP VERB"
-DELETE 
+DELETE
 ```
 
 ```js title="Content Header"
-Authorization , Valid-Access-Token
+Authorization, Valid - Access - Token
 ```
 
 ```js title="Body"
-N/A
+N / A
 ```
 
 #### Response:
@@ -209,6 +209,7 @@ N/A
 HTTP 200
 
 ```js title="API Response"
+
 ```
 
 ## Create Runner
@@ -216,15 +217,15 @@ HTTP 200
 #### End Point: [https://api.greencloud.dev/api/lambda/runner](https://api.greencloud.dev/api/lambda/runner)
 
 ```js title="HTTP VERB"
-POST 
+POST
 ```
 
 ```js title="Content Header"
-Authorization , Valid-Access-Token
+Authorization, Valid - Access - Token
 ```
 
 ```js title="Body"
-N/A
+N / A
 ```
 
 #### Response:
@@ -232,6 +233,7 @@ N/A
 HTTP 200
 
 ```js title="API Response"
+
 ```
 
 ## Get Runners
@@ -239,15 +241,15 @@ HTTP 200
 #### End Point: [https://api.greencloud.dev/api/lambda/runner](https://api.greencloud.dev/api/lambda/runner)
 
 ```js title="HTTP VERB"
-GET 
+GET
 ```
 
 ```js title="Content Header"
-Authorization , Valid-Access-Token
+Authorization, Valid - Access - Token
 ```
 
 ```js title="Body"
-N/A
+N / A
 ```
 
 #### Response:
@@ -255,6 +257,7 @@ N/A
 HTTP 200
 
 ```js title="API Response"
+
 ```
 
 ## Get Capabilities
@@ -262,15 +265,15 @@ HTTP 200
 #### End Point: [https://api.greencloud.dev/api/lambda/capabilities](https://api.greencloud.dev/api/lambda/capabilities)
 
 ```js title="HTTP VERB"
-GET 
+GET
 ```
 
 ```js title="Content Header"
-Authorization , Valid-Access-Token
+Authorization, Valid - Access - Token
 ```
 
 ```js title="Body"
-N/A
+N / A
 ```
 
 #### Response:
@@ -278,6 +281,7 @@ N/A
 HTTP 200
 
 ```js title="API Response"
+
 ```
 
 ## Set Capabilities
@@ -287,11 +291,11 @@ In Green Cloud because of the disparate nature of the machines that will be conn
 #### End Point: [https://api.greencloud.dev/api/lambda/capabilities](https://api.greencloud.dev/api/lambda/capabilities)
 
 ```js title="HTTP VERB"
-POST 
+POST
 ```
 
 ```js title="Content Header"
-Authorization , Valid-Access-Token
+Authorization, Valid - Access - Token
 ```
 
 ```js title="Body"
@@ -307,4 +311,5 @@ Authorization , Valid-Access-Token
 HTTP 200
 
 ```js title="API Response"
+
 ```
