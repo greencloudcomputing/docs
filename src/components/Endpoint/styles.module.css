@@ -1,0 +1,26 @@
+.main {
+    position: relative;
+}
+
+.main code span {
+    visibility: hidden;
+}
+
+.main button {
+    opacity: 0.4;
+}
+
+.method {
+    position: absolute;
+    z-index: 1;
+    padding: 14px;
+    font-weight: bold;
+    border-right: var(--ifm-table-border-width) solid var(--ifm-table-border-color);
+}
+
+.url {
+    position: absolute;
+    z-index: 1000;
+    top: 13px;
+    /* left: 80px; */
+}
