@@ -12,9 +12,7 @@ This endpoint allows authenticated users to get their account information.
 
 #### Endpoint
 
-| Method | Endpoint                                           | Private |
-| ------ | -------------------------------------------------- | ------- |
-| `GET`  | [`/api/user`](https://api.greencloud.dev/api/user) | true    |
+<endpoint href='https://api.greencloud.dev/api/user' method='GET'/>
 
 #### Request Headers
 
@@ -61,9 +59,7 @@ This endpoint allows authenticated users to change their password. It also requi
 
 #### Endpoint
 
-| Method | Endpoint                                                             | Private |
-| ------ | -------------------------------------------------------------------- | ------- |
-| `PUT`  | [`/api/user/password`](https://api.greencloud.dev/api/user/password) | true    |
+<endpoint href='https://api.greencloud.dev/api/user/password' method='PUT'/>
 
 #### Request Headers
 
@@ -102,9 +98,7 @@ This endpoint allows users to request a password reset code to be sent to their 
 
 #### Endpoint
 
-| Method | Endpoint                                                                       | Private |
-| ------ | ------------------------------------------------------------------------------ | ------- |
-| `POST` | [`/api/user/resetPassword`](https://api.greencloud.dev/api/user/resetPassword) | false   |
+<endpoint href='https://api.greencloud.dev/api/user/resetPassword' method='POST'/>
 
 | Key            | Value              | Required |
 | -------------- | ------------------ | -------- |
@@ -138,9 +132,7 @@ This endpoint allows users to set a new password with the password reset code se
 
 #### Endpoint
 
-| Method | Endpoint                                                                       | Private |
-| ------ | ------------------------------------------------------------------------------ | ------- |
-| `GET`  | [`/api/user/resetPassword`](https://api.greencloud.dev/api/user/resetPassword) | false   |
+<endpoint href='https://api.greencloud.dev/api/user/resetPassword' method='GET'/>
 
 #### Request Headers
 

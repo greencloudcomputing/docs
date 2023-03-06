@@ -16,9 +16,7 @@ Use this end point to register an account with Green Cloud. The succesful respon
 
 #### Endpoint
 
-| Method | Endpoint                                                             | Private |
-| ------ | -------------------------------------------------------------------- | ------- |
-| `POST` | [`/api/auth/register`](https://api.greencloud.dev/api/auth/register) | false   |
+<endpoint href='https://api.greencloud.dev/api/auth/register' method='POST'/>
 
 #### Request Headers
 
@@ -74,9 +72,7 @@ After successful registration using the Register endpoint, the user will receive
 
 #### Endpoint
 
-| Method | Endpoint                                                             | Private |
-| ------ | -------------------------------------------------------------------- | ------- |
-| `POST` | [`/api/auth/activate`](https://api.greencloud.dev/api/auth/activate) | false   |
+<endpoint href='https://api.greencloud.dev/api/auth/activate' method='POST'/>
 
 #### Request Headers
 
@@ -112,9 +108,7 @@ After successfully registering an account, users can now log in to their account
 
 #### Endpoint
 
-| Method | Endpoint                                                       | Private |
-| ------ | -------------------------------------------------------------- | ------- |
-| `POST` | [`/api/auth/login`](https://api.greencloud.dev/api/auth/login) | false   |
+<endpoint href='https://api.greencloud.dev/api/auth/login' method='POST'/>
 
 #### Request Headers
 
@@ -158,9 +152,7 @@ After successful login, the user receives an Access Token and a Refresh Token. T
 
 #### Endpoint
 
-| Method | Endpoint                                                           | Private |
-| ------ | ------------------------------------------------------------------ | ------- |
-| `POST` | [`/api/auth/refresh`](https://api.greencloud.dev/api/auth/refresh) | false   |
+<endpoint href='https://api.greencloud.dev/api/auth/refresh' method='POST'/>
 
 #### Request Headers
 
@@ -200,9 +192,7 @@ To use the Command Line Interface (CLI), users need to obtain their API key. The
 
 #### Endpoint
 
-| Method | Endpoint                                                         | Private |
-| ------ | ---------------------------------------------------------------- | ------- |
-| `POST` | [`/api/auth/apiKey`](https://api.greencloud.dev/api/auth/apiKey) | false   |
+<endpoint href='https://api.greencloud.dev/api/auth/apiKey' method='POST'/>
 
 #### Request Headers
 
@@ -243,9 +233,7 @@ Users who have enabled 2FA will need to pass the 6-digit code from their 2FA app
 
 #### Endpoint
 
-| Method | Endpoint                                                   | Private |
-| ------ | ---------------------------------------------------------- | ------- |
-| `POST` | [`/api/auth/2FA`](https://api.greencloud.dev/api/auth/2FA) | true    |
+<endpoint href='https://api.greencloud.dev/api/auth/2FA' method='POST'/>
 
 #### Request Headers
 
@@ -270,9 +258,7 @@ By default, when a user starts their account, 2FA support will not be enabled. T
 
 #### Endpoint
 
-| Method | Endpoint                                                               | Private |
-| ------ | ---------------------------------------------------------------------- | ------- |
-| `POST` | [`/api/auth/verify2FA`](https://api.greencloud.dev/api/auth/verify2FA) | true    |
+<endpoint href='https://api.greencloud.dev/api/auth/verify2FA' method='POST'/>
 
 #### Request Headers
 
@@ -309,9 +295,7 @@ To disable 2FA support on your GreenCloud account, you can call this endpoint. Y
 
 #### Endpoint
 
-| Method   | Endpoint                                                   | Private |
-| -------- | ---------------------------------------------------------- | ------- |
-| `DELETE` | [`/api/auth/2FA`](https://api.greencloud.dev/api/auth/2FA) | true    |
+<endpoint href='https://api.greencloud.dev/api/auth/2FA' method='DELETE'/>
 
 #### Request Headers
 
@@ -348,9 +332,7 @@ To authorize a node within the GreenCloud ecosystem, you can use this endpoint.
 
 #### Endpoint
 
-| Method | Endpoint                                                     | Private |
-| ------ | ------------------------------------------------------------ | ------- |
-| `POST` | [`/api/auth/node`](https://api.greencloud.dev/api/auth/node) | false   |
+<endpoint href='https://api.greencloud.dev/api/auth/node' method='POST'/>
 
 #### Request Headers
 
