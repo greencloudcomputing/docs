@@ -241,9 +241,15 @@ Users who have enabled 2FA will need to pass the 6-digit code from their 2FA app
 | --------------- | -------------------- | -------- |
 | `Authorization` | _Valid Access Token_ | true     |
 
-#### Example Response
+#### Example Request
 
 ```js
+Empty body
+```
+
+#### Example Response
+
+```js title="Status: 200 OK"
 {
 	"seed": "PDMIY2255L4EKRUI5UWNSYHVZ22X5OM5"
 }

@@ -20,9 +20,9 @@ This endpoint allows authenticated users to get their account information.
 | --------------- | -------------------- | -------- |
 | `Authorization` | _Valid Access Token_ | true     |
 
-#### Request Body
+#### Example Request
 
-```
+```js
 Empty body
 ```
 

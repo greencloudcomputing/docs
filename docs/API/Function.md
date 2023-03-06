@@ -4,297 +4,397 @@ sidebar_position: 5
 
 # 🌱 Function
 
-In GreenCloud we operate a system that runs small functions repeatedly. These functions are based around containers that are delivered and executed on remote devices. 
+In GreenCloud we operate a system that runs small functions repeatedly. These functions are based around containers that are delivered and executed on remote devices.
 
-A Function can be created using the CLI and is generally not something that is viewed by the end user. The main purpose of the Function is to act as a logical construct to represent the software/code that the software developer has written. 
+A Function can be created using the CLI and is generally not something that is viewed by the end user. The main purpose of the Function is to act as a logical construct to represent the software/code that the software developer has written.
 
-When a software developer asks to initiate a function - they will create a task which will also have a related Function to execute. 
+When a software developer asks to initiate a function - they will create a task which will also have a related Function to execute.
 
 A Lambda / Function consists of -:
 
 1. Name - a non unique character string used to represent the function.
-2. Language - the language that the lambda is written in. 
-    
+2. Language - the language that the lambda is written in.
+
     At the time of writing Green Cloud supports -:
-    
+
     GoLang, Node JS, Python, C#, Ruby
 
-    We are looking to add Rust, C / C++ and WASM in the near future. 
-        
+    We are looking to add Rust, C / C++ and WASM in the near future.
 
 ## Create
 
-Use this end point to create a function to use in the Green Cloud system. The response from a succesful call is an HTTP 201 in which the body of the response contains the ID of the newly created function.
+:::info
+Use this endpoint to create a function to use in the Green Cloud system. The response from a succesful call is an HTTP 201 in which the body of the response contains the ID of the newly created function.
+:::
 
-#### End Point: [https://api.greencloud.dev/api/lambda/](https://api.greencloud.dev/api/lambda/)
+#### Endpoint
 
-```js title="HTTP VERB"
-POST 
-```
+<endpoint href='https://api.greencloud.dev/api/lambda' method='POST'/>
 
-```js title="Content Header"
-Authorization , Valid-Access-Token
-```
+#### Request Headers
 
-```js title="Body"
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+| `Content-Type`  | `application/json`   | true     |
+
+#### Request Body
+
+| Key           | Example                        | Requirements                          |
+| ------------- | ------------------------------ | ------------------------------------- |
+| `name`        | MyFunction                     | `required` `alphanum`                 |
+| `description` | My function description        | `optional` `printascii` `max=80`      |
+| `tag`         | [_tag id_, _tag id_, _tag id_] | `optional` `dive` `unique` `alphanum` |
+| `scmUrl`      | https://greencloudcomputing.io | `optional` `url`                      |
+| `lang`        | go                             | `required` `oneof=go py js cs rb`     |
+| `type`        | docker                         | `required` `oneof=docker`             |
+
+#### Example Request
+
+```js
 {
-	"name": "name_of_function",
-	"description":"A description of the function",
-	"tag": ["{array,of,tag,values}"],
+	"name": "MyFunction",
+	"description":"My function description",
+	"tag": ['63fe131f02975e4956238b39', '63fe131f02975e4956238b40'],
 	"scmUrl": "https://greencloudcomputing.io",
-	"lang": "language of function",
-	"type": "type of function"
+	"lang": "go",
+	"type": "docker"
 }
-
 ```
 
-#### Response:
+#### Example Response
 
-HTTP 201
-
-```js title="API Response"
+```js title="Status: 201 Created"
 {
-	"id": "63f47d24dab5eb85451f3b61"
+	"id": "63f47d24dab5eb85451f3b61",
 }
 ```
 
 ## Edit
 
-Use this end point to edit the meta data about a function. You will need to pass the id of the function on the URL. The parameters that you can edit are the name and description of the function.
+:::info
+Use this endpoint to edit the meta data about a function. You will need to pass the id of the function on the URL. The parameters that you can edit are the name, description and tags of the function.
+:::
 
-#### End Point: [https://api.greencloud.dev/api/lambda/id](https://api.greencloud.dev/api/lambda/id)
+#### Endpoint
 
-```js title="HTTP VERB"
-PATCH 
-```
+<endpoint href='https://api.greencloud.dev/api/lambda/[lambdaId]' method='PATCH'/>
 
-```js title="Content Header"
-Authorization , Valid-Access-Token
-```
+#### Request Headers
 
-```js title="Body"
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+| `Content-Type`  | `application/json`   | true     |
+
+#### Request Parameters
+
+| Value       | Example                  | Required |
+| ----------- | ------------------------ | -------- |
+| _lambda id_ | 63f47d24dab5eb85451f3b61 | true     |
+
+#### Request Body
+
+| Key           | Example                        | Requirements                          |
+| ------------- | ------------------------------ | ------------------------------------- |
+| `name`        | MyFunction                     | `optional` `alphanum`                 |
+| `description` | My function description        | `optional` `printascii` `max=80`      |
+| `tag`         | [_tag id_, _tag id_, _tag id_] | `optional` `dive` `unique` `alphanum` |
+
+#### Example Request
+
+```js
 {
-	"name": "new_name",
-	"description":"new_description"
+	"name": "MyFunction",
+	"description":"My function description",
+	"tag": ['63fe131f02975e4956238b39', '63fe131f02975e4956238b40'],
 }
 ```
 
-#### Response:
+#### Example Response
 
-HTTP 204
-
-```js title="API Response"
+```js title="Status: 204 No Content"
+Empty body
 ```
 
 ## Get
 
-Use this end point to get a list of details about the function. Note that you need to pass the id of the create function on the URL.
+:::info
+If you need to retrieve details about a particular function, use this endpoint by passing the function's ID as a URL parameter. The endpoint will provide you with a list of information related to the function.
+:::
 
-#### End Point: [https://api.greencloud.dev/api/lambda/id](https://api.greencloud.dev/api/lambda/id)
+#### Endpoint
 
-```js title="HTTP VERB"
-GET 
+<endpoint href='https://api.greencloud.dev/api/lambda/[lambdaId]' method='GET'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+
+#### Request Parameters
+
+| Value       | Example                  | Required |
+| ----------- | ------------------------ | -------- |
+| _lambda id_ | 63f47d24dab5eb85451f3b61 | true     |
+
+#### Example Request
+
+```js
+Empty body
 ```
 
-```js title="Content Header"
-Authorization , Valid-Access-Token
-```
+#### Example Response
 
-```js title="Body"
-N/A
-```
-
-#### Response:
-
-HTTP 200
-
-```js title="API Response"
-
+```js title="Status: 200 OK"
 {
-	"name": "name_of_function",
-	"description": "description_of_function",
+	"name": "MyFunction",
+	"description": "My function description",
 	"scmUrl": "https://greencloudcomputing.io",
-	"type": "type_of_function",
-	"lang": "langugage_of_function",
+	"type": "docker",
+	"lang": "go",
 	"tags": [
 		{
+			"id": "63ed33eac79248a54ee04831",
 			"name": "greencloud",
 			"color": "#00ff80"
 		}
 	]
 }
-
 ```
 
 ## List
 
-Use this end point to get a list of functions in your Green Cloud account.
+:::info
+Use this endpoint to get a list of functions in your Green Cloud account.
+:::
 
-#### End Point: [https://api.greencloud.dev/api/lambda/](https://api.greencloud.dev/api/lambda/)
+#### Endpoint
 
-```js title="HTTP VERB"
-GET 
+<endpoint href='https://api.greencloud.dev/api/lambda/list' method='GET'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+
+#### Example Request
+
+```js
+Empty body
 ```
 
-```js title="Content Header"
-Authorization , Valid-Access-Token
-```
+#### Example Response
 
-```js title="Body"
-N/A
-```
-
-#### Response:
-
-HTTP 200
-
-```js title="API Response"
+<!-- prettier-ignore -->
+```js title="Status: 200 OK"
 [
-	{
-		"id": "63e513f351d388749dc96e54",
-		"name": "array_of_functions"
-	},
+    {
+		id: "6404b3da46551827c611ffe5",
+        name: "MyFunction",
+        description: "My function description",
+        scmUrl: "https://greencloudcomputing.io",
+        lang: "go",
+        tags: [
+            {
+                id: "63ed33eac79248a54ee04831",
+                name: "greencloud",
+                color: "#00ff80",
+            },
+        ],
+		createdAt: 1678029786
+    },
+    {
+		id: "6404b3da46551827c611ffe6",
+        name: "MyFunction2",
+        description: "My 2nd function description",
+        scmUrl: "https://greencloudcomputing.io",
+        lang: "go",
+        tags: [
+            {
+                id: "63ed33eac79248a54ee04831",
+                name: "greencloud",
+                color: "#00ff80",
+            },
+        ],
+		createdAt: 1676489715
+    },
 ]
 ```
 
 ## List By Tag
 
-Use this end point to get a list of functions by tag. Note that you need to pass the tag you are interested in as a query parameter. We introduced Tags into Green Cloud as a means to be able to better manage your Green Cloud assets. Please see the Tag documentation for more details. 
+:::info
+Use this endpoint to get a list of functions by tag. Note that you need to pass the tag you are interested in as a query parameter. We introduced Tags into Green Cloud as a means to be able to better manage your Green Cloud assets. Please see the Tag documentation for more details.
+:::
 
-#### End Point: [https://api.greencloud.dev/api/lambda/list?tag=greencloud](https://api.greencloud.dev/api/lambda/list?tag=greencloud)
+#### Endpoint
 
-```js title="HTTP VERB"
-GET 
+<endpoint href='https://api.greencloud.dev/api/lambda/list?tag=[tagId]' method='GET'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+
+#### Request Parameters
+
+| Value    | Example                  | Required |
+| -------- | ------------------------ | -------- |
+| _tag id_ | 63f47d24dab5eb85451f3b61 | true     |
+
+#### Example Request
+
+```js
+Empty body
 ```
 
-```js title="Content Header"
-Authorization , Valid-Access-Token
-```
-
-```js title="Body"
-N/A
-```
-
-#### Response:
-
-HTTP 200
-
-```js title="API Response"
+<!-- prettier-ignore -->
+```js title="Status: 200 OK"
 [
-	{
-		"id": "63e513f351d388749dc96e54",
-		"name": "name_of_function_that_is_tagged"
-	},
+    {
+		id: "6404b3da46551827c611ffe5",
+        name: "MyFunction",
+        description: "My function description",
+        scmUrl: "https://greencloudcomputing.io",
+        lang: "go",
+        tags: [
+            {
+                id: "63ed33eac79248a54ee04831",
+                name: "greencloud",
+                color: "#00ff80",
+            },
+        ],
+		createdAt: 1678029786
+    },
+    {
+		id: "6404b3da46551827c611ffe6",
+        name: "MyFunction2",
+        description: "My 2nd function description",
+        scmUrl: "https://greencloudcomputing.io",
+        lang: "go",
+        tags: [
+            {
+                id: "63ed33eac79248a54ee04831",
+                name: "greencloud",
+                color: "#00ff80",
+            },
+        ],
+		createdAt: 1676489715
+    },
 ]
 ```
 
 ## Delete
 
-#### End Point: [https://api.greencloud.dev/api/lambda/](https://api.greencloud.dev/api/lambda/)
+:::info
+Use this endpoint to delete a function from the Green Cloud system.
+:::
 
-```js title="HTTP VERB"
-DELETE 
+#### Endpoint
+
+<endpoint href='https://api.greencloud.dev/api/lambda/[lambdaId]' method='DELETE'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+
+#### Request Parameters
+
+| Value       | Example                  | Required |
+| ----------- | ------------------------ | -------- |
+| _lambda id_ | 63f47d24dab5eb85451f3b61 | true     |
+
+#### Example Request
+
+```js
+Empty body
 ```
 
-```js title="Content Header"
-Authorization , Valid-Access-Token
-```
+#### Example Response
 
-```js title="Body"
-N/A
-```
-
-#### Response:
-
-HTTP 200
-
-```js title="API Response"
-```
-
-## Create Runner
-
-#### End Point: [https://api.greencloud.dev/api/lambda/runner](https://api.greencloud.dev/api/lambda/runner)
-
-```js title="HTTP VERB"
-POST 
-```
-
-```js title="Content Header"
-Authorization , Valid-Access-Token
-```
-
-```js title="Body"
-N/A
-```
-
-#### Response:
-
-HTTP 200
-
-```js title="API Response"
-```
-
-## Get Runners
-
-#### End Point: [https://api.greencloud.dev/api/lambda/runner](https://api.greencloud.dev/api/lambda/runner)
-
-```js title="HTTP VERB"
-GET 
-```
-
-```js title="Content Header"
-Authorization , Valid-Access-Token
-```
-
-```js title="Body"
-N/A
-```
-
-#### Response:
-
-HTTP 200
-
-```js title="API Response"
+```js title="Status: 204 No Content"
+Empty body
 ```
 
 ## Get Capabilities
 
-#### End Point: [https://api.greencloud.dev/api/lambda/capabilities](https://api.greencloud.dev/api/lambda/capabilities)
+:::info
+Use this endpoint to get capabilities of a function on the Green Cloud system.
+:::
 
-```js title="HTTP VERB"
-GET 
+#### Endpoint
+
+<endpoint href='https://api.greencloud.dev/api/lambda/capabilities/[lambdaId]' method='GET'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+
+#### Request Parameters
+
+| Value       | Example                  | Required |
+| ----------- | ------------------------ | -------- |
+| _lambda id_ | 63f47d24dab5eb85451f3b61 | true     |
+
+#### Example Request
+
+```js
+Empty body
 ```
 
-```js title="Content Header"
-Authorization , Valid-Access-Token
-```
+#### Example Response
 
-```js title="Body"
-N/A
-```
-
-#### Response:
-
-HTTP 200
-
-```js title="API Response"
+```js title="Status: 200 OK"
+{
+	"cpuCount": 0,
+	"memSize": 0,
+	"networkLatency": 0,
+	"privileged": true
+}
 ```
 
 ## Set Capabilities
 
-In Green Cloud because of the disparate nature of the machines that will be connecting to the Dispatcher we use something called Capabailities to be able to clearly utilise the best suited machine to the computational task that the function requires. This is the purpose of Capabilities. In setting the capabilities of a function you can restrict the machines that that function executes on. The purpose of this is to run on the most optinal machine for the function.
+:::info
+In Green Cloud because of the disparate nature of the machines that will be connecting to the Dispatcher we use something called Capabailities to be able to clearly utilise the best suited machine to the computational task that the function requires. This is the purpose of Capabilities. In setting the capabilities of a function you can restrict the machines that that function executes on. The purpose of this is to run on the most optimal machine for the function.
+:::
 
-#### End Point: [https://api.greencloud.dev/api/lambda/capabilities](https://api.greencloud.dev/api/lambda/capabilities)
+#### Endpoint
 
-```js title="HTTP VERB"
-POST 
-```
+<endpoint href='https://api.greencloud.dev/api/lambda/[lambdaId]/capabilities' method='POST'/>
 
-```js title="Content Header"
-Authorization , Valid-Access-Token
-```
+#### Request Headers
 
-```js title="Body"
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+| `Content-Type`  | `application/json`   | true     |
+
+#### Request Parameters
+
+| Value       | Example                  | Required |
+| ----------- | ------------------------ | -------- |
+| _lambda id_ | 63f47d24dab5eb85451f3b61 | true     |
+
+#### Request Body
+
+| Key          | Example | Requirements         |
+| ------------ | ------- | -------------------- |
+| `cpuCount`   | 1       | `optional` `numeric` |
+| `memSize`    | 1024    | `optional` `numeric` |
+| `privilaged` | true    | `optional` `bool`    |
+
+#### Example Request
+
+```js
 {
 	"cpuCount": 1,
 	"memSize": 1024,
@@ -302,9 +402,8 @@ Authorization , Valid-Access-Token
 }
 ```
 
-#### Response:
+#### Example Response
 
-HTTP 200
-
-```js title="API Response"
+```js title="Status: 204 No Content"
+Empty body
 ```
