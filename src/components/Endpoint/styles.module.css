@@ -20,7 +20,6 @@
 
 .url {
     position: absolute;
-    z-index: 1000;
+    z-index: 1;
     top: 13px;
-    /* left: 80px; */
 }

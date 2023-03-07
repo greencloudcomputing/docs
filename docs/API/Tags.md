@@ -13,31 +13,41 @@ Example usages we see for this are -:
 
 ## Create Tag
 
+:::info
 Call this end point to create a tag in GreenCloud. You pass the name and color in the body of the call. The response from the call is an HTTP 201 response along with a JSON object containig an ID attribute of the newly created tag.
+:::
 
-#### End Point: [https://api.greencloud.dev/api/tag/](https://api.greencloud.dev/api/tag/)
+#### Endpoint
 
-```js title="HTTP VERB"
-POST 
-```
+<endpoint href='https://api.greencloud.dev/api/tag' method='POST'/>
 
-```js title="Content Header"
-Authorization , Valid-Access-Token
-```
+#### Request Headers
 
-```js title="Body"
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+| `Content-Type`  | `application/json`   | true     |
+
+#### Request Body
+
+| Key     | Example | Requirements          |
+| ------- | ------- | --------------------- |
+| `name`  | green   | `required` `ascii`    |
+| `color` | #00ff80 | `optional` `hexcolor` |
+
+#### Example Request
+
+```js
 {
-	"name": "greencloud",
+	"name": "green",
 	"color": "#00ff80"
 }
 
 ```
 
-#### Response:
+#### Example Response
 
-HTTP 201
-
-```js title="API Response"
+```js title="Status: 201 Created"
 {
 	"id": "63f47d1c5bd6eeef8211c83e"
 }
@@ -45,87 +55,124 @@ HTTP 201
 
 ## List Tags
 
+:::info
 Call this endpoint to get a list of tags in this GreenCloud account. The succesful response is an HTTP 200 response with the body containing a JSON array of objects representing the Tags.
+:::
 
-#### End Point: [https://api.greencloud.dev/api/tag/](https://api.greencloud.dev/api/tag/)
+#### Endpoint
 
-```js title="HTTP VERB"
-GET 
+<endpoint href='https://api.greencloud.dev/api/tag/list' method='GET'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+
+#### Example Request
+
+```js
+Empty body
 ```
 
-```js title="Content Header"
-Authorization , Valid-Access-Token
-```
+#### Example Response
 
-```js title="Body"
-```
-
-#### Response:
-
-HTTP 200
-
-```js title="API Response"
+<!-- prettier-ignore -->
+```js title="Status: 200 OK"
 [
-	{
-		"id": "63f47d1c5bd6eeef8211c83e",
-		"name": "greencloud",
-		"color": "#00ff80"
-	}
+    {
+        id: "63ed33eac79248a54ee04831",
+        name: "greencloud",
+        color: "#00ff80",
+    },
+    {
+        id: "63fe131f02975e4956238b39",
+        name: "greencloud2",
+        color: "#00ff80",
+    },
+    {
+        id: "6404b34817835b5291ae367a",
+        name: "red",
+        color: "#00ff80",
+    },
 ]
 ```
 
 ## Edit A Tag
 
-Use this end point to edit a tag. Pass the id of the tag on the URL along with the updated JSON object for the tag. Succesful update results in a 204 response from the server. 
+:::info
+Use this end point to edit a tag. Pass the id of the tag on the URL along with the updated JSON object for the tag. Succesful update results in a 204 response from the server.
+:::
 
-#### End Point: [https://api.greencloud.dev/api/tag/id_of_the_tag](https://api.greencloud.dev/api/tag/id_of_the_tag)
+#### Endpoint
 
-```js title="HTTP VERB"
-PATCH 
-```
+<endpoint href='https://api.greencloud.dev/api/tag/[tagId]' method='PATCH'/>
 
-```js title="Content Header"
-Authorization , Valid-Access-Token
-```
+#### Request Headers
 
-```js title="Body"
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+| `Content-Type`  | `application/json`   | true     |
+
+#### Request Parameters
+
+| Value    | Example                  | Required |
+| -------- | ------------------------ | -------- |
+| _tag id_ | 63f47d24dab5eb85451f3b61 | true     |
+
+#### Request Body
+
+| Key     | Example | Requirements          |
+| ------- | ------- | --------------------- |
+| `name`  | green   | `optional` `ascii`    |
+| `color` | #00ff80 | `optional` `hexcolor` |
+
+#### Example Request
+
+```js
 {
-	"name": "greencloud2",
-	"color": "#4287f5"
+	"name": "green",
+	"color": "#00ff80"
 }
-
 ```
 
-#### Response:
+#### Example Response
 
-HTTP 204
-
-```js title="API Response"
-N/A
+```js title="Status: 204 No Content"
+Empty body
 ```
 
 ## Delete Tag
 
-Call this end point to delete the tag from the GreenCloud account. Pass the id of the tag on the URL and if successful an HTTP 204 response is returned.
+:::info
+Call this endpoint to delete the tag from the GreenCloud account. Pass the id of the tag as a URL parameter and if successful an HTTP 204 response is returned.
+:::
 
-#### End Point: [https://api.greencloud.dev/api/tag/id_of_the_tag](https://api.greencloud.dev/api/tag/id_of_the_tag)
+#### Endpoint
 
-```js title="HTTP VERB"
-DELETE 
+<endpoint href='https://api.greencloud.dev/api/tag/[tagId]' method='DELETE'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+
+#### Request Parameters
+
+| Value    | Example                  | Required |
+| -------- | ------------------------ | -------- |
+| _tag id_ | 63f47d24dab5eb85451f3b61 | true     |
+
+#### Example Request
+
+```js
+Empty body
 ```
 
-```js title="Content Header"
-Authorization , Valid-Access-Token
-```
+#### Example Response
 
-```js title="Body"
-N/A
-```
-
-#### Response:
-
-HTTP 204
-
-```js title="API Response"
-N/A
+```js title="Status: 204 No Content"
+Empty body
 ```
