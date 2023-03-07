@@ -2,9 +2,9 @@
 sidebar_position: 4
 ---
 
-# 🧾 Public Endpoint
+# 🧾 Endpoint
 
-The Public Endpoint in our API is a powerful tool that allows users to trigger and run their functions by making a request to a specific URL with optional parameters. This endpoint can be accessed by anyone who has the URL.
+You can create an endpoint to call your newly created GreenCloud function - please be aware that this is a publicly accessible end point with some rules regarding the results that it returns.
 
 ## Use
 
