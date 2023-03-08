@@ -4,8 +4,6 @@ sidebar_position: 5
 
 # 🌱 Creating a Function
 
-import CLIWindow from '@site/src/components/CLIWindow';
-
 :::tip requirements
 
 -   The CLI [tool](Installing%20the%20CLI)
@@ -13,7 +11,11 @@ import CLIWindow from '@site/src/components/CLIWindow';
 
 :::
 
-Once you are logging in, you can create a function by following these steps:
+### Functions in the Cloud
+
+Functions are registered in Green Cloud by default. For local functions, click [here](#local-functions).
+
+Once you are logged in, you can create a function by following these steps:
 
 #### Step by step
 
@@ -23,7 +25,7 @@ Once you are logging in, you can create a function by following these steps:
 -   Enter one of the available languages. `go` `py` `js` `cs` `rb`
 -   Enter description. `optional` `ascii` `max=80`
 
-<CLIWindow>
+<cliWindow>
 
 ```text {3,4,5}
 $ ./gccli login
@@ -38,7 +40,7 @@ $ ./gccli login
 $ █
 ```
 
-</CLIWindow>
+</cliWindow>
 
 #### One-liner
 
@@ -58,6 +60,14 @@ OPTIONS:
    --offline, -o                  create lambda in offline mode (default: false)
    --public, -p                   create public endpoint to invoke (default: false)
    --help, -h                     show help
+```
+
+### Local functions
+
+Users may also create local functions by passing `--offline` flag. This is useful if you are not ready to push your function to the cloud and just want to test it. Here's an example:
+
+```
+./gccli lambda init -n myFunction -l go -d 'my description' --offline
 ```
 
 ### 🔖 Available languages:
