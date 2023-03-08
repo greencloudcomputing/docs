@@ -1,0 +1,180 @@
+---
+sidebar_position: 2
+---
+
+### Introduction
+
+Run `gccli` command to make sure you have the app installed.
+
+<cliWindow>
+
+```text
+$ ./gccli
+NAME:
+   gccli - the future of clean, ethical cloud computing....
+
+USAGE:
+   gccli [global options] command [command options] [arguments...]
+
+VERSION:
+   23.03.08
+
+COMMANDS:
+   login   you must login to start using GreenCloud
+   logout  to stop using GreenCloud simply logout
+   node    manage node settings
+   info    get info from user
+   status  get all running lambdas
+   lambda  manage lambda functions
+   update  check if a newer version is available
+
+GLOBAL OPTIONS:
+   --help, -h     show help
+   --version, -v  print the version
+$ █
+```
+
+</cliWindow>
+
+## `login`
+
+```
+$ ./gccli login --help
+```
+
+```
+NAME:
+   gccli login - you must login to start using GreenCloud
+
+USAGE:
+   gccli login command [command options] [arguments...]
+
+OPTIONS:
+   --help, -h  show help
+```
+
+## `logout`
+
+```
+$ ./gccli logout --help
+```
+
+```
+NAME:
+   gccli logout - to stop using GreenCloud simply logout
+
+USAGE:
+   gccli logout command [command options] [arguments...]
+
+OPTIONS:
+   --help, -h  show help
+```
+
+## `node`
+
+```
+$ ./gccli node --help
+```
+
+```
+NAME:
+   gccli node - manage node settings
+
+USAGE:
+   gccli node command [command options] [arguments...]
+
+COMMANDS:
+   add   assign a node to account
+   list  list all nodes on user
+
+OPTIONS:
+   --help, -h  show help
+```
+
+## `info`
+
+```
+$ ./gccli info --help
+```
+
+```
+NAME:
+   gccli info - get info from user
+
+USAGE:
+   gccli info [command options] [arguments...]
+
+OPTIONS:
+   --help, -h  show help
+```
+
+## `status`
+
+```
+$ ./gccli status --help
+```
+
+```
+NAME:
+   gccli status - get all running lambdas
+
+USAGE:
+   gccli status [command options] [arguments...]
+
+OPTIONS:
+   --help, -h  show help
+```
+
+## `lambda`
+
+```
+$ ./gccli lambda --help
+```
+
+```
+NAME:
+   gccli lambda - manage lambda functions
+
+USAGE:
+   gccli lambda command [command options] [arguments...]
+
+COMMANDS:
+   init     generates a new lambda with the data provided
+   info     show information of current lambda
+   lang     list all available languages for lambdas
+   start    starts function image to test locally
+   logs     display logs of lambda
+   stop     stop lambda container running
+   edit     change name/description of current lambda
+   invoke   invoke a remote function
+   result   gets result of task
+   deploy   builds and pushes multi-arch container images
+   public   create public endpoint to invoke directly
+   list     list all Lambdas
+   delete   deletes lambda function
+   restore  restore a lambda
+
+OPTIONS:
+   --help, -h  show help
+```
+
+## `update`
+
+```
+$ ./gccli update --help
+```
+
+```
+NAME:
+   gccli update - check if a newer version is available
+
+USAGE:
+   gccli update command [command options] [arguments...]
+
+OPTIONS:
+   --help, -h  show help
+```
+
+## CLI usage
+
+See more about the usage through this [complete guide](category/the-mighty-cli).

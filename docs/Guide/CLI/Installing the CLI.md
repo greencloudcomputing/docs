@@ -16,14 +16,42 @@ On Linux and OSX machines you will need to convert the file into a executable. U
 
 This tells the operation system that the file is an executable. On a MAC machines, if you get a message like this,
 
-![Unknown Developer](../img/dev-verified.png)
+![Unknown Developer](../../img/dev-verified.png)
 
 then open the System Settings window (top left Apple icon) and select Security Settings. ( Specific namings may vary due to OS updates / versions ). You should see a screen that is similar to this -:
 
-![Unknown Developer](../img/allowapp.png)
+![Unknown Developer](../../img/allowapp.png)
 
 Click the button "Allow Anyway". The computer will ask you to authenticate with your user name or password.You should then be able to allow the CLI tool to be enabled on your machine!
 
-![Green Cloud Overview](./img/cli-intro.png)
+<cliWindow>
+
+```text
+$ ./gccli
+NAME:
+   gccli - the future of clean, ethical cloud computing....
+
+USAGE:
+   gccli [global options] command [command options] [arguments...]
+
+VERSION:
+   23.03.08
+
+COMMANDS:
+   login   you must login to start using GreenCloud
+   logout  to stop using GreenCloud simply logout
+   node    manage node settings
+   info    get info from user
+   status  get all running lambdas
+   lambda  manage lambda functions
+   update  check if a newer version is available
+
+GLOBAL OPTIONS:
+   --help, -h     show help
+   --version, -v  print the version
+$ █
+```
+
+</cliWindow>
 
 The rest of the pages in this section will be spent detailing the various niche calls in the CLI and how they work and inter-operate.
