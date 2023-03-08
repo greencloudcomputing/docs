@@ -16,11 +16,11 @@ On Linux and OSX machines you will need to convert the file into a executable. U
 
 This tells the operation system that the file is an executable. On a MAC machines, if you get a message like this,
 
-![Unknown Developer](../img/dev-verified.png)
+![Unknown Developer](../../img/dev-verified.png)
 
 then open the System Settings window (top left Apple icon) and select Security Settings. ( Specific namings may vary due to OS updates / versions ). You should see a screen that is similar to this -:
 
-![Unknown Developer](../img/allowapp.png)
+![Unknown Developer](../../img/allowapp.png)
 
 Click the button "Allow Anyway". The computer will ask you to authenticate with your user name or password.You should then be able to allow the CLI tool to be enabled on your machine!
 

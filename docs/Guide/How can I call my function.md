@@ -4,85 +4,58 @@ sidebar_position: 3
 
 # How can you call a Green Cloud Function?
 
-Let's translate `docs/intro.md` to French.
+import CLIWindow from '@site/src/components/CLIWindow';
 
-## Configure i18n
+:::tip requirements
 
-Modify `docusaurus.config.js` to add support for the `fr` locale:
-
-```js title="docusaurus.config.js"
-module.exports = {
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'fr'],
-  },
-};
-```
-
-## Translate a doc
-
-Copy the `docs/intro.md` file to the `i18n/fr` folder:
-
-```bash
-mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
-
-cp docs/intro.md i18n/fr/docusaurus-plugin-content-docs/current/intro.md
-```
-
-Translate `i18n/fr/docusaurus-plugin-content-docs/current/intro.md` in French.
-
-## Start your localized site
-
-Start your site on the French locale:
-
-```bash
-npm run start -- --locale fr
-```
-
-Your localized site is accessible at [http://localhost:3000/fr/](http://localhost:3000/fr/) and the `Getting Started` page is translated.
-
-:::caution
-
-In development, you can only use one locale at a same time.
+-   The CLI [tool](Installing%20the%20CLI)
+-   Being logged in
 
 :::
 
-## Add a Locale Dropdown
+Once you are logging in, you can create a function by following these steps:
 
-To navigate seamlessly across languages, add a locale dropdown.
+#### Step by step
 
-Modify the `docusaurus.config.js` file:
+-   Navigate to the directory where you want the function to be located.
+-   Use the following command to create the function `./gccli lambda init`
+-   Enter function name. `alphanumeric`
+-   Enter one of the available languages. `go` `py` `js` `cs` `rb`
+-   Enter description. `optional` `ascii` `max=80`
 
-```js title="docusaurus.config.js"
-module.exports = {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: 'localeDropdown',
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
+<CLIWindow>
+
+```text {3,4,5}
+$ ./gccli login
+👷 Validating inputs...
+🥼 Name → MyFunction
+🔖 Language → go
+👔 Description → My first function
+📡 Sharing information...
+📄 Copying template...
+📝 Saving configuration...
+🌱 Lambda created successfully!
+$ █
 ```
 
-The locale dropdown now appears in your navbar:
+</CLIWindow>
 
-![Locale Dropdown](./img/localeDropdown.png)
+#### One-liner
 
-## Build your localized site
+Functions can also be created by a one-liner. Here's an example:
 
-Build your site for a specific locale:
-
-```bash
-npm run build -- --locale fr
+```
+./gccli lambda init -n NAME -l LANG -d 'DESCRIPTION' -p
 ```
 
-Or build your site to include all the locales at once:
+Here are all the options:
 
-```bash
-npm run build
+```
+OPTIONS:
+   --lang value, -l value         language or template to use
+   --name value, -n value         name to be used in lambda
+   --description value, -d value  description of lambda
+   --offline, -o                  create lambda in offline mode (default: false)
+   --public, -p                   create public endpoint to invoke (default: false)
+   --help, -h                     show help
 ```

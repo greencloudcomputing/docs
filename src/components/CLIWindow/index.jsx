@@ -5,7 +5,7 @@ import styles from "./styles.module.css"
 
 export default function CLIWindow({ children }) {
     return (
-        <div className={styles.browserWindow} style={{ maxWidth: "600px" }}>
+        <div className={styles.browserWindow} style={{ maxWidth: "700px" }}>
             <div className={styles.browserWindowHeader}>
                 <Icon path={mdiClose} color="#e2e8f080" size={1} rotate={45} />
                 <Icon path={mdiMinus} color="#82858980" size={1} style={{ marginLeft: "auto" }} />
