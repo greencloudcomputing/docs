@@ -17,6 +17,10 @@ Each time you call the endpoint, we will store the results from each call. The r
 The Create endpoint is used to create a new public endpoint for a given function. It returns a 201 response with an endpoint ID.
 :::
 
+:::tip
+GreenCloud understands that a publicly available URL will concern some of our users. To this end we have provided the ability to be able to delete publicly URL. This means that it is perfectly acceptable to create a URL, call it - get the results -and then delete it.
+:::
+
 #### Endpoint
 
 <endpoint href='https://api.greencloud.dev/api/lambda/[lambdaId]/endpoint' method='POST'/>
@@ -50,7 +54,7 @@ Empty body
 ## Use
 
 :::info
-The Use endpoint is a flexible public endpoint that can run a predefined function and accepts optional query parameters and an optional JSON body. By passing data through these parameters, users can customize the behavior of the function being called and provide additional information to the API. It returns a 201 response with a run ID.
+The Use endpoint is a flexible public endpoint that can run a predefined function and accepts optional query parameters and an optional JSON body. By passing data through these parameters, users can customize the behavior of the function being called and provide additional information to the API. It returns a 201 response with a task ID.
 :::
 
 #### Endpoint
@@ -101,7 +105,7 @@ You may pass any valid json in the request body to be consumed by the function.
 
 ```js title="Status: 201 Created"
 {
-	"id": "63f47d24dab5eb85451f3b61", // run id
+	"id": "63f47d24dab5eb85451f3b61", // task id
 }
 ```
 
