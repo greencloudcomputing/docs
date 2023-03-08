@@ -2,14 +2,55 @@
 sidebar_position: 4
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # 🧾 Endpoint
 
-You can create an endpoint to call your newly created GreenCloud function - please be aware that this is a publicly accessible end point with some rules regarding the results that it returns.
+Once you have created a GreenCloud function you can add an endpoint to it so that it may be called across the internet. This will be a publicly web url that has some rules regarding its use and operation.
+
+Each time you call the endpoint, we will store the results from each call. The results will initially be publicly available for 5 minutes. After this time period your results are still accessible but will require an authenticated call to access them.
+
+## Create
+
+:::info
+The Create endpoint is used to create a new public endpoint for a given function. It returns a 201 response with an endpoint ID.
+:::
+
+#### Endpoint
+
+<endpoint href='https://api.greencloud.dev/api/lambda/[lambdaId]/endpoint' method='POST'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+
+#### Request Parameters
+
+| Value       | Example                  | Required |
+| ----------- | ------------------------ | -------- |
+| _lambda id_ | 63f47d24dab5eb85451f3b61 | true     |
+
+#### Example Request
+
+```js
+Empty body
+```
+
+#### Example Response
+
+```js title="Status: 201 Created"
+{
+	"id": "536a74fefb8847c19d21020f43b12f67", // endpoint id
+}
+```
 
 ## Use
 
 :::info
-The Use endpoint is a flexible public endpoint that can run a predefined function and accepts optional query parameters and an optional JSON body. By passing data through these parameters, users can customize the behavior of the function being called and provide additional information to the API.
+The Use endpoint is a flexible public endpoint that can run a predefined function and accepts optional query parameters and an optional JSON body. By passing data through these parameters, users can customize the behavior of the function being called and provide additional information to the API. It returns a 201 response with a run ID.
 :::
 
 #### Endpoint
@@ -60,31 +101,21 @@ You may pass any valid json in the request body to be consumed by the function.
 
 ```js title="Status: 201 Created"
 {
-	"id": "63f47d24dab5eb85451f3b61",
+	"id": "63f47d24dab5eb85451f3b61", // run id
 }
 ```
 
-## Create
+## Get
 
 :::info
-The Create endpoint is used to create a new public endpoint for a given function.
+
+The GET endpoint is used to retrieve the response of a previously executed function by its run ID. It returns a status 200 with an HTTP response returned by the function.
+
 :::
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/lambda/[lambdaId]/endpoint' method='POST'/>
-
-#### Request Headers
-
-| Key             | Value                | Required |
-| --------------- | -------------------- | -------- |
-| `Authorization` | _Valid Access Token_ | true     |
-
-#### Request Parameters
-
-| Value       | Example                  | Required |
-| ----------- | ------------------------ | -------- |
-| _lambda id_ | 63f47d24dab5eb85451f3b61 | true     |
+<endpoint href='https://api.greencloud.dev/gc/[runId]/result' method='GET'/>
 
 #### Example Request
 
@@ -92,21 +123,33 @@ The Create endpoint is used to create a new public endpoint for a given function
 Empty body
 ```
 
-#### Example Response
+:::tip
+Response could be any valid HTTP response returned by the underlying function.
+:::
 
-```js title="Status: 201 Created"
+#### Example Responses
+
+<Tabs>
+<TabItem value="Text">
+
+```js title="Status: 200 OK"
+"Hello from Green Cloud!"
+```
+
+</TabItem>
+<TabItem value="JSON">
+
+```js title="Status: 200 OK"
 {
-	"id": "63f47d24dab5eb85451f3b61",
+  "Status": "OK",
+  "Active": true,
+  "Nodes":["west", "south"],
+  "Count":40
 }
 ```
 
-## Get
-
-:::caution
-
-### TODO
-
-:::
+</TabItem>
+</Tabs>
 
 ## Delete
 
