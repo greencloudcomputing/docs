@@ -51,7 +51,7 @@ Empty body
 }
 ```
 
-## Password
+## Change Password
 
 :::info
 This endpoint allows authenticated users to change their password. It also requires a twofa field if two-factor authentication is enabled.
@@ -155,6 +155,64 @@ This endpoint allows users to set a new password with the password reset code se
 	"password": "Hello123!",
 	"code": "b352935253674aeeb43d4ed4362745ab",
 	"twofa": "123456"  // optional, required only when active
+}
+```
+
+#### Example Response
+
+```js title="Status: 204 No Content"
+Empty body
+```
+
+## Set Bundle
+
+:::info
+This endpoint allows users sign up for one of the 3 bundles we offer.
+
+-   **Starter** - 1000 invocations
+-   **Developer** - 100,000 invocations
+-   **Enterprise** - 1,000,000 invocations
+
+:::
+
+#### Endpoint
+
+<endpoint href='https://api.greencloud.dev/api/user/bundle' method='POST'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+| `Content-Type`  | `application/json`   | true     |
+
+#### Request Body
+
+| Key                | Example        | Requirements                                    |
+| ------------------ | -------------- | ----------------------------------------------- |
+| `name`             | DEVELOPER      | `required` `oneof=STARTER DEVELOPER ENTERPRISE` |
+| `card`             | tok_visa       | `required` `startswith=tok_`                    |
+| `address.company`  | Green Cloud    | `optional` `alphanumspace`                      |
+| `address.street`   | Main st.       | `required` `alphanumspace`                      |
+| `address.city`     | England        | `required` `alphaspace`                         |
+| `address.district` | South district | `optional` `alphaspace`                         |
+| `address.postCode` | YO31 8SB       | `required` `alphanumspace`                      |
+| `address.country`  | GB             | `required` `iso3166_1_alpha2`                   |
+
+#### Example Request
+
+```js
+{
+	"name": "DEVELOPER",
+	"card": "tok_visa",
+	"address": {
+		"company": "Green Cloud",  // optional
+		"street": "My House 8295",
+		"city": "Parana",
+		"district": "Entre Rios",  // optional
+		"postCode": "3100",
+		"country": "AR"
+	}
 }
 ```
 
