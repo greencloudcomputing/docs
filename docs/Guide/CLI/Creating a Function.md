@@ -11,6 +11,10 @@ sidebar_position: 5
 
 :::
 
+:::info
+In the near future, users will be able to schedule a function.
+:::
+
 ### Functions in the Cloud
 
 Functions are registered in Green Cloud by default. For local functions, click [here](#local-functions).
