@@ -7,7 +7,7 @@ sidebar_position: 7
 :::tip requirements
 
 -   Being logged in
--   Being in the directory of a function
+-   Being in the directory of the function
 
 :::
 
@@ -15,7 +15,7 @@ During the creation of Green Cloud we realised that the software developer would
 
 To do this we make use of Docker and a special command in the CLI.
 
-To run your function, make sure to be in the same directory and simple type `./gccli lambda start`:
+To run your function, make sure to be in the same directory and simple type `./gccli lambda start` :
 
 <cliWindow>
 

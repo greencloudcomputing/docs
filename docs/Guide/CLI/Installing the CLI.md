@@ -26,7 +26,7 @@ Click the button "Allow Anyway". The computer will ask you to authenticate with 
 
 <cliWindow>
 
-```text
+```text {1}
 $ ./gccli
 NAME:
    gccli - the future of clean, ethical cloud computing....

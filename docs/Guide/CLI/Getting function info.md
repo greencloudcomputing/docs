@@ -7,11 +7,11 @@ sidebar_position: 6
 :::tip requirements
 
 -   Being logged in
--   Being in the directory of a function
+-   Being in the directory of the function
 
 :::
 
-Users may get a function's info by running the following command `./gccli lambda info`
+Users may get a function's info by running the following command `./gccli lambda info` :
 
 <cliWindow>
 

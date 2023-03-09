@@ -27,7 +27,7 @@ Once you are logged in, you can create a function by following these steps:
 
 <cliWindow>
 
-```text {3,4,5}
+```text {1,3,4,5}
 $ ./gccli login
 👷 Validating inputs...
 🥼 Name → MyFunction

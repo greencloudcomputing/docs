@@ -7,18 +7,18 @@ sidebar_position: 8
 :::tip requirements
 
 -   Being logged in
--   Being in the directory of a function
+-   Being in the directory of the function
 -   Enough quota
 
 :::
 
 ### Deploy
 
-The function first needs to be deployed with the following command `./gccli lambda deploy`
+First, the function needs to be deployed with the following command `./gccli lambda deploy` :
 
 <cliWindow>
 
-```
+```text {1}
 ~/myLambda $ ./gccli lambda deploy
 👷 Verifying configuration...
 📦️ Archs: AMD64,ARM64,ARM
@@ -34,11 +34,11 @@ $ █
 
 ### Run via public endpoint
 
-The function needs a public endpoint to be called remotely with the following command `./gccli lambda public`
+The function needs a public endpoint to be called remotely with the following command `./gccli lambda public` :
 
 <cliWindow>
 
-```
+```text {1,5}
 ~/myLambda $ ./gccli lambda public
 👷 Validating inputs...
 🚨 You must keep the public endpoint safe!
@@ -57,7 +57,7 @@ Navigating to the link will get the dispatcher to queue the function to be run a
 id:	"6408a2721815ce1e1d877319"
 </browserWindow>
 
-You may know navigate to https://api.greencloud.dev/gc/[taskId]/result to get the result of the function. If the function run hasn't been completed yet, you will get a 404 response. You may need to poll the link multiple times until you get the response.
+You may now navigate to https://api.greencloud.dev/gc/[taskId]/result to get the result of the function. If the function run hasn't been completed yet, you will get a 404 response. You may need to poll the link multiple times until you get the response.
 
 <browserWindow minHeight={150} url="https://api.greencloud.dev/gc/6408becf1815ce1e1d877349/result">
 Hello from GO by GreenCloud!
@@ -65,12 +65,11 @@ Hello from GO by GreenCloud!
 
 ### Run via CLI
 
-You may also invoke the function from the CLI with the following command `./gccli lambda invoke`
-This will give you a task ID that you can later use to get the response of this function.
+You may also invoke the function from the CLI with the following command `./gccli lambda invoke` . You will be asked to provide an optional payload. This will give you a task ID that you can later use to get the response of this function.
 
 <cliWindow>
 
-```
+```text {1,5}
 ~/myLambda $ ./gccli lambda invoke
 👷 Validating inputs...
 📄 Obtaining local information...
@@ -87,11 +86,11 @@ $ █
 
 ### Get lambda result
 
-We may look up the result of a previously ran function by the id that was given during the initial run. Let's use the ID from the previous example to get the result of the function once again with the command `./gccli lambda result`
+We may look up the result of a previously ran function by the id that was given during the invocation. Let's use the ID from the previous example to get the result of the function once again with the command `./gccli lambda result` . Enter the task id when prompted.
 
 <cliWindow>
 
-```text {3}
+```text {1,3}
 ~/myLambda $ ./gccli lambda result
 👷 Validating inputs...
 🔖 ID → 6408a30b1815ce1e1d87731a

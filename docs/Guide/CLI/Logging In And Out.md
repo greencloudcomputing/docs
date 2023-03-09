@@ -20,13 +20,13 @@ You've downloaded the CLI tool and are ready to start. Before you can get going 
 
 If you have not created a Green Cloud account yet then you can do so [here](https://app.greencloudcomputing.io/signup)
 
-If all is in place simply type `./gccli login` -:
+If all is in place simply type `./gccli login` :
 
 -   When prompted, enter your api key from your [dashboard](https://app.greencloudcomputing.io/dashboard)
 
 <CLIWindow>
 
-```text {3}
+```text {1,3}
 $ ./gccli login
 👷 Enter your API Key to login
 🔐 Key → b3868f8a-6216-4df9-abb0-cb303c808f9a
@@ -41,14 +41,14 @@ You are now good to go and get started with Green Cloud functions! 🎉️
 
 ### Logging out
 
-If all is in place simply type `./gccli logout` -:
+If all is in place simply type `./gccli logout` :
 
--   Whem prompted, type y
+-   Whem prompted, type `y`
 
 <CLIWindow>
 
-```text {3}
-$ ./gccli login
+```text {1,3}
+$ ./gccli logout
 😔 Are you sure about logout?
 ✋ Do you accept conditions? (y/n) → y
 🫤 Hope to see you back here soon!
