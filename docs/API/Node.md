@@ -4,6 +4,10 @@ sidebar_position: 2
 
 # 📡 Node
 
+:::caution
+TODO: Waiting on node update
+:::
+
 ## Create
 
 We use this end point to create a node. We pass in the ID of the node on the URL and a description in the body.

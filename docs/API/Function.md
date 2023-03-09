@@ -322,68 +322,6 @@ Empty body
 Empty body
 ```
 
-## Create Runner
-
-:::info
-
-### TODO
-
-:::
-
-#### Endpoint
-
-<endpoint href='https://api.greencloud.dev/v1/lambda/runner' method='POST'/>
-
-#### Request Headers
-
-| Key             | Value                   | Required |
-| --------------- | ----------------------- | -------- |
-| `Authorization` | _Valid Access Token_    | true     |
-| `Content-Type`  | `application/json`      | true     |
-| `X-Powered-By`  | _supported cli version_ | true     |
-
-```js title="Body"
-N / A
-```
-
-#### Response:
-
-HTTP 200
-
-```js title="API Response"
-
-```
-
-## Get Runners
-
-:::info
-
-### TODO
-
-:::
-
-#### End Point: [https://api.greencloud.dev/v1/lambda/runner](https://api.greencloud.dev/v1/lambda/runner)
-
-```js title="HTTP VERB"
-GET
-```
-
-```js title="Content Header"
-Authorization, Valid - Access - Token
-```
-
-```js title="Body"
-N / A
-```
-
-#### Response:
-
-HTTP 200
-
-```js title="API Response"
-
-```
-
 ## Get Capabilities
 
 :::info
