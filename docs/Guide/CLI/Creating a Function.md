@@ -50,21 +50,24 @@ $ █
 
 Functions can also be created by a one-liner. Here's an example:
 
-```
-./gccli lambda init -n NAME -l LANG -d 'DESCRIPTION' -p
+<cliWindow>
+
+```text {1}
+$ ./gccli lambda init -n oneliner -l go -d 'description'
+👷 Validating inputs...
+🥼 Name → oneliner
+🔖 Language → go
+👔 Description → description
+📡 Sharing information...
+📄 Copying template...
+📝 Saving configuration...
+🌱 Lambda created successfully!
+$ █
 ```
 
-Here are all the options:
+</cliWindow>
 
-```
-OPTIONS:
-   --lang value, -l value         language or template to use
-   --name value, -n value         name to be used in lambda
-   --description value, -d value  description of lambda
-   --offline, -o                  create lambda in offline mode (default: false)
-   --public, -p                   create public endpoint to invoke (default: false)
-   --help, -h                     show help
-```
+For all the options, check out the [CLI api](../../CLI.mdx#--lambda-init)
 
 ### Local functions
 
