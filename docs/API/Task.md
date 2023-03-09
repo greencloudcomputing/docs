@@ -2,7 +2,14 @@
 sidebar_position: 7
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # 🧑‍💼 Task
+
+:::caution
+Missing intro
+:::
 
 ## Create Task
 
@@ -162,6 +169,30 @@ TODO ⚠️
 Empty body
 ```
 
-#### Example Response
+:::tip
+Response could be any valid HTTP response returned by the underlying function.
+:::
 
-TODO ⚠️
+#### Example Responses
+
+<Tabs>
+<TabItem value="Text">
+
+```js title="Status: 200 OK"
+"Hello from Green Cloud!"
+```
+
+</TabItem>
+<TabItem value="JSON">
+
+```js title="Status: 200 OK"
+{
+  "Status": "OK",
+  "Active": true,
+  "Nodes":["west", "south"],
+  "Count":40
+}
+```
+
+</TabItem>
+</Tabs>
