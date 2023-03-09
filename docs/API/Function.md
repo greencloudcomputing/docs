@@ -29,7 +29,7 @@ Use this endpoint to create a function to use in the Green Cloud system. The res
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/lambda' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/lambda' method='POST'/>
 
 #### Request Headers
 
@@ -78,7 +78,7 @@ Use this endpoint to edit the meta data about a function. You will need to pass 
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/lambda/[lambdaId]' method='PATCH'/>
+<endpoint href='https://api.greencloud.dev/v1/lambda/[lambdaId]' method='PATCH'/>
 
 #### Request Headers
 
@@ -125,7 +125,7 @@ If you need to retrieve details about a particular function, use this endpoint b
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/lambda/[lambdaId]' method='GET'/>
+<endpoint href='https://api.greencloud.dev/v1/lambda/[lambdaId]' method='GET'/>
 
 #### Request Headers
 
@@ -172,7 +172,7 @@ Use this endpoint to get a list of functions in your Green Cloud account.
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/lambda/list' method='GET'/>
+<endpoint href='https://api.greencloud.dev/v1/lambda/list' method='GET'/>
 
 #### Request Headers
 
@@ -232,7 +232,7 @@ Use this endpoint to get a list of functions by tag. Note that you need to pass 
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/lambda/list?tag=[tagId]' method='GET'/>
+<endpoint href='https://api.greencloud.dev/v1/lambda/list?tag=[tagId]' method='GET'/>
 
 #### Request Headers
 
@@ -296,7 +296,7 @@ Use this endpoint to delete a function from the Green Cloud system.
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/lambda/[lambdaId]' method='DELETE'/>
+<endpoint href='https://api.greencloud.dev/v1/lambda/[lambdaId]' method='DELETE'/>
 
 #### Request Headers
 
@@ -332,7 +332,7 @@ Empty body
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/lambda/runner' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/lambda/runner' method='POST'/>
 
 #### Request Headers
 
@@ -362,7 +362,7 @@ HTTP 200
 
 :::
 
-#### End Point: [https://api.greencloud.dev/api/lambda/runner](https://api.greencloud.dev/api/lambda/runner)
+#### End Point: [https://api.greencloud.dev/v1/lambda/runner](https://api.greencloud.dev/v1/lambda/runner)
 
 ```js title="HTTP VERB"
 GET
@@ -392,7 +392,7 @@ Use this endpoint to get capabilities of a function on the Green Cloud system.
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/lambda/capabilities/[lambdaId]' method='GET'/>
+<endpoint href='https://api.greencloud.dev/v1/lambda/capabilities/[lambdaId]' method='GET'/>
 
 #### Request Headers
 
@@ -431,7 +431,7 @@ In Green Cloud because of the disparate nature of the machines that will be conn
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/lambda/[lambdaId]/capabilities' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/lambda/[lambdaId]/capabilities' method='POST'/>
 
 #### Request Headers
 

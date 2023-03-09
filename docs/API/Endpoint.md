@@ -23,7 +23,7 @@ GreenCloud understands that a publicly available URL will concern some of our us
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/lambda/[lambdaId]/endpoint' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/lambda/[lambdaId]/endpoint' method='POST'/>
 
 #### Request Headers
 
@@ -163,7 +163,7 @@ The Delete endpoint is used to delete the public endpoint for a given function.
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/lambda/[lambdaId]/endpoint' method='DELETE'/>
+<endpoint href='https://api.greencloud.dev/v1/lambda/[lambdaId]/endpoint' method='DELETE'/>
 
 #### Request Headers
 

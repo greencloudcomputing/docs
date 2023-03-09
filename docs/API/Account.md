@@ -12,7 +12,7 @@ This endpoint allows authenticated users to get their account information.
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/user' method='GET'/>
+<endpoint href='https://api.greencloud.dev/v1/user' method='GET'/>
 
 #### Request Headers
 
@@ -59,7 +59,7 @@ This endpoint allows authenticated users to change their password. It also requi
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/user/password' method='PUT'/>
+<endpoint href='https://api.greencloud.dev/v1/user/password' method='PUT'/>
 
 #### Request Headers
 
@@ -98,7 +98,7 @@ This endpoint allows users to request a password reset code to be sent to their 
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/user/resetPassword' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/user/resetPassword' method='POST'/>
 
 | Key            | Value              | Required |
 | -------------- | ------------------ | -------- |
@@ -132,7 +132,7 @@ This endpoint allows users to set a new password with the password reset code se
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/user/resetPassword' method='GET'/>
+<endpoint href='https://api.greencloud.dev/v1/user/resetPassword' method='GET'/>
 
 #### Request Headers
 
@@ -177,7 +177,7 @@ This endpoint allows users sign up for one of the 3 bundles we offer.
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/user/bundle' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/user/bundle' method='POST'/>
 
 #### Request Headers
 

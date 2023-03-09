@@ -19,7 +19,7 @@ Call this end point to create a tag in GreenCloud. You pass the name and color i
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/tag' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/tag' method='POST'/>
 
 #### Request Headers
 
@@ -61,7 +61,7 @@ Call this endpoint to get a list of tags in this GreenCloud account. The succesf
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/tag/list' method='GET'/>
+<endpoint href='https://api.greencloud.dev/v1/tag/list' method='GET'/>
 
 #### Request Headers
 
@@ -106,7 +106,7 @@ Use this end point to edit a tag. Pass the id of the tag on the URL along with t
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/tag/[tagId]' method='PATCH'/>
+<endpoint href='https://api.greencloud.dev/v1/tag/[tagId]' method='PATCH'/>
 
 #### Request Headers
 
@@ -151,7 +151,7 @@ Call this endpoint to delete the tag from the GreenCloud account. Pass the id of
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/tag/[tagId]' method='DELETE'/>
+<endpoint href='https://api.greencloud.dev/v1/tag/[tagId]' method='DELETE'/>
 
 #### Request Headers
 

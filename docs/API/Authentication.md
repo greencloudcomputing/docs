@@ -16,7 +16,7 @@ Use this end point to register an account with Green Cloud. The succesful respon
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/auth/register' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/auth/register' method='POST'/>
 
 #### Request Headers
 
@@ -58,7 +58,7 @@ After successful registration using the Register endpoint, the user will receive
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/auth/activate' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/auth/activate' method='POST'/>
 
 #### Request Headers
 
@@ -94,7 +94,7 @@ After successfully registering an account, users can now log in to their account
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/auth/login' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/auth/login' method='POST'/>
 
 #### Request Headers
 
@@ -138,7 +138,7 @@ After successful login, the user receives an Access Token and a Refresh Token. T
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/auth/refresh' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/auth/refresh' method='POST'/>
 
 #### Request Headers
 
@@ -178,7 +178,7 @@ To use the Command Line Interface (CLI), users need to obtain their API key. The
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/auth/apiKey' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/auth/apiKey' method='POST'/>
 
 #### Request Headers
 
@@ -219,7 +219,7 @@ Users who have enabled 2FA will need to pass the 6-digit code from their 2FA app
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/auth/2FA' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/auth/2FA' method='POST'/>
 
 #### Request Headers
 
@@ -250,7 +250,7 @@ By default, when a user starts their account, 2FA support will not be enabled. T
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/auth/verify2FA' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/auth/verify2FA' method='POST'/>
 
 #### Request Headers
 
@@ -287,7 +287,7 @@ To disable 2FA support on your GreenCloud account, you can call this endpoint. Y
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/auth/2FA' method='DELETE'/>
+<endpoint href='https://api.greencloud.dev/v1/auth/2FA' method='DELETE'/>
 
 #### Request Headers
 
@@ -324,7 +324,7 @@ To authorize a node within the GreenCloud ecosystem, you can use this endpoint.
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/auth/node' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/auth/node' method='POST'/>
 
 #### Request Headers
 

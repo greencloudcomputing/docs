@@ -12,7 +12,7 @@ TODO ⚠️
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/task' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/task' method='POST'/>
 
 #### Request Headers
 
@@ -55,7 +55,7 @@ TODO ⚠️
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/task/[taskId]' method='GET'/>
+<endpoint href='https://api.greencloud.dev/v1/task/[taskId]' method='GET'/>
 
 #### Request Headers
 
@@ -103,7 +103,7 @@ TODO ⚠️
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/task/list' method='GET'/>
+<endpoint href='https://api.greencloud.dev/v1/task/list' method='GET'/>
 
 #### Request Headers
 
@@ -142,7 +142,7 @@ TODO ⚠️
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/api/task/[taskId]' method='GET'/>
+<endpoint href='https://api.greencloud.dev/v1/task/[taskId]' method='GET'/>
 
 #### Request Headers
 
