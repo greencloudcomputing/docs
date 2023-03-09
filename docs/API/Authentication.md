@@ -26,18 +26,12 @@ Use this end point to register an account with Green Cloud. The succesful respon
 
 #### Request Body
 
-| Key                | Example        | Requirements                              |
-| ------------------ | -------------- | ----------------------------------------- |
-| `name`             | Richard        | `required` `min=8` `containsany=!@#$%&\*` |
-| `surname`          | Hill           | `required` `alpha` `max=20`               |
-| `email`            | <sampleEmail/> | `required`                                |
-| `password`         | Hello123!      | `required` `min=8` `containsany=!@#$%&*`  |
-| `address.company`  | Green Cloud    | `optional` `alphanumspace`                |
-| `address.street`   | Main st.       | `required` `alphanumspace`                |
-| `address.city`     | England        | `required` `alphaspace`                   |
-| `address.district` | South district | `optional` `alphaspace`                   |
-| `address.postCode` | YO31 8SB       | `required` `alphanumspace`                |
-| `address.country`  | GB             | `required` `iso3166_1_alpha2`             |
+| Key        | Example        | Requirements                              |
+| ---------- | -------------- | ----------------------------------------- |
+| `name`     | Richard        | `required` `min=8` `containsany=!@#$%&\*` |
+| `surname`  | Hill           | `required` `alpha` `max=20`               |
+| `email`    | <sampleEmail/> | `required`                                |
+| `password` | Hello123!      | `required` `min=8` `containsany=!@#$%&*`  |
 
 #### Example Request
 
@@ -47,14 +41,6 @@ Use this end point to register an account with Green Cloud. The succesful respon
 	"surname": "Hill",
 	"email": "richard.hill@greencloudcomputing.io",
 	"password":"Hello123!",
-	"address": {
-		"company": "Green cloud",
-		"street": "123 Hill St.",
-		"city": "England",
-		"district": "North district",
-		"postCode": "YO31 8SB",
-		"country": "UK"
-	},
 }
 ```
 
