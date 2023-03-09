@@ -5,7 +5,7 @@ sidebar_position: 4
 # 🛰️ Dispatcher
 
 :::caution
-Requires revision
+Missing info for 3 services
 :::
 
 Welcome to the documentation on the GreenCloud Dispatcher. The Dispatcher can be thought of as the beating heart of GreenCloud. It serves some very important purposes.
