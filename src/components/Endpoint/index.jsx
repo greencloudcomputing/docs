@@ -19,15 +19,15 @@ export default function Endpoint({ href, method }) {
 function methodColor(method) {
     switch (method) {
         case "GET":
-            return "#a896ff"
+            return "#61AFFE"
         case "POST":
-            return "#7ecf2b"
+            return "#49CC90"
         case "PUT":
-            return "#ff9a1f"
+            return "#FCA130"
         case "PATCH":
-            return "#f0e137"
+            return "#50E3C2"
         case "DELETE":
-            return "#ff5631"
+            return "#F93E3E"
 
         default:
             break
