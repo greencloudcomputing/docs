@@ -67,7 +67,7 @@ $ █
 
 </cliWindow>
 
-For all the options, check out the [CLI api](../../CLI.mdx#--lambda-init)
+For all the options, check out the [CLI api](../../cli#lambda-init)
 
 ### Local functions
 
