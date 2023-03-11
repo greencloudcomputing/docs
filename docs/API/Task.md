@@ -149,7 +149,7 @@ TODO ⚠️
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/v1/task/[taskId]' method='GET'/>
+<endpoint href='https://api.greencloud.dev/v1/task/[taskId]/result' method='GET'/>
 
 #### Request Headers
 
