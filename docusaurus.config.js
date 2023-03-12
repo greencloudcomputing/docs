@@ -82,7 +82,11 @@ const config = {
                         items: [
                             {
                                 label: "Tutorial",
-                                to: "/",
+                                to: "/category/guide",
+                            },
+                            {
+                                label: "Blog",
+                                to: "https://blog.greencloudcomputing.io/",
                             },
                         ],
                     },
@@ -91,29 +95,29 @@ const config = {
                         items: [
                             {
                                 label: "Stack Overflow",
-                                href: "https://stackoverflow.com/questions/tagged/docusaurus",
+                                href: "https://stackoverflow.com/questions/tagged/greencloud",
                             },
-                            {
-                                label: "Discord",
-                                href: "https://discordapp.com/invite/docusaurus",
-                            },
+                            // {
+                            //     label: "Discord",
+                            //     href: "https://discordapp.com/invite/docusaurus",
+                            // },
                             {
                                 label: "Twitter",
-                                href: "https://twitter.com/docusaurus",
+                                href: "https://twitter.com/gccdotio",
                             },
                         ],
                     },
-                    {
-                        title: "More",
-                        items: [
-                            {
-                                label: "GitHub",
-                                href: "https://github.com/facebook/docusaurus",
-                            },
-                        ],
-                    },
+                    // {
+                    //     title: "More",
+                    //     items: [
+                    //         {
+                    //             label: "GitHub",
+                    //             href: "https://github.com/facebook/docusaurus",
+                    //         },
+                    //     ],
+                    // },
                 ],
-                copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+                copyright: `Copyright © ${new Date().getFullYear()} GreenCloud`,
             },
             prism: {
                 theme: lightCodeTheme,
