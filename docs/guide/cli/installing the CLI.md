@@ -14,7 +14,7 @@ On Linux and OSX machines you will need to convert the file into a executable. U
     chmod +x gccli-0.5.2-darwin-amd64
 ```
 
-This tells the operation system that the file is an executable. On a MAC machines, if you get a message like this,
+This tells the operation system that the file is an executable. On MAC machines, if you get a message like this,
 
 ![Unknown Developer](../../img/dev-verified.png)
 
