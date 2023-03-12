@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# 🧾 Tags
+# 🏷️ Tags
 
 We have introduced the idea of tags in GreenCloud. You may be familiar with this concept in other similar services. You simply 'tag' your function with meta data about the function. Once tagged you will be able to the order your functions by tags. Please note, Tags are specific to your account.
 

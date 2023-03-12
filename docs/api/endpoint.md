@@ -5,7 +5,7 @@ sidebar_position: 5
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# 🧾 Endpoint
+# 🔗️ Endpoint
 
 Once you have created a GreenCloud function you can add an endpoint to it so that it may be called across the internet. This will be a publicly web url that has some rules regarding its use and operation.
 
