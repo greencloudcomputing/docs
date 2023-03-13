@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 # 🔗️ Endpoint
 
-Once you have created a GreenCloud function you can add an endpoint to it so that it may be called across the internet. This will be a publicly web url that has some rules regarding its use and operation.
+Once you have created a GreenCloud function you can add an endpoint to it so that it may be called across the internet. This will be a publicly available web url that has some rules regarding its use and operation. Endpoints will be available until deleted.
 
 Each time you call the endpoint, we will store the results from each call. The results will initially be publicly available for 5 minutes. After this time period your results are still accessible but will require an authenticated call to access them.
 
@@ -158,7 +158,7 @@ Response could be any valid HTTP response returned by the underlying function.
 ## Delete
 
 :::info
-The Delete endpoint is used to delete the public endpoint for a given function.
+The Delete endpoint is used to delete the public endpoint for a given function. Endpoints don't expire. They need to be deleted if not needed anymore.
 :::
 
 #### Endpoint
