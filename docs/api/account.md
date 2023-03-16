@@ -2,6 +2,9 @@
 sidebar_position: 2
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # 🧑 Account
 
 ## Get
@@ -49,6 +52,49 @@ Empty body
 		"quota": 100000
 	}
 }
+```
+
+## Set Account Flags
+
+:::info
+With this endpoint, authenticated users can modify their account specific details with the following flags:
+
+-   `bundleAuthRenewal`: This feature automatically renews the bundle when its remaining quota falls below 1%. Enabled by default.
+-   `lowQuotaNotification`: This feature sends notifications to the user when the bundle quota falls below 10%. Enabled by default.
+
+:::
+
+#### Endpoint
+
+<endpoint href='https://api.greencloud.dev/v1/user/flags' method='PUT'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+| `Content-Type`  | `application/json`   | true     |
+
+#### Request Body
+
+| Key                    | Example | Requirements                                            |
+| ---------------------- | ------- | ------------------------------------------------------- |
+| `bundleAutoRenewal`    | true    | `optional` `bool` \| Note: defaults to `false` if empty |
+| `lowQuotaNotification` | false   | `optional` `bool` \| Note: defaults to `false` if empty |
+
+#### Example Request
+
+```js
+{
+	"bundleAutoRenewal": false,     // optional
+	"lowQuotaNotification": false  // optional
+}
+```
+
+#### Example Response
+
+```js title="Status: 204 No Content"
+Empty body
 ```
 
 ## Change Password
@@ -167,7 +213,7 @@ Empty body
 ## Set Bundle
 
 :::info
-This endpoint allows users sign up for one of the 3 bundles we offer.
+This endpoint allows users sign up for one of the 3 bundles we offer:
 
 -   **Starter** - 1000 invocations
 -   **Developer** - 100,000 invocations
@@ -215,6 +261,154 @@ This endpoint allows users sign up for one of the 3 bundles we offer.
 	}
 }
 ```
+
+#### Example Response
+
+```js title="Status: 204 No Content"
+Empty body
+```
+
+## Change Bundle
+
+:::info
+With this endpoint, authenticated users can change their account bundle. We offer three different bundles to choose from: `starter`, `developer`, and `enterprise`.
+:::
+
+#### Endpoint
+
+<endpoint href='https://api.greencloud.dev/v1/user/bundle/[bundleName]' method='PUT'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+
+#### Request Parameters
+
+| Value        | Example   | Requirement                                    |
+| ------------ | --------- | ---------------------------------------------- |
+| _bundleName_ | developer | `required` `oneof=starter developer enterpise` |
+
+#### Example Request
+
+```js
+Empty body
+```
+
+#### Example Response
+
+```js title="Status: 204 No Content"
+Empty body
+```
+
+## Buy
+
+:::info
+This endpoint allows users to refill their bundle quota.
+
+**For example:** Suppose you are on the start plan, which comes with 1000 invocations, and you have used 500 of them. By calling our endpoint, you can add 1000 to your quota, bringing your total to 1500.
+:::
+
+#### Endpoint
+
+<endpoint href='https://api.greencloud.dev/v1/user/buy' method='POST'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+
+#### Example Request
+
+```js
+Empty body
+```
+
+#### Example Response
+
+```js title="Status: 201 Created"
+Empty body
+```
+
+## Change Card
+
+:::info
+With this endpoint, authenticated users can change their credit card on file. This action may be called once in every 24 hours.
+:::
+
+#### Endpoint
+
+<endpoint href='https://api.greencloud.dev/v1/user/card/' method='PUT'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+| `Content-Type`  | `application/json`   | true     |
+
+#### Request Body
+
+<Tabs groupId="address">
+<TabItem value="Default address">
+
+| Key               | Example  | Requirements |
+| ----------------- | -------- | ------------ |
+| `token`           | tok_visa | `required`   |
+| `address.default` | true     | `required`   |
+
+</TabItem>
+<TabItem value="New address">
+
+| Key                | Example        | Requirements                       |
+| ------------------ | -------------- | ---------------------------------- |
+| `token`            | tok_visa       | `required`                         |
+| `address`          | default        | `required` if address not provided |
+| `address.company`  | Green Cloud    | `optional` `alphanumspace`         |
+| `address.street`   | Main st.       | `required` `alphanumspace`         |
+| `address.city`     | England        | `required` `alphaspace`            |
+| `address.district` | South district | `optional` `alphaspace`            |
+| `address.postCode` | YO31 8SB       | `required` `alphanumspace`         |
+| `address.country`  | GB             | `required` `iso3166_1_alpha2`      |
+
+</TabItem>
+</Tabs>
+
+#### Example Request
+
+<Tabs groupId="address">
+<TabItem value="Default address">
+
+```js
+{
+	"token": "tok_visa",
+	"address": {
+		"default": true
+	}
+}
+```
+
+</TabItem>
+<TabItem value="New address">
+
+```js
+{
+	"token": "tok_visa",
+	"address": {
+		"company": "Green Cloud",  // optional
+		"street": "My House 8295",
+		"city": "Parana",
+		"district": "Entre Rios",  // optional
+		"postCode": "3100",
+		"country": "AR"
+	}
+}
+```
+
+</TabItem>
+</Tabs>
 
 #### Example Response
 
