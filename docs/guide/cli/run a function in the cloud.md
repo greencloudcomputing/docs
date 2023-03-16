@@ -53,8 +53,12 @@ $ █
 
 Navigating to the link will get the dispatcher to queue the function to be run and will return a task ID.
 
-<browserWindow minHeight={150} url="https://api.greencloud.dev/gc/d322e8a50390418e83f15daa2bea32fb">
-id:	"6408a2721815ce1e1d877319"
+<browserWindow minHeight={250} url="https://api.greencloud.dev/gc/d322e8a50390418e83f15daa2bea32fb">
+⏳ Your function is queued up and will be executed in due time.
+
+The result will be available for the next 5 minutes at the link below..
+
+https://api.greencloud.dev/gc/6408becf1815ce1e1d877349/result
 </browserWindow>
 
 You may now navigate to https://api.greencloud.dev/gc/[taskId]/result to get the result of the function. If the function run hasn't been completed yet, you will get a 404 response. You may need to poll the link multiple times until you get the response.
