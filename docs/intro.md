@@ -1,8 +1,13 @@
 ---
 sidebar_position: 1
+slug: /
 ---
 
 # 👋 Welcome!
+
+:::caution Needs revision
+Needs new illustration without subscription and project
+:::
 
 It is great to have you with us and we welcome you to the documentation pages for Green Cloud. Here you will be able to find detailed information about Green Cloud software tools we are creating. Please use this web site as a reference source of all things Green Cloud!
 
@@ -22,12 +27,12 @@ We have split the documentation in to the main sections of the Green Cloud softw
 
 #### API
 
-- This section documents all of the microservices that we use in Green Cloud and how to call them.
+-   This section documents all of the microservices that we use in Green Cloud and how to call them.
 
 #### CLI
 
-- Possibly the most powerful tool in Green Cloud - this section documents its functionality and the best steps in how to use it.
+-   Possibly the most powerful tool in Green Cloud - this section documents its functionality and the best steps in how to use it.
 
 #### Guide
 
-- In this section we go over some common issues and also techniques we have created when working with Green Cloud.
+-   In this section we go over some common issues and also techniques we have created when working with Green Cloud.

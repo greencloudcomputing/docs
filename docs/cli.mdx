@@ -1,0 +1,372 @@
+---
+sidebar_position: 2
+slug: /cli
+title: 🥷 CLI
+---
+
+### Introduction
+
+Run `gccli` command to make sure you have the app installed.
+
+<cliWindow>
+
+```text
+$ ./gccli
+NAME:
+   gccli - the future of clean, ethical cloud computing....
+
+USAGE:
+   gccli [global options] command [command options] [arguments...]
+
+VERSION:
+   23.03.08
+
+COMMANDS:
+   login   you must login to start using GreenCloud
+   logout  to stop using GreenCloud simply logout
+   node    manage node settings
+   info    get info from user
+   status  get all running lambdas
+   lambda  manage lambda functions
+   update  check if a newer version is available
+
+GLOBAL OPTIONS:
+   --help, -h     show help
+   --version, -v  print the version
+$ █
+```
+
+</cliWindow>
+
+## `login`
+
+```
+$ ./gccli login --help
+```
+
+```
+NAME:
+   gccli login - you must login to start using GreenCloud
+
+USAGE:
+   gccli login command [command options] [arguments...]
+
+OPTIONS:
+   --help, -h  show help
+```
+
+## `logout`
+
+```
+$ ./gccli logout --help
+```
+
+```
+NAME:
+   gccli logout - to stop using GreenCloud simply logout
+
+USAGE:
+   gccli logout command [command options] [arguments...]
+
+OPTIONS:
+   --help, -h  show help
+```
+
+## `node`
+
+```
+$ ./gccli node --help
+```
+
+```
+NAME:
+   gccli node - manage node settings
+
+USAGE:
+   gccli node command [command options] [arguments...]
+
+COMMANDS:
+   add   assign a node to account
+   list  list all nodes on user
+
+OPTIONS:
+   --help, -h  show help
+```
+
+### `node add`
+
+```
+$ ./gccli node add --help
+```
+
+```
+NAME:
+   gccli node add - assign a node to account
+
+USAGE:
+   gccli node add -i '192.168.5.4'
+
+OPTIONS:
+   --ip value, -i value           IP of VM/PC to active node
+   --description value, -d value  description of node
+   --help, -h                     show help
+```
+
+## `info`
+
+```
+$ ./gccli info --help
+```
+
+```
+NAME:
+   gccli info - get info from user
+
+USAGE:
+   gccli info [command options] [arguments...]
+
+OPTIONS:
+   --help, -h  show help
+```
+
+## `status`
+
+```
+$ ./gccli status --help
+```
+
+```
+NAME:
+   gccli status - get all running lambdas
+
+USAGE:
+   gccli status [command options] [arguments...]
+
+OPTIONS:
+   --help, -h  show help
+```
+
+## `lambda`
+
+```
+$ ./gccli lambda --help
+```
+
+```
+NAME:
+   gccli lambda - manage lambda functions
+
+USAGE:
+   gccli lambda command [command options] [arguments...]
+
+COMMANDS:
+   init     generates a new lambda with the data provided
+   info     show information of current lambda
+   lang     list all available languages for lambdas
+   start    starts function image to test locally
+   logs     display logs of lambda
+   stop     stop lambda container running
+   edit     change name/description of current lambda
+   invoke   invoke a remote function
+   result   gets result of task
+   deploy   builds and pushes multi-arch container images
+   public   create public endpoint to invoke directly
+   list     list all Lambdas
+   delete   deletes lambda function
+   restore  restore a lambda
+
+OPTIONS:
+   --help, -h  show help
+```
+
+### `lambda init`
+
+```
+$ ./gccli lambda init --help
+```
+
+```
+NAME:
+   gccli lambda init - generates a new lambda with the data provided
+
+USAGE:
+   gccli lambda init -n NAME -l LANG -d 'DESCRIPTION'
+
+OPTIONS:
+   --lang value, -l value         language or template to use
+   --name value, -n value         name to be used in lambda
+   --description value, -d value  description of lambda
+   --offline, -o                  create lambda in offline mode (default: false)
+   --no-folder, --nf              use current folder (default: false)
+   --help, -h                     show help
+```
+
+### `lambda start`
+
+```
+$ ./gccli lambda start --help
+```
+
+```
+NAME:
+   gccli lambda start - starts function image to test locally
+
+USAGE:
+   gccli lambda start -p 8080 -t 10 -l
+
+OPTIONS:
+   --port value, -p value     port to expose the function (default: 8080)
+   --timeout value, -t value  maximum execution time in seconds (default: 10)
+   --logs, -l                 display logs (default: false)
+   --help, -h                 show help
+```
+
+### `lambda edit`
+
+```
+$ ./gccli lambda edit --help
+```
+
+```
+NAME:
+   gccli lambda edit - change name/description of current lambda
+
+USAGE:
+   gccli lambda edit -n NAME
+
+OPTIONS:
+   --name value, -n value         name to be used in lambda
+   --description value, -d value  description of lambda
+   --help, -h                     show help
+```
+
+### `lambda invoke`
+
+```
+$ ./gccli lambda invoke --help
+```
+
+```
+NAME:
+   gccli lambda invoke - invoke a remote function
+
+USAGE:
+   gccli lambda invoke -i ID -d '{"key":"value"}'
+
+OPTIONS:
+   --id value, -i value       id of lambda to invoke
+   --timeout value, -t value  maximum execution time in seconds (default: 10)
+   --payload value, -d value  payload to send to lambda
+   --help, -h                 show help
+```
+
+### `lambda result`
+
+```
+$ ./gccli lambda result --help
+```
+
+```
+NAME:
+   gccli lambda result - gets result of task
+
+USAGE:
+   gccli lambda result -i ID
+
+OPTIONS:
+   --help, -h  show help
+```
+
+### `lambda deploy`
+
+```
+$ ./gccli lambda deploy --help
+```
+
+```
+NAME:
+   gccli lambda deploy - builds and pushes multi-arch container images
+
+USAGE:
+   gccli lambda deploy [command options] [arguments...]
+
+OPTIONS:
+   --arch value, -c value  arch to build lambda
+   --help, -h              show help
+```
+
+### `lambda public`
+
+```
+$ ./gccli lambda public --help
+```
+
+```
+NAME:
+   gccli lambda public - create public endpoint to invoke directly
+
+USAGE:
+   gccli lambda public [command options] [arguments...]
+
+OPTIONS:
+   --delete, -d  delete existing endpoint (default: false)
+   --help, -h    show help
+```
+
+### `lambda delete`
+
+```
+$ ./gccli lambda delete --help
+```
+
+```
+NAME:
+   gccli lambda delete - deletes lambda function
+
+USAGE:
+   gccli lambda delete [command options] [arguments...]
+
+OPTIONS:
+   --id value, -i value  id of lambda
+   --force, -f           delete current folder (default: false)
+   --help, -h            show help
+```
+
+### `lambda restore`
+
+```
+$ ./gccli lambda restore --help
+```
+
+```
+NAME:
+   gccli lambda restore - restore a lambda
+
+USAGE:
+   gccli lambda restore -i ID
+
+OPTIONS:
+   --id value, -i value  id of lambda
+   --help, -h            show help
+```
+
+## `update`
+
+```
+$ ./gccli update --help
+```
+
+```
+NAME:
+   gccli update - check if a newer version is available
+
+USAGE:
+   gccli update command [command options] [arguments...]
+
+OPTIONS:
+   --help, -h  show help
+```
+
+## CLI usage
+
+See more about the usage through this [complete guide](category/the-mighty-cli).
