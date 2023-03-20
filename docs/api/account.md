@@ -335,7 +335,7 @@ Empty body
 ## Change Card
 
 :::info
-With this endpoint, authenticated users can change their credit card on file. This action may be called once in every 24 hours.
+With this endpoint, authenticated users can change their credit card on file. This action can be performed once every 24 hours. It's available for users who are not currently enrolled in auto-pay or whose credit card has been declined.
 :::
 
 #### Endpoint
