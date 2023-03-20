@@ -82,7 +82,7 @@ const config = {
                         items: [
                             {
                                 label: "Tutorial",
-                                to: "/category/guide",
+                                to: "/category/-guide",
                             },
                             {
                                 label: "Blog",
