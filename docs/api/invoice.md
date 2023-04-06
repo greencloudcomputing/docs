@@ -83,13 +83,13 @@ Empty body
         id: "6409aabfe3c1e9ef53c1ddd7",
         amount: 9.99,
         status: "succeeded",
-        paidDay: 1678355135,
+        paidDay: "1678355135",
     },
     {
         id: "6409aabfe3c1e9ef53c1ddd8",
         amount: 9.99,
         status: "succeeded",
-        paidDay: 1678395135,
+        paidDay: "1678395135",
     },
 ]
 ```

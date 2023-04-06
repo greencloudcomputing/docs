@@ -48,8 +48,13 @@ Empty body
 	"twofa": false,
 	"apiKey": "92c85d5c-daea-447d-9eac-1d6d64d8b340",
 	"bundle": {
-		"name": "Developer",
+		"name": "DEVELOPER",
 		"quota": 100000
+		"price": 9.99
+	},
+	"flags": {
+		"bundleAutoRenewal": true,
+		"lowQuotaNotification": true
 	}
 }
 ```
@@ -86,7 +91,7 @@ With this endpoint, authenticated users can modify their account specific detail
 
 ```js
 {
-	"bundleAutoRenewal": false,     // optional
+	"bundleAutoRenewal": false,    // optional
 	"lowQuotaNotification": false  // optional
 }
 ```
@@ -215,9 +220,9 @@ Empty body
 :::info
 This endpoint allows users sign up for one of the 3 bundles we offer:
 
--   **Starter** - 1000 invocations
--   **Developer** - 100,000 invocations
--   **Enterprise** - 1,000,000 invocations
+-   **STARTER** - 1000 invocations
+-   **DEVELOPER** - 100,000 invocations
+-   **ENTERPRISE** - 1,000,000 invocations
 
 :::
 
@@ -234,23 +239,23 @@ This endpoint allows users sign up for one of the 3 bundles we offer:
 
 #### Request Body
 
-| Key                | Example        | Requirements                                    |
-| ------------------ | -------------- | ----------------------------------------------- |
-| `name`             | DEVELOPER      | `required` `oneof=STARTER DEVELOPER ENTERPRISE` |
-| `card`             | tok_visa       | `required` `startswith=tok_`                    |
-| `address.company`  | Green Cloud    | `optional` `alphanumspace`                      |
-| `address.street`   | Main st.       | `required` `alphanumspace`                      |
-| `address.city`     | England        | `required` `alphaspace`                         |
-| `address.district` | South district | `optional` `alphaspace`                         |
-| `address.postCode` | YO31 8SB       | `required` `alphanumspace`                      |
-| `address.country`  | GB             | `required` `iso3166_1_alpha2`                   |
+| Key                | Example        				| Requirements                                    |
+| ------------------ | ---------------------------- | ----------------------------------------------- |
+| `name`             | DEVELOPER      				| `required` `oneof=STARTER DEVELOPER ENTERPRISE` |
+| `paymentMethod`    | pm_1MrQQuEt48Mjl075t4BHF9pw	| `required` `startswith=pm_`                     |
+| `address.company`  | Green Cloud    				| `optional` `alphanumspace`                      |
+| `address.street`   | Main st.       				| `required` `alphanumspace`                      |
+| `address.city`     | England        				| `required` `alphaspace`                         |
+| `address.district` | South district 				| `optional` `alphaspace`                         |
+| `address.postCode` | YO31 8SB       				| `required` `alphanumspace`                      |
+| `address.country`  | GB             				| `required` `iso3166_1_alpha2`                   |
 
 #### Example Request
 
 ```js
 {
 	"name": "DEVELOPER",
-	"card": "tok_visa",
+	"paymentMethod": "pm_1MrQQuEt48Mjl075t4BHF9pw",
 	"address": {
 		"company": "Green Cloud",  // optional
 		"street": "My House 8295",
@@ -354,24 +359,23 @@ With this endpoint, authenticated users can change their credit card on file. Th
 <Tabs groupId="address">
 <TabItem value="Default address">
 
-| Key               | Example  | Requirements |
-| ----------------- | -------- | ------------ |
-| `token`           | tok_visa | `required`   |
-| `address.default` | true     | `required`   |
+| Key               | Example  					  | Requirements |
+| ----------------- | --------------------------- | ------------ |
+| `paymentMethod`   | pm_1MrQQuEt48Mjl075t4BHF9pw | `required`   |
+| `address.default` | true						  | `required`   |
 
 </TabItem>
 <TabItem value="New address">
 
-| Key                | Example        | Requirements                       |
-| ------------------ | -------------- | ---------------------------------- |
-| `token`            | tok_visa       | `required`                         |
-| `address`          | default        | `required` if address not provided |
-| `address.company`  | Green Cloud    | `optional` `alphanumspace`         |
-| `address.street`   | Main st.       | `required` `alphanumspace`         |
-| `address.city`     | England        | `required` `alphaspace`            |
-| `address.district` | South district | `optional` `alphaspace`            |
-| `address.postCode` | YO31 8SB       | `required` `alphanumspace`         |
-| `address.country`  | GB             | `required` `iso3166_1_alpha2`      |
+| Key                | Example       				| Requirements                       |
+| ------------------ | ---------------------------- | ---------------------------------- |
+| `paymentMethod`    | pm_1MrQQuEt48Mjl075t4BHF9pw  | `required`                         |
+| `address.company`  | Green Cloud    				| `optional` `alphanumspace`         |
+| `address.street`   | Main st.       				| `required` `alphanumspace`         |
+| `address.city`     | England        				| `required` `alphaspace`            |
+| `address.district` | South district 				| `optional` `alphaspace`            |
+| `address.postCode` | YO31 8SB       				| `required` `alphanumspace`         |
+| `address.country`  | GB             				| `required` `iso3166_1_alpha2`      |
 
 </TabItem>
 </Tabs>
@@ -383,7 +387,7 @@ With this endpoint, authenticated users can change their credit card on file. Th
 
 ```js
 {
-	"token": "tok_visa",
+	"paymentMethod": "pm_1MrQQuEt48Mjl075t4BHF9pw",
 	"address": {
 		"default": true
 	}
@@ -395,7 +399,7 @@ With this endpoint, authenticated users can change their credit card on file. Th
 
 ```js
 {
-	"token": "tok_visa",
+	"paymentMethod": "pm_1MrQQuEt48Mjl075t4BHF9pw",
 	"address": {
 		"company": "Green Cloud",  // optional
 		"street": "My House 8295",

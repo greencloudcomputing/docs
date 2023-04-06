@@ -19,30 +19,40 @@ TODO ⚠️
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/v1/task' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/task/[functionId]' method='POST'/>
 
 #### Request Headers
 
 | Key             | Value                | Required |
 | --------------- | -------------------- | -------- |
 | `Authorization` | _Valid Access Token_ | true     |
-| `Content-Type`  | `application/json`   | true     |
+| `Content-Type`  | `application/json`   | optional |
+
+#### Request Parameters
+
+| Value         | Example                  | Required |
+| ------------- | ------------------------ | -------- |
+| _function id_ | 6404b3da46551827c611ffe5 | true     |
+
+:::tip
+You may pass multiple query parameters to be consumed by the function.
+
+**Example**: /v1/task/[functionId]?myParam1=100&myParam2=Green&myParam3=true
+:::
 
 #### Request Body
 
-| Key             | Example                  | Requirements                            |
-| --------------- | ------------------------ | --------------------------------------- |
-| `lambdaId`      | 64058fee9956fae80d7e0e8e | `required`                              |
-| `timeout`       | 10                       | `required` `numeric` `gte=10` `lte=120` |
-| `inlinePayload` | _valid encoded json_     | `optional`                              |
+:::tip
+You may pass any valid json in the request body to be consumed by the function.
+:::
 
 #### Example Request
 
 ```js
 {
-	"lambdaId": "64058fee9956fae80d7e0e8e",
-	"timeout": 10
-    "inlinePayload": "{'tasks':[{'complete':55},{'running':99}],'tickets':'10','admin':1,'password':Hello123!'}"
+  "name": "John Doe",
+  "age": 30,
+  "admin": true,
 }
 ```
 
@@ -50,7 +60,7 @@ TODO ⚠️
 
 ```js title="Status: 201 Created"
 {
-	"id": "63f47d1c5bd6eeef8211c83e"
+	"id": "63f47d24dab5eb85451f3b61",
 }
 ```
 
@@ -91,7 +101,7 @@ Empty body
 	"assigned": "1678088212",
 	"finished": "1678089212",
 	"progress": 0,
-	"node": "",
+	"node": "1a061cfd-df01-4b02-a067-5122c5941e15",
 	"timeout": 10,
 	"capabilities": {
 		"cpuCount": 0,
@@ -131,12 +141,21 @@ Empty body
 [
     {
         id: "64057f3c9956fae80d7e0e84",
+		issued: "1680786622",
+		progress: 0,
+		status: 0
     },
     {
         id: "640581c89956fae80d7e0e85",
+		issued: "1680786622",
+		progress: 100,
+		status: 200
     },
     {
         id: "6405942c9956fae80d7e0e91",
+		issued: "1680786622",
+		progress: 75,
+		status: 0
     },
 ]
 ```

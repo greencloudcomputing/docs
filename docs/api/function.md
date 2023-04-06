@@ -10,10 +10,10 @@ A Function can be created using the CLI and is generally not something that is v
 
 When a software developer asks to initiate a function - they will create a task which will also have a related Function to execute.
 
-A Lambda / Function consists of -:
+A Function consists of -:
 
 1. Name - a non unique character string used to represent the function.
-2. Language - the language that the lambda is written in.
+2. Language - the language that the function is written in.
 
     At the time of writing Green Cloud supports -:
 
@@ -29,7 +29,7 @@ Use this endpoint to create a function to use in the Green Cloud system. The res
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/v1/lambda' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/function' method='POST'/>
 
 #### Request Headers
 
@@ -45,7 +45,6 @@ Use this endpoint to create a function to use in the Green Cloud system. The res
 | `name`        | MyFunction                     | `required` `alphanum`                 |
 | `description` | My function description        | `optional` `printascii` `max=80`      |
 | `tag`         | [_tag id_, _tag id_, _tag id_] | `optional` `dive` `unique` `alphanum` |
-| `scmUrl`      | https://greencloudcomputing.io | `optional` `url`                      |
 | `lang`        | go                             | `required` `oneof=go py js cs rb`     |
 | `type`        | docker                         | `required` `oneof=docker`             |
 
@@ -56,7 +55,6 @@ Use this endpoint to create a function to use in the Green Cloud system. The res
 	"name": "MyFunction",
 	"description":"My function description",
 	"tag": ['63fe131f02975e4956238b39', '63fe131f02975e4956238b40'],
-	"scmUrl": "https://greencloudcomputing.io",
 	"lang": "go",
 	"type": "docker"
 }
@@ -78,7 +76,7 @@ Use this endpoint to edit the meta data about a function. You will need to pass 
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/v1/lambda/[lambdaId]' method='PATCH'/>
+<endpoint href='https://api.greencloud.dev/v1/function/[functionId]' method='PATCH'/>
 
 #### Request Headers
 
@@ -89,9 +87,9 @@ Use this endpoint to edit the meta data about a function. You will need to pass 
 
 #### Request Parameters
 
-| Value       | Example                  | Required |
-| ----------- | ------------------------ | -------- |
-| _lambda id_ | 63f47d24dab5eb85451f3b61 | true     |
+| Value         | Example                  | Required |
+| ------------- | ------------------------ | -------- |
+| _function id_ | 63f47d24dab5eb85451f3b61 | true     |
 
 #### Request Body
 
@@ -125,7 +123,7 @@ If you need to retrieve details about a particular function, use this endpoint b
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/v1/lambda/[lambdaId]' method='GET'/>
+<endpoint href='https://api.greencloud.dev/v1/function/[functionId]' method='GET'/>
 
 #### Request Headers
 
@@ -135,9 +133,9 @@ If you need to retrieve details about a particular function, use this endpoint b
 
 #### Request Parameters
 
-| Value       | Example                  | Required |
-| ----------- | ------------------------ | -------- |
-| _lambda id_ | 63f47d24dab5eb85451f3b61 | true     |
+| Value         | Example                  | Required |
+| ------------- | ------------------------ | -------- |
+| _function id_ | 63f47d24dab5eb85451f3b61 | true     |
 
 #### Example Request
 
@@ -151,7 +149,6 @@ Empty body
 {
 	"name": "MyFunction",
 	"description": "My function description",
-	"scmUrl": "https://greencloudcomputing.io",
 	"type": "docker",
 	"lang": "go",
 	"tags": [
@@ -160,7 +157,20 @@ Empty body
 			"name": "greencloud",
 			"color": "#00ff80"
 		}
-	]
+	],
+    "capabilities": {
+		"timeout": 10,
+		"cpuCount": 0,
+		"memSize": 0,
+		"networkLatency": 0,
+		"privileged": true
+	},
+	"metrics": {
+		"todaysTasks": 0,
+		"pendingTasks": 0,
+		"weekTasks": 0,
+		"completedTasks": 0
+	}
 }
 ```
 
@@ -172,7 +182,7 @@ Use this endpoint to get a list of functions in your Green Cloud account.
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/v1/lambda/list' method='GET'/>
+<endpoint href='https://api.greencloud.dev/v1/function/list' method='GET'/>
 
 #### Request Headers
 
@@ -195,7 +205,6 @@ Empty body
 		id: "6404b3da46551827c611ffe5",
         name: "MyFunction",
         description: "My function description",
-        scmUrl: "https://greencloudcomputing.io",
         lang: "go",
         tags: [
             {
@@ -204,13 +213,12 @@ Empty body
                 color: "#00ff80",
             },
         ],
-		createdAt: 1678029786
+		createdAt: "1678029786"
     },
     {
 		id: "6404b3da46551827c611ffe6",
         name: "MyFunction2",
         description: "My 2nd function description",
-        scmUrl: "https://greencloudcomputing.io",
         lang: "go",
         tags: [
             {
@@ -219,7 +227,7 @@ Empty body
                 color: "#00ff80",
             },
         ],
-		createdAt: 1676489715
+		createdAt: "1676489715"
     },
 ]
 ```
@@ -232,7 +240,7 @@ Use this endpoint to get a list of functions by tag. Note that you need to pass 
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/v1/lambda/list?tag=[tagId]' method='GET'/>
+<endpoint href='https://api.greencloud.dev/v1/function/list?tag=[tagId]' method='GET'/>
 
 #### Request Headers
 
@@ -259,7 +267,6 @@ Empty body
 		id: "6404b3da46551827c611ffe5",
         name: "MyFunction",
         description: "My function description",
-        scmUrl: "https://greencloudcomputing.io",
         lang: "go",
         tags: [
             {
@@ -268,13 +275,12 @@ Empty body
                 color: "#00ff80",
             },
         ],
-		createdAt: 1678029786
+		createdAt: "1678029786"
     },
     {
 		id: "6404b3da46551827c611ffe6",
         name: "MyFunction2",
         description: "My 2nd function description",
-        scmUrl: "https://greencloudcomputing.io",
         lang: "go",
         tags: [
             {
@@ -283,7 +289,7 @@ Empty body
                 color: "#00ff80",
             },
         ],
-		createdAt: 1676489715
+		createdAt: "1676489715"
     },
 ]
 ```
@@ -296,7 +302,7 @@ Use this endpoint to delete a function from the Green Cloud system.
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/v1/lambda/[lambdaId]' method='DELETE'/>
+<endpoint href='https://api.greencloud.dev/v1/function/[functionId]' method='DELETE'/>
 
 #### Request Headers
 
@@ -306,9 +312,9 @@ Use this endpoint to delete a function from the Green Cloud system.
 
 #### Request Parameters
 
-| Value       | Example                  | Required |
-| ----------- | ------------------------ | -------- |
-| _lambda id_ | 63f47d24dab5eb85451f3b61 | true     |
+| Value         | Example                  | Required |
+| ------------- | ------------------------ | -------- |
+| _function id_ | 63f47d24dab5eb85451f3b61 | true     |
 
 #### Example Request
 
@@ -330,7 +336,7 @@ Use this endpoint to get capabilities of a function on the Green Cloud system.
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/v1/lambda/capabilities/[lambdaId]' method='GET'/>
+<endpoint href='https://api.greencloud.dev/v1/function/capabilities/[functionId]' method='GET'/>
 
 #### Request Headers
 
@@ -340,9 +346,9 @@ Use this endpoint to get capabilities of a function on the Green Cloud system.
 
 #### Request Parameters
 
-| Value       | Example                  | Required |
-| ----------- | ------------------------ | -------- |
-| _lambda id_ | 63f47d24dab5eb85451f3b61 | true     |
+| Value         | Example                  | Required |
+| ------------- | ------------------------ | -------- |
+| _function id_ | 63f47d24dab5eb85451f3b61 | true     |
 
 #### Example Request
 
@@ -354,6 +360,7 @@ Empty body
 
 ```js title="Status: 200 OK"
 {
+    "timeout": 10
 	"cpuCount": 0,
 	"memSize": 0,
 	"networkLatency": 0,
@@ -369,7 +376,7 @@ In Green Cloud because of the disparate nature of the machines that will be conn
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/v1/lambda/[lambdaId]/capabilities' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/function/[functionId]/capabilities' method='POST'/>
 
 #### Request Headers
 
@@ -380,22 +387,24 @@ In Green Cloud because of the disparate nature of the machines that will be conn
 
 #### Request Parameters
 
-| Value       | Example                  | Required |
-| ----------- | ------------------------ | -------- |
-| _lambda id_ | 63f47d24dab5eb85451f3b61 | true     |
+| Value         | Example                  | Required |
+| ------------- | ------------------------ | -------- |
+| _function id_ | 63f47d24dab5eb85451f3b61 | true     |
 
 #### Request Body
 
-| Key          | Example | Requirements         |
-| ------------ | ------- | -------------------- |
-| `cpuCount`   | 1       | `optional` `numeric` |
-| `memSize`    | 1024    | `optional` `numeric` |
-| `privilaged` | true    | `optional` `bool`    |
+| Key          | Example | Requirements                             |
+| ------------ | ------- | ---------------------------------------- |
+| `timeout`    | 10      | `optional` `numeric` `gte=10` `lte=120`  |
+| `cpuCount`   | 1       | `optional` `numeric` `gte=0` `lte=4`     |
+| `memSize`    | 1024    | `optional` `numeric` `gte=0` `lte=2048`  |
+| `privilaged` | true    | `optional` `bool`                        |
 
 #### Example Request
 
 ```js
 {
+    "timeout": 10
 	"cpuCount": 1,
 	"memSize": 1024,
 	"privileged": true

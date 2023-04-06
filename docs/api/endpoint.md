@@ -23,7 +23,7 @@ GreenCloud understands that a publicly available URL will concern some of our us
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/v1/lambda/[lambdaId]/endpoint' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/function/[functionId]/endpoint' method='POST'/>
 
 #### Request Headers
 
@@ -33,9 +33,9 @@ GreenCloud understands that a publicly available URL will concern some of our us
 
 #### Request Parameters
 
-| Value       | Example                  | Required |
-| ----------- | ------------------------ | -------- |
-| _lambda id_ | 63f47d24dab5eb85451f3b61 | true     |
+| Value         | Example                  | Required |
+| ------------- | ------------------------ | -------- |
+| _function id_ | 63f47d24dab5eb85451f3b61 | true     |
 
 #### Example Request
 
@@ -163,7 +163,7 @@ The Delete endpoint is used to delete the public endpoint for a given function. 
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/v1/lambda/[lambdaId]/endpoint' method='DELETE'/>
+<endpoint href='https://api.greencloud.dev/v1/function/[functionId]/endpoint' method='DELETE'/>
 
 #### Request Headers
 
@@ -173,9 +173,9 @@ The Delete endpoint is used to delete the public endpoint for a given function. 
 
 #### Request Parameters
 
-| Value       | Example                          | Required |
-| ----------- | -------------------------------- | -------- |
-| _lambda id_ | f43a136defaa41f7b39045f514a2edb6 | true     |
+| Value         | Example                          | Required |
+| ------------- | -------------------------------- | -------- |
+| _function id_ | f43a136defaa41f7b39045f514a2edb6 | true     |
 
 #### Example Request
 
