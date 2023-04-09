@@ -20,18 +20,17 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: npm
 
       - name: 📦️ Restore NPM cache
         uses: actions/cache@v3
         id: cache-modules
         with:
           path: node_modules
-          key: ${{ hashFiles('package-lock.json') }}
+          key: ${{ hashFiles('package.json') }}
 
       - name: ⚙️ Install dependencies
         if: steps.cache-modules.outputs.cache-hit != 'true'
-        run: npm ci --ignore-scripts --no-audit --no-fund
+        run: npm install --ignore-scripts --no-audit --no-fund
 
       - name: 🧑‍🏭 Build static website
         run: npm run build
