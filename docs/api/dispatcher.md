@@ -23,7 +23,7 @@ The Dispatcher consists of a suite of microservices all working together to perf
 -   Gateway - handles all incoming requests and directs them.
 -   Invoice - a Micro service for handling all Invoice details.
 -   Node - is responsible for all the interactions with the nodes.
--   Lambda - looks after all the functions that are created/running.
+-   Function - looks after all the functions that are created/running.
 -   Payment - we pay our members for being part of Green Cloud - this microservices handles this.
 -   Endpoint - TODO ⚠️
 -   Task - TODO ⚠️
