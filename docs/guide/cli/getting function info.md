@@ -11,12 +11,12 @@ sidebar_position: 6
 
 :::
 
-Users may get a function's info by running the following command `./gccli lambda info` :
+Users may get a function's info by running the following command `./gccli function info` :
 
 <cliWindow>
 
 ```text {1}
-~/myLambda $ ./gccli lambda info
+~/myFunction $ ./gccli function info
 📌 ID → 64084228a54bc2c0876adebb
 🌱 Name → go
 📚 Description → go

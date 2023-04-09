@@ -96,7 +96,7 @@ Empty body
 
 ```js title="Status: 200 OK"
 {
-	"lambdaId": "6405848581b16f7a07cd4c48",
+	"functionId": "6405848581b16f7a07cd4c48",
 	"issued": "1678087212",
 	"assigned": "1678088212",
 	"finished": "1678089212",
