@@ -35,7 +35,7 @@ and pressing enter will display details of all the commands in the CLI
 Here is an example
 
 ```console
-./gccli function --help
+./gccli lambda --help
 ```
 
 This will display all the parameters for that particular command and often an example usage of it as well.

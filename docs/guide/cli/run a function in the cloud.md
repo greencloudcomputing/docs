@@ -14,19 +14,19 @@ sidebar_position: 8
 
 ### Deploy
 
-First, the function needs to be deployed with the following command `./gccli function deploy` :
+First, the function needs to be deployed with the following command `./gccli lambda deploy` :
 
 <cliWindow>
 
 ```text {1}
-~/myFunction $ ./gccli function deploy
+~/myLambda $ ./gccli lambda deploy
 👷 Verifying configuration...
 📦️ Archs: AMD64,ARM64,ARM
 🔩 Building container image...
 ⏳️ Process may take a while, please wait...
 🧩 Compiling multi-arch image [OK]
 🚚 Pushing image to registry...
-🔥 Function successfully uploaded!
+🔥 Lambda successfully uploaded!
 $ █
 ```
 
@@ -34,12 +34,12 @@ $ █
 
 ### Run via public endpoint
 
-The function needs a public endpoint to be called remotely with the following command `./gccli function public` :
+The function needs a public endpoint to be called remotely with the following command `./gccli lambda public` :
 
 <cliWindow>
 
 ```text {1,5}
-~/myFunction $ ./gccli function public
+~/myLambda $ ./gccli lambda public
 👷 Validating inputs...
 🚨 You must keep the public endpoint safe!
 🔗 Any existing endpoint will be revoked
@@ -69,17 +69,17 @@ Hello from GO by GreenCloud!
 
 ### Run via CLI
 
-You may also invoke the function from the CLI with the following command `./gccli function invoke` . You will be asked to provide an optional payload. This will give you a task ID that you can later use to get the response of this function.
+You may also invoke the function from the CLI with the following command `./gccli lambda invoke` . You will be asked to provide an optional payload. This will give you a task ID that you can later use to get the response of this function.
 
 <cliWindow>
 
 ```text {1,5}
-~/myFunction $ ./gccli function invoke
+~/myLambda $ ./gccli lambda invoke
 👷 Validating inputs...
 📄 Obtaining local information...
 ⌚ Timeout → 10
 📄 Payload → Hello from Green Cloud!
-🚀 Invoking function...
+🚀 Invoking lambda...
 📌 ID: 6408a30b1815ce1e1d87731a
 📻 Waiting for task to output...
 🧾 200 → Hello from Green Cloud!
@@ -88,14 +88,14 @@ $ █
 
 </cliWindow>
 
-### Get function result
+### Get lambda result
 
-We may look up the result of a previously ran function by the id that was given during the invocation. Let's use the ID from the previous example to get the result of the function once again with the command `./gccli function result` . Enter the task id when prompted.
+We may look up the result of a previously ran function by the id that was given during the invocation. Let's use the ID from the previous example to get the result of the function once again with the command `./gccli lambda result` . Enter the task id when prompted.
 
 <cliWindow>
 
 ```text {1,3}
-~/myFunction $ ./gccli function result
+~/myLambda $ ./gccli lambda result
 👷 Validating inputs...
 🔖 ID → 6408a30b1815ce1e1d87731a
 📻 Waiting for task to output...

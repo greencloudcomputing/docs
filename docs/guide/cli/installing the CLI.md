@@ -35,16 +35,16 @@ USAGE:
    gccli [global options] command [command options] [arguments...]
 
 VERSION:
-   23.04.08
+   23.03.08
 
 COMMANDS:
-   login         you must login to start using GreenCloud
-   logout        to stop using GreenCloud simply logout
-   node          manage node settings
-   info          get info from user
-   status        get all running function
-   function, fx  manage functions
-   update        check if a newer version is available
+   login   you must login to start using GreenCloud
+   logout  to stop using GreenCloud simply logout
+   node    manage node settings
+   info    get info from user
+   status  get all running lambdas
+   lambda  manage lambda functions
+   update  check if a newer version is available
 
 GLOBAL OPTIONS:
    --help, -h     show help

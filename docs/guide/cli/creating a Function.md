@@ -24,7 +24,7 @@ Once you are logged in, you can create a function by following these steps:
 #### Step by step
 
 -   Navigate to the directory where you want the function to be located.
--   Use the following command to create the function `./gccli function init`
+-   Use the following command to create the function `./gccli lambda init`
 -   Enter function name. `alphanumeric`
 -   Enter one of the available languages. `go` `py` `js` `cs` `rb`
 -   Enter description. `optional` `ascii` `max=80`
@@ -40,7 +40,7 @@ $ ./gccli login
 📡 Sharing information...
 📄 Copying template...
 📝 Saving configuration...
-🌱 Function created successfully!
+🌱 Lambda created successfully!
 $ █
 ```
 
@@ -53,7 +53,7 @@ Functions can also be created by a one-liner. Here's an example:
 <cliWindow>
 
 ```text {1}
-$ ./gccli function init -n oneliner -l go -d 'description'
+$ ./gccli lambda init -n oneliner -l go -d 'description'
 👷 Validating inputs...
 🥼 Name → oneliner
 🔖 Language → go
@@ -61,20 +61,20 @@ $ ./gccli function init -n oneliner -l go -d 'description'
 📡 Sharing information...
 📄 Copying template...
 📝 Saving configuration...
-🌱 Function created successfully!
+🌱 Lambda created successfully!
 $ █
 ```
 
 </cliWindow>
 
-For all the options, check out the [CLI api](../../cli#function-init)
+For all the options, check out the [CLI api](../../cli#lambda-init)
 
 ### Local functions
 
 Users may also create local functions by passing `--offline` flag. This is useful if you are not ready to push your function to the cloud and just want to test it. Here's an example:
 
 ```
-./gccli function init -n myFunction -l go -d 'my description' --offline
+./gccli lambda init -n myFunction -l go -d 'my description' --offline
 ```
 
 ### 🔖 Available languages:
