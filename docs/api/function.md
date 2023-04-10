@@ -158,7 +158,7 @@ Empty body
 			"color": "#00ff80"
 		}
 	],
-    "capabilities": {
+   	"capabilities": {
 		"timeout": 10,
 		"cpuCount": 0,
 		"memSize": 0,
@@ -202,7 +202,7 @@ Empty body
 ```js title="Status: 200 OK"
 [
     {
-		id: "6404b3da46551827c611ffe5",
+	id: "6404b3da46551827c611ffe5",
         name: "MyFunction",
         description: "My function description",
         lang: "go",
@@ -213,10 +213,10 @@ Empty body
                 color: "#00ff80",
             },
         ],
-		createdAt: "1678029786"
+	createdAt: "1678029786"
     },
     {
-		id: "6404b3da46551827c611ffe6",
+	id: "6404b3da46551827c611ffe6",
         name: "MyFunction2",
         description: "My 2nd function description",
         lang: "go",
@@ -227,7 +227,7 @@ Empty body
                 color: "#00ff80",
             },
         ],
-		createdAt: "1676489715"
+	createdAt: "1676489715"
     },
 ]
 ```
@@ -264,7 +264,7 @@ Empty body
 ```js title="Status: 200 OK"
 [
     {
-		id: "6404b3da46551827c611ffe5",
+	id: "6404b3da46551827c611ffe5",
         name: "MyFunction",
         description: "My function description",
         lang: "go",
@@ -275,10 +275,10 @@ Empty body
                 color: "#00ff80",
             },
         ],
-		createdAt: "1678029786"
+	createdAt: "1678029786"
     },
     {
-		id: "6404b3da46551827c611ffe6",
+	id: "6404b3da46551827c611ffe6",
         name: "MyFunction2",
         description: "My 2nd function description",
         lang: "go",
@@ -289,7 +289,7 @@ Empty body
                 color: "#00ff80",
             },
         ],
-		createdAt: "1676489715"
+	createdAt: "1676489715"
     },
 ]
 ```
@@ -336,7 +336,7 @@ Use this endpoint to get capabilities of a function on the Green Cloud system.
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/v1/function/capabilities/[functionId]' method='GET'/>
+<endpoint href='https://api.greencloud.dev/v1/function/[functionId]/capabilities' method='GET'/>
 
 #### Request Headers
 
@@ -360,7 +360,7 @@ Empty body
 
 ```js title="Status: 200 OK"
 {
-    "timeout": 10
+	"timeout": 10
 	"cpuCount": 0,
 	"memSize": 0,
 	"networkLatency": 0,
@@ -404,7 +404,7 @@ In Green Cloud because of the disparate nature of the machines that will be conn
 
 ```js
 {
-    "timeout": 10
+	"timeout": 10
 	"cpuCount": 1,
 	"memSize": 1024,
 	"privileged": true
