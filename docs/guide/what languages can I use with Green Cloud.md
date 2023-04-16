@@ -12,4 +12,4 @@ Green Cloud supports the following languages at the time of writing:
 -   🔆 CSHARP → cs (6)
 -   🔆 RUBY → rb (2.7.5)
 
-We will be adding more as GreenCloud grows. To select the languages use the abbreviation. For example if you are going to write a function in GoLang use 'go'.
+We will be adding more languages as GreenCloud grows. To select the languages use the abbreviation. For example if you are going to write a function in GoLang use 'go'.

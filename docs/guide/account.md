@@ -12,8 +12,10 @@ To sign up for a Green Cloud account please visit - [Green Cloud - Sign Up](http
 
 You will need to enter your
 
--   Name
+-   First Name
+-   Last Name
 -   Email
+-   Password
 
 ![signup](./img/signup.png)
 
@@ -39,3 +41,5 @@ If you have forgotten your password, don't worry! See the steps below to reset y
 -   Navigate to the reset password link [Green Cloud - Password Reset](https://app.greencloudcomputing.io/forgotten)
 -   Enter your email address associated with your Green Cloud account
 -   If the email address matches a know Green Cloud account you will receive an email with a password reset link in it.
+
+![reset](./img/reset.png)
