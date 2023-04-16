@@ -4,33 +4,38 @@ sidebar_position: 6
 
 # I get this error....
 
-:::info
-To use the CLI you must be connected
-:::
+Below you will find the most common mistakes with solutions!
 
-This error occurs when you have tried to run a command using the CLI but you have not yet logged in. Simply run 
+### NEEDS_LOGIN
 
-```
-gccli login
-```
+This error occurs when you have tried to run a command using the CLI but you have not yet logged in.
+
+Simply run `gccli login`
 
 And follow the instructions
 
-```
+<cliWindow>
+
+```text {1}
+$ ./gccli login
 👷 Enter your API Key to login
 🔐 Key → 
 ```
 
+</cliWindow>
+
 You can find your api key in the account section of the Green Cloud dashboard [here](https://app.greencloudcomputing.io)
 
-
-:::info
-Ohh! → NO_RUNNER
-:::
+***
+### NO_RUNNER
 
 This happens when you have created your function but you have not deployed it into GreenCloud, see below.
 
-```
+
+<cliWindow>
+
+```text {1,9}
+$ ./gccli fx invoke
 👷 Validating inputs...
 📄 Obtaining local information...
 📚 Body → 
@@ -42,18 +47,14 @@ This happens when you have created your function but you have not deployed it in
 👉 Use 'gccli function deploy'
 ```
 
-To fix this simply run the command
+</cliWindow>
 
-```
-gccli fx deploy
-```
+To fix this simply run the command `gccli fx deploy` and wait for the function to build and deploy into GreenCloud. 
 
-And wait for the function to build and deploy into GreenCloud. Once it has completed you can now invoke your function in the cloud!
+Once it has completed you can now invoke your function in the cloud!
 
-
-:::info
-Ohh! → NO_QUOTA_AVAILABLE
-:::
+***
+### NO_QUOTA_AVAILABLE
 
 When you see this message it means that you have used up all of the calls you have purchased in your Green Cloud account. There are several options that you can follow at this point but all of them require you to purchase some more calls via the GreenCloud bundles options.
 
