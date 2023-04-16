@@ -4,12 +4,16 @@ sidebar_position: 5
 
 # How do I update my Green Cloud CLI to the latest version?
 
-On Linux and Mac OS based systems we have a really simple method to update the CLI to the latest, just run the command `./gccli update` :
+On Linux and Mac OS based systems we have a really simple method to update the CLI to the latest, just run the command
+
+```
+gccli update
+```
 
 <cliWindow>
 
 ```text {1}
-$ ./gccli update
+$ gccli update
 🔍 Checking latest version...
 🌱 New version detected! (v23.03.09)
 📻 Downloading new version...

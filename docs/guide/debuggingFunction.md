@@ -8,7 +8,7 @@ Often there are times where it is essential to see the step by step calls in a G
 
 This example uses GO as the base language - however the technique we use can be applied to any of the languages that we support in GreenCloud.
 
-1. Create a GreenCloud function `./gccli fx init` and follow the instrucitons - or - use [GreenCloud Dashboard](https://app.greencloudcomputing.io)
+1. Create a GreenCloud function `gccli fx init` and follow the instrucitons - or - use [GreenCloud Dashboard](https://app.greencloudcomputing.io)
 2. In your code editor add a folder and call it 'debug'
 3. In this folder we are going to create file with a main entry point. In GoLang we do this by creating a file called 'main.go'
 4. Open the file and copy and past the following code -:

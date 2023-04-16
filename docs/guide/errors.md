@@ -17,7 +17,7 @@ And follow the instructions
 <cliWindow>
 
 ```text {1}
-$ ./gccli login
+$ gccli login
 👷 Enter your API Key to login
 🔐 Key → 
 ```
@@ -35,7 +35,7 @@ This happens when you have created your function but you have not deployed it in
 <cliWindow>
 
 ```text {1,9}
-$ ./gccli fx invoke
+$ gccli fx invoke
 👷 Validating inputs...
 📄 Obtaining local information...
 📚 Body → 
@@ -44,7 +44,7 @@ $ ./gccli fx invoke
 🚀 Invoking function...
 
 😐 Ohh! → NO_RUNNER
-👉 Use 'gccli function deploy'
+👉 Use 'gccli fx deploy'
 ```
 
 </cliWindow>
