@@ -20,7 +20,7 @@ The format of commands in the CLI are as follows -:
 
 1. Display general CLI information by typing -:
 
-```console
+```
 ./gccli
 ```
 
@@ -28,13 +28,13 @@ and pressing enter will display details of all the commands in the CLI
 
 2. Getting command specific help by adding --help after the command name.
 
-```console
+```
 ./gccli 'a command' --help
 ```
 
 Here is an example
 
-```console
+```
 ./gccli function --help
 ```
 

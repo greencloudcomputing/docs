@@ -14,12 +14,16 @@ sidebar_position: 8
 
 ### Deploy
 
-First, the function needs to be deployed with the following command `./gccli function deploy` :
+First, the function needs to be deployed with the following command 
+
+```
+gccli fx deploy
+```
 
 <cliWindow>
 
 ```text {1}
-~/myFunction $ ./gccli function deploy
+$ gccli fx deploy
 👷 Verifying configuration...
 📦️ Archs: AMD64,ARM64,ARM
 🔩 Building container image...
@@ -34,12 +38,16 @@ $ █
 
 ### Run via public endpoint
 
-The function needs a public endpoint to be called remotely with the following command `./gccli function public` :
+The function needs a public endpoint to be called remotely with the following command 
+
+```
+gccli fx public
+```
 
 <cliWindow>
 
 ```text {1,5}
-~/myFunction $ ./gccli function public
+$ gccli fx public
 👷 Validating inputs...
 🚨 You must keep the public endpoint safe!
 🔗 Any existing endpoint will be revoked
@@ -69,12 +77,12 @@ Hello from GO by GreenCloud!
 
 ### Run via CLI
 
-You may also invoke the function from the CLI with the following command `./gccli function invoke` . You will be asked to provide an optional payload. This will give you a task ID that you can later use to get the response of this function.
+You may also invoke the function from the CLI with the following command `gccli fx invoke`. You will be asked to provide an optional payload. This will give you a task ID that you can later use to get the response of this function.
 
 <cliWindow>
 
 ```text {1,5}
-~/myFunction $ ./gccli function invoke
+$ gccli fx invoke
 👷 Validating inputs...
 📄 Obtaining local information...
 ⌚ Timeout → 10
@@ -90,12 +98,12 @@ $ █
 
 ### Get function result
 
-We may look up the result of a previously ran function by the id that was given during the invocation. Let's use the ID from the previous example to get the result of the function once again with the command `./gccli function result` . Enter the task id when prompted.
+We may look up the result of a previously ran function by the id that was given during the invocation. Let's use the ID from the previous example to get the result of the function once again with the command `gccli fx result` . Enter the task id when prompted.
 
 <cliWindow>
 
 ```text {1,3}
-~/myFunction $ ./gccli function result
+$ gccli fx result
 👷 Validating inputs...
 🔖 ID → 6408a30b1815ce1e1d87731a
 📻 Waiting for task to output...

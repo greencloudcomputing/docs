@@ -4,14 +4,12 @@ sidebar_position: 2
 
 # 🧑‍💻 Installing the CLI !
 
-You can download the CLI from this link -:
-
-[Green Cloud CLI Tool](https://dl.greencloudcomputing.io/gccli)
+You can download the CLI from this link → [Green Cloud CLI Tool](https://dl.greencloudcomputing.io/gccli)
 
 On Linux and OSX machines you will need to convert the file into a executable. Use the CHMOD command to achieve this -:
 
-```console
-    chmod +x gccli-0.5.2-darwin-amd64
+```
+chmod +x gccli-0.5.2-darwin-amd64
 ```
 
 This tells the operation system that the file is an executable. On MAC machines, if you get a message like this,
@@ -27,7 +25,7 @@ Click the button "Allow Anyway". The computer will ask you to authenticate with 
 <cliWindow>
 
 ```text {1}
-$ ./gccli
+$ gccli
 NAME:
    gccli - the future of clean, ethical cloud computing....
 

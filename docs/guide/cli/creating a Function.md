@@ -24,7 +24,7 @@ Once you are logged in, you can create a function by following these steps:
 #### Step by step
 
 -   Navigate to the directory where you want the function to be located.
--   Use the following command to create the function `./gccli function init`
+-   Use the following command to create the function `gccli fx init`
 -   Enter function name. `alphanumeric`
 -   Enter one of the available languages. `go` `py` `js` `cs` `rb`
 -   Enter description. `optional` `ascii` `max=80`
@@ -32,7 +32,7 @@ Once you are logged in, you can create a function by following these steps:
 <cliWindow>
 
 ```text {1,3,4,5}
-$ ./gccli login
+$ gccli login
 👷 Validating inputs...
 🥼 Name → MyFunction
 🔖 Language → go
@@ -53,7 +53,7 @@ Functions can also be created by a one-liner. Here's an example:
 <cliWindow>
 
 ```text {1}
-$ ./gccli function init -n oneliner -l go -d 'description'
+$ gccli fx init -n oneliner -l go -d 'description'
 👷 Validating inputs...
 🥼 Name → oneliner
 🔖 Language → go
@@ -74,7 +74,7 @@ For all the options, check out the [CLI api](../../cli#function-init)
 Users may also create local functions by passing `--offline` flag. This is useful if you are not ready to push your function to the cloud and just want to test it. Here's an example:
 
 ```
-./gccli function init -n myFunction -l go -d 'my description' --offline
+gccli fx init -n myFunction -l go -d 'my description' --offline
 ```
 
 ### 🔖 Available languages:
