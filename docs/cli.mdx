@@ -10,366 +10,629 @@ Run `gccli` command to make sure you have the app installed.
 
 <cliWindow>
 
-```text
-$ ./gccli
+```text {1}
+$ gccli
 NAME:
-   gccli - the future of clean, ethical cloud computing....
+  gccli - the future of clean, ethical cloud computing....
 
 USAGE:
-   gccli [global options] command [command options] [arguments...]
+  gccli [global options] command [command options] [arguments...]
 
 VERSION:
-   23.04.08
+  23.04.08
 
 COMMANDS:
-   login         you must login to start using GreenCloud
-   logout        to stop using GreenCloud simply logout
-   node          manage node settings
-   info          get info from user
-   status        get all running function
-   function, fx  manage functions
-   update        check if a newer version is available
+  login         you must login to start using GreenCloud
+  logout        to stop using GreenCloud simply logout
+  node          manage node settings
+  info          get info from user
+  status        get all running function
+  function, fx  manage functions
+  update        check if a newer version is available
 
 GLOBAL OPTIONS:
-   --help, -h     show help
-   --version, -v  print the version
-$ █
+  --help, -h     show help
+  --version, -v  print the version
 ```
 
 </cliWindow>
 
 ## `login`
 
+Use this command to allow you to interact with the Green Cloud API. You will need you API Key which is in the Green Cloud Account section to be able to login.
+
 ```
-$ ./gccli login --help
+$ gccli login --help
 ```
 
 ```
 NAME:
-   gccli login - you must login to start using GreenCloud
+  gccli login - you must login to start using GreenCloud
 
 USAGE:
-   gccli login command [command options] [arguments...]
+  gccli login command [command options] [arguments...]
 
 OPTIONS:
-   --help, -h  show help
+  --help, -h  show help
 ```
+
+#### Example
+<cliWindow>
+
+```text {1}
+$ gccli login 
+🔐 Key → 0e636368-6359-4bc7-bbcb-4345GrE3N
+📡 Obtaining information...
+🔓 Verified credentials, activating system...
+🤠 GreenCloud activated successfully!
+```
+
+</cliWindow>
 
 ## `logout`
 
+This command clears you access token from the system. You will be prompted to make sure you are sure about logging out.s
+
 ```
-$ ./gccli logout --help
+$ gccli logout --help
 ```
 
 ```
 NAME:
-   gccli logout - to stop using GreenCloud simply logout
+  gccli logout - to stop using GreenCloud simply logout
 
 USAGE:
-   gccli logout command [command options] [arguments...]
+  gccli logout command [command options] [arguments...]
 
 OPTIONS:
-   --help, -h  show help
+  --help, -h  show help
 ```
+
+#### Example
+<cliWindow>
+
+```text {1,3}
+$ gccli logout 
+😔 Are you sure about logout?
+✋ Do you accept conditions? (y/n) → y
+🫤 Hope to see you back here soon!
+👉 Your opinion is important → hello@greencloudcomputing.io
+```
+
+</cliWindow>
 
 ## `node`
 
 ```
-$ ./gccli node --help
+$ gccli node --help
 ```
 
 ```
 NAME:
-   gccli node - manage node settings
+  gccli node - manage node settings
 
 USAGE:
-   gccli node command [command options] [arguments...]
+  gccli node command [command options] [arguments...]
 
 COMMANDS:
-   add   assign a node to account
-   list  list all nodes on user
+  add   assign a node to account
+  list  list all nodes on user
 
 OPTIONS:
-   --help, -h  show help
+  --help, -h  show help
 ```
 
 ### `node add`
 
 ```
-$ ./gccli node add --help
+$ gccli node add --help
 ```
 
 ```
 NAME:
-   gccli node add - assign a node to account
+  gccli node add - assign a node to account
 
 USAGE:
-   gccli node add -i '192.168.5.4'
+  gccli node add -i '192.168.5.4'
 
 OPTIONS:
-   --ip value, -i value           IP of VM/PC to active node
-   --description value, -d value  description of node
-   --help, -h                     show help
+  --ip value, -i value           IP of VM/PC to active node
+  --description value, -d value  description of node
+  --help, -h                     show help
+```
+
+### `node list`
+
+```
+$ gccli node list --help
+```
+
+```
+NAME:
+  gccli node - manage node settings
+
+USAGE:
+  gccli node command [command options] [arguments...]
+
+COMMANDS:
+  add   assign a node to account
+  list  list all nodes on user
+
+OPTIONS:
+  --help, -h  show help
 ```
 
 ## `info`
 
+This command will return useful information about the system and the account you are logged into.
+
 ```
-$ ./gccli info --help
+$ gccli info --help
 ```
 
 ```
 NAME:
-   gccli info - get info from user
+  gccli info - get info from user
 
 USAGE:
-   gccli info [command options] [arguments...]
+  gccli info [command options] [arguments...]
 
 OPTIONS:
-   --help, -h  show help
+  --help, -h  show help
 ```
+
+#### Example
+<cliWindow>
+
+```text {1}
+$ gccli info 
+📌 ID → 64217f0e0a2cb718c205434526
+🙍 Account → serverless_god@greencloudcomputing.io
+👔 Server → https://api.greencloud.dev
+
+😉 Need any other information?
+📝 Tweet it to @gccdotio
+```
+
+</cliWindow>
 
 ## `status`
 
+This command will give you more detailed information about the status of any functions that are running locally on your machine before pushing them into the cloud.
+
 ```
-$ ./gccli status --help
+$ gccli status --help
 ```
 
 ```
 NAME:
-   gccli status - get all running function
+  gccli status - get all running function
 
 USAGE:
-   gccli status [command options] [arguments...]
+  gccli status [command options] [arguments...]
 
 OPTIONS:
-   --help, -h  show help
+  --help, -h  show help
 ```
+
+#### Example
+<cliWindow>
+
+```text {1}
+$ gccli status 
+👷 Obtaining information...
+🔍 List of active functions:
+👔 1 | 📌 ID → 647728...e23e517101 | 🔆 Language → go | 🧭 Port → 8080
+
+😁 What are you waiting for to create more?
+👉 Use 'gccli function init'
+```
+
+</cliWindow>
 
 ## `function`
 
+This command will simply return all the sub commands that are available in the Green Cloud CLI.
+
 ```
-$ ./gccli function --help
+$ gccli function --help
 ```
 
 ```
 NAME:
-   gccli function - manage functions
+  gccli function - manage functions
 
 USAGE:
-   gccli function command [command options] [arguments...]
+  gccli function command [command options] [arguments...]
 
 COMMANDS:
-   init     generates a new function with the data provided
-   info     show information of current function
-   lang     list all available languages for function
-   start    starts function image to test locally
-   logs     display logs of local function
-   stop     stop function container running
-   edit     change name/description of current function
-   invoke   invoke a remote function
-   result   gets result of task
-   deploy   builds and pushes multi-arch container images
-   public   create public endpoint to invoke directly
-   list     list all functions
-   delete   delete function
-   restore  restore function by ID
-   sync     sync function from server
-   tasks    list all tasks
+  init     generates a new function with the data provided
+  info     show information of current function
+  lang     list all available languages for function
+  start    starts function image to test locally
+  logs     display logs of local function
+  stop     stop function container running
+  edit     change name/description of current function
+  invoke   invoke a remote function
+  result   gets result of task
+  deploy   builds and pushes multi-arch container images
+  public   create public endpoint to invoke directly
+  list     list all functions
+  delete   delete function
+  restore  restore function by ID
+  sync     sync function from server
+  tasks    list all tasks
 
 OPTIONS:
-   --help, -h  show help
+  --help, -h  show help
 ```
 
 ### `function init`
 
+This sud command of the function command initiates the configuration process of creating a new function.
+
 ```
-$ ./gccli function init --help
+$ gccli function init --help
 ```
 
 ```
 NAME:
-   gccli function init - generates a new function with the data provided
+  gccli function init - generates a new function with the data provided
 
 USAGE:
-   gccli function init -n NAME -l LANG -d 'DESCRIPTION'
+  gccli function init -n NAME -l LANG -d 'DESCRIPTION'
 
 OPTIONS:
-   --lang value, -l value         language or template to use
-   --name value, -n value         name to be used in function
-   --description value, -d value  description of function
-   --offline, -o                  create function in offline mode (default: false)
-   --no-folder, --nf              use current folder (default: false)
-   --help, -h                     show help
+  --lang value, -l value         language or template to use
+  --name value, -n value         name to be used in function
+  --description value, -d value  description of function
+  --offline, -o                  create function in offline mode (default: false)
+  --no-folder, --nf              use current folder (default: false)
+  --help, -h                     show help
 ```
+
+#### Example
+<cliWindow>
+
+```text {1}
+$ gccli function init  
+🔑 Obtaining accessToken...
+👷 Validating inputs...
+🥼 Name → functionTests
+🔖 Language → go
+👔 Description → Creating a test function
+⌚ Timeout → 10
+📡 Sharing information...
+📄 Copying template...
+📝 Saving configuration...
+🌱 Function created successfully!
+```
+
+</cliWindow>
 
 ### `function start`
 
+This subcommand will attempt to start your function locally on your machine. You must make sure that you have docker installed and running. If the function is already running, Green Cloud will stop the function, rebuild it and start it again.
+
 ```
-$ ./gccli function start --help
+$ gccli function start --help
 ```
 
 ```
 NAME:
-   gccli function start - starts function image to test locally
+  gccli function start - starts function image to test locally
 
 USAGE:
-   gccli function start -p 8080 -t 10 -l
+  gccli function start -p 8080 -t 10 -l
 
 OPTIONS:
-   --port value, -p value     port to expose the function (default: 8080)
-   --timeout value, -t value  maximum execution time in seconds (default: 10)
-   --logs, -l                 display logs (default: false)
-   --help, -h                 show help
+  --port value, -p value     port to expose the function (default: 8080)
+  --timeout value, -t value  maximum execution time in seconds (default: 10)
+  --logs, -l                 display logs (default: false)
+  --help, -h                 show help
 ```
+
+#### Example
+<cliWindow>
+
+```text {1}
+$ gccli function start  
+👷 Validating inputs...
+🧭 Port → 8080
+⌚ Timeout → 10
+✋ Stopping existing container...
+😎 Function successfully stopped!
+🧩 Compiling image [OK]                              
+🔗 Running → http://localhost:8080
+```
+
+</cliWindow>
 
 ### `function edit`
 
 ```
-$ ./gccli function edit --help
+$ gccli function edit --help
 ```
+
+This command will allow you to change the name and description of the function.
 
 ```
 NAME:
-   gccli function edit - change name/description of current function
+  gccli function edit - change name/description of current function
 
 USAGE:
-   gccli function edit -n NAME
+  gccli function edit -n NAME
 
 OPTIONS:
-   --name value, -n value         name to be used in function
-   --description value, -d value  description of function
-   --help, -h                     show help
+  --name value, -n value         name to be used in function
+  --description value, -d value  description of function
+  --help, -h                     show help
 ```
+
+#### Example
+<cliWindow>
+
+```text {1}
+$ gccli function edit  
+👷 Validating inputs...
+🥼 Name → rebootTest
+👔 Description → A new description
+⌚ Timeout → 10
+💾 Saving configuration...
+🥼 Function edited successfully!
+```
+
+</cliWindow>
 
 ### `function invoke`
 
+The invoke subcommand allows you to call your function ( once it has been deployed into Green Cloud - see the deploy subcommand for more information ) and pass Body and Query Parameters to your function.
+
 ```
-$ ./gccli function invoke --help
+$ gccli function invoke --help
 ```
 
 ```
 NAME:
-   gccli function invoke - invoke a remote function
+  gccli function invoke - invoke a remote function
 
 USAGE:
-   gccli function invoke -i ID -b '{"key":"value"}'
+  gccli function invoke -i ID -b '{"key":"value"}'
 
 OPTIONS:
-   --id value, -i value     id of function to invoke
-   --body value, -b value   body to be send to function
-   --query value, -q value  query params to be send to function
-   --help, -h               show help
+  --id value, -i value     id of function to invoke
+  --body value, -b value   body to be send to function
+  --query value, -q value  query params to be send to function
+  --help, -h               show help
 ```
+
+#### Example
+<cliWindow>
+
+```text {1}
+$ gccli function invoke  
+👷 Validating inputs...
+📄 Obtaining local information...
+📚 Body → 
+🔍 Query → 
+⌚ Timeout → 10
+🚀 Invoking function...
+📌 ID: 647732f56aa774b668102963
+📻 Waiting for task to output...
+🧾 200 → Hello from GO by GreenCloud!
+```
+
+</cliWindow>
 
 ### `function result`
 
+Use this function sub command to obtain the results from a particular call. Every call in GreenCloud is assigned an ID. See above the 'ID:' section in the invoke response. Use this ID to get the results from your function.
+
 ```
-$ ./gccli function result --help
+$ gccli function result --help
 ```
+
+#### Example
+<cliWindow>
+
+```text {1}
+$ gccli function result -i 647733866aa774b558101974
+👷 Validating inputs...
+🔖 ID → 647733866aa774b558102969
+📻 Waiting for task to output...
+🧾 200 → Hello from GO by GreenCloud!
+```
+
+</cliWindow>
 
 ```
 NAME:
-   gccli function result - gets result of task
+  gccli function result - gets result of task
 
 USAGE:
-   gccli function result -i ID
+  gccli function result -i ID
 
 OPTIONS:
-   --id value, -i value  id of task
-   --help, -h            show help
+  --id value, -i value  id of task
+  --help, -h            show help
 ```
 
 ### `function deploy`
 
+When you are happy with your function and ready to register it into Green Cloud - you use this command to build the container again and then publish it into the GreenCloud registry.
+
 ```
-$ ./gccli function deploy --help
+$ gccli function deploy --help
 ```
 
 ```
 NAME:
-   gccli function deploy - builds and pushes multi-arch container images
+  gccli function deploy - builds and pushes multi-arch container images
 
 USAGE:
-   gccli function deploy [command options] [arguments...]
+  gccli function deploy [command options] [arguments...]
 
 OPTIONS:
-   --arch value, -c value  arch to build function
-   --help, -h              show help
+  --arch value, -c value  arch to build function
+  --help, -h              show help
 ```
+
+#### Example
+<cliWindow>
+
+```text {1}
+$ gccli function deploy
+👷 Verifying configuration...
+📦️ Archs: AMD64,ARM64,ARM
+🧩 Compiling multi-arch image [OK] (22mb)                       
+🚚 Pushing image to registry... [f242784c9c0d]
+🔥 Function successfully uploaded!
+```
+
+</cliWindow>
 
 ### `function public`
 
+Use this command carefully! This where GreenCloud starts to get cool! Using this command you generate a public URL that you can call and pass Query Parameters and Body Payloads into.
+
 ```
-$ ./gccli function public --help
+$ gccli function public --help
 ```
 
 ```
 NAME:
-   gccli function public - create public endpoint to invoke directly
+  gccli function public - create public endpoint to invoke directly
 
 USAGE:
-   gccli function public [command options] [arguments...]
+  gccli function public [command options] [arguments...]
 
 OPTIONS:
-   --id value, -i value  id of function
-   --delete, -d          delete existing endpoint (default: false)
-   --help, -h            show help
+  --id value, -i value  id of function
+  --delete, -d          delete existing endpoint (default: false)
+  --help, -h            show help
 ```
+
+#### Example
+<cliWindow>
+
+```text {1}
+$ gccli function public
+👷 Validating inputs...
+🚨 You must keep the public endpoint safe!
+🔗 Any existing endpoint will be revoked
+✋ Do you accept conditions? (y/n) → y
+🤖 Public endpoint created successfully!
+🔗 https://api.greencloud.dev/gc/e1179ceba33144b7a214f92344590123
+```
+
+</cliWindow>
 
 ### `function delete`
 
+This command will delete the function from the list of functions in your account. You will be prompted to ensure you are sure that this is what you want to do. Remember - this will NOT delete your source code but simply the Green Cloud configuration that enables you to run that function on the internet. You must be in same directory as the function you wish to delete AND the .gcfunction file must be present. It is also possible to delete the function with an ID and passing the -i parameter.
+
 ```
-$ ./gccli function delete --help
+$ gccli function delete --help
 ```
 
 ```
 NAME:
-   gccli function delete - delete function
+  gccli function delete - delete function
 
 USAGE:
-   gccli function delete [command options] [arguments...]
+  gccli function delete [command options] [arguments...]
 
 OPTIONS:
-   --id value, -i value  id of function
-   --force, -f           delete current folder (default: false)
-   --help, -h            show help
+  --id value, -i value  id of function
+  --force, -f           delete current folder (default: false)
+  --help, -h            show help
 ```
+
+#### Example
+<cliWindow>
+
+```text {1}
+$ gccli function delete
+👷 Verifying configuration...
+✋ Stopping existing container...
+😎 Function successfully stopped!
+🚚 All related data will be deleted
+🚨 This action cannot be undone!
+✋ Do you accept conditions? (y/n) → y
+🔥 Function deleted successfully!
+```
+
+</cliWindow>
 
 ### `function restore`
 
+This is a VERY powerful and useful command. You can restore you Green Cloud function onto any machine. The command has some extra sub parameters that you can pass to either create the directory, the template or just the .gcfunction file.
+
 ```
-$ ./gccli function restore --help
+$ gccli function restore --help
 ```
 
 ```
 NAME:
-   gccli function restore - restore function by ID
+  gccli function restore - restore function by ID
 
 USAGE:
-   gccli function restore -i ID
+  gccli function restore -i ID
 
 OPTIONS:
-   --id value, -i value  id of function
-   --help, -h            show help
+  --id value, -i value  id of function
+  --quiet, -q           only restore config file (default: false)
+  --help, -h            show help
 ```
+
+#### Example
+<cliWindow>
+
+```text {1}
+$ gccli function restore -i 6477283e599b4ee92e5171231
+👷 Validating inputs...
+🔖 ID → 6477283e599b4ee92e517101
+🔍 Obtaining information...
+📄 Copying template...
+📝 Creating config file...
+🧬 Function restored successfully!
+```
+
+</cliWindow>
 
 ## `update`
 
+This is another very nice feature of GreenCloud. We work hard to maintain the integrity of the Green Cloud system. As such we will check the version of the CLI that is interacting with the API and will stop out of date CLI's from interacting with the API. Run this command and it will automagically download the latest version and have it ready for use once it has completed. Nice :).
+
 ```
-$ ./gccli update --help
+$ gccli update --help
 ```
 
 ```
 NAME:
-   gccli update - check if a newer version is available
+  gccli update - check if a newer version is available
 
 USAGE:
-   gccli update command [command options] [arguments...]
+  gccli update command [command options] [arguments...]
 
 OPTIONS:
-   --help, -h  show help
+  --help, -h  show help
 ```
+
+#### Example
+<cliWindow>
+
+```text {1}
+$ gccli update
+🔍 Checking latest version...
+🌱 New version detected! (v23.05.27)
+📻 Downloading new version...
+🩺 File passed SHA256 check!
+💾 Generating backup...
+🚀 Update was installed successfully!
+```
+
+</cliWindow>
 
 ## CLI usage
 
