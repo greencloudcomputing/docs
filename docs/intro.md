@@ -5,7 +5,7 @@ slug: /
 
 # 👋 Welcome!
 
-It is great to have you with us and we welcome you to the documentation pages for Green Cloud. Here you will be able to find detailed information about Green Cloud software tools we are creating. Please use this web site as a reference source of all things Green Cloud!
+It is great to have you with us and we welcome you to the documentation pages for Green Cloud. On this web site you will find detailed information about Green Cloud software tools we have created. Please use this web site as a reference source of all things Green Cloud!
 
 If something doesn't quite look right - OR - its missing - please email us here -: hello@greencloudcomputing.io
 
@@ -17,7 +17,7 @@ What we have created with Green Cloud has not been attempted before. As such we 
 
 The above diagram represents the fifth iteration of Green Cloud!
 
-What started out as simply getting one computer talking to another across the internet has grown in to a fully fledged scalable system that is capable of performing code tasks on almost any platform!
+What started out as simply getting one computer talking to another across the internet has grown in to a fully fledged scalable system that is capable of performing huge amounts of code execution / tasks on almost any platform!
 
 We have split the documentation in to the main sections of the Green Cloud software suite.
 
