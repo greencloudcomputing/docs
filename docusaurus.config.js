@@ -69,6 +69,10 @@ const config = {
                 },
                 items: [
                     {
+                        type: "search",
+                        position: "right",
+                    },
+                    {
                         type: "localeDropdown",
                         position: "right",
                     },
@@ -122,6 +126,13 @@ const config = {
             prism: {
                 theme: lightCodeTheme,
                 darkTheme: darkCodeTheme,
+            },
+            algolia: {
+                appId: "VMST0QGKDI",
+                apiKey: "bf15f07c19567ee1d4d5aa08a66524cc",
+                indexName: "index",
+                contextualSearch: true,
+                searchParameters: {},
             },
         }),
 }
