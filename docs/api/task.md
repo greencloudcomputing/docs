@@ -198,7 +198,7 @@ Response could be any valid HTTP response returned by the underlying function.
 <TabItem value="Text">
 
 ```js title="Status: 200 OK"
-"Hello from Green Cloud!"
+"Hello from GreenCloud!"
 ```
 
 </TabItem>

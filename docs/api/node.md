@@ -12,7 +12,7 @@ TODO: Waiting on node update
 
 We use this end point to create a node. We pass in the ID of the node on the URL and a description in the body.
 
-#### End Point: [https://api.greencloud.dev/v1/node/hash_of_the_node](https://api.greencloud.dev/v1/node/hash_of_the_node
+#### End Point: [https://api.greencloud.dev/v1/node/hash_of_the_node](https://api.greencloud.dev/v1/node/hash_of_the_node)
 
 ```js title="HTTP VERB"
 POST
@@ -73,7 +73,7 @@ HTTP 200
 
 Call this end point with the 'hash' of the node that you wish to remove. Call the list end point to find the list of nodes in the account, each node has an associated hash. If there is an associated node for the hash it is removed from the account and a 204 HTTP response is returned.
 
-#### End Point: [https://api.greencloud.dev/v1/node/hash_of_the_node](https://api.greencloud.dev/v1/node/hash_of_the_node
+#### End Point: [https://api.greencloud.dev/v1/node/hash_of_the_node](https://api.greencloud.dev/v1/node/hash_of_the_node)
 
 ```js title="HTTP VERB"
 DELETE

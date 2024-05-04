@@ -2,9 +2,9 @@
 sidebar_position: 4
 ---
 
-# What software languages does Green Cloud support?
+# What software languages does GreenCloud support?
 
-Green Cloud supports the following languages at the time of writing:
+GreenCloud supports the following languages at the time of writing:
 
 -   🔆 GOLANG → go (1.18)
 -   🔆 PYTHON → py (3.7)

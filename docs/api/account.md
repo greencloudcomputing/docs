@@ -38,7 +38,7 @@ Empty body
 	"name": "Richard",
 	"surname": "Hill",
 	"address": {
-		"company": "Green cloud",
+		"company": "GreenCloud",
 		"street": "123 Hill St.",
 		"district": "North district",
 		"city": "England",
@@ -243,7 +243,7 @@ This endpoint allows users sign up for one of the 3 bundles we offer:
 | ------------------ | ---------------------------- | ----------------------------------------------- |
 | `name`             | DEVELOPER      				| `required` `oneof=STARTER DEVELOPER ENTERPRISE` |
 | `paymentMethod`    | pm_1MrQQuEt48Mjl075t4BHF9pw	| `required` `startswith=pm_`                     |
-| `address.company`  | Green Cloud    				| `optional` `alphanumspace`                      |
+| `address.company`  | GreenCloud    				| `optional` `alphanumspace`                      |
 | `address.street`   | Main st.       				| `required` `alphanumspace`                      |
 | `address.city`     | England        				| `required` `alphaspace`                         |
 | `address.district` | South district 				| `optional` `alphaspace`                         |
@@ -257,7 +257,7 @@ This endpoint allows users sign up for one of the 3 bundles we offer:
 	"name": "DEVELOPER",
 	"paymentMethod": "pm_1MrQQuEt48Mjl075t4BHF9pw",
 	"address": {
-		"company": "Green Cloud",  // optional
+		"company": "GreenCloud",  // optional
 		"street": "My House 8295",
 		"city": "Parana",
 		"district": "Entre Rios",  // optional
@@ -370,7 +370,7 @@ With this endpoint, authenticated users can change their credit card on file. Th
 | Key                | Example       				| Requirements                       |
 | ------------------ | ---------------------------- | ---------------------------------- |
 | `paymentMethod`    | pm_1MrQQuEt48Mjl075t4BHF9pw  | `required`                         |
-| `address.company`  | Green Cloud    				| `optional` `alphanumspace`         |
+| `address.company`  | GreenCloud    				| `optional` `alphanumspace`         |
 | `address.street`   | Main st.       				| `required` `alphanumspace`         |
 | `address.city`     | England        				| `required` `alphaspace`            |
 | `address.district` | South district 				| `optional` `alphaspace`            |
@@ -401,7 +401,7 @@ With this endpoint, authenticated users can change their credit card on file. Th
 {
 	"paymentMethod": "pm_1MrQQuEt48Mjl075t4BHF9pw",
 	"address": {
-		"company": "Green Cloud",  // optional
+		"company": "GreenCloud",  // optional
 		"street": "My House 8295",
 		"city": "Parana",
 		"district": "Entre Rios",  // optional

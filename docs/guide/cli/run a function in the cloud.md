@@ -86,11 +86,11 @@ $ gccli fx invoke
 👷 Validating inputs...
 📄 Obtaining local information...
 ⌚ Timeout → 10
-📄 Payload → Hello from Green Cloud!
+📄 Payload → Hello from GreenCloud!
 🚀 Invoking function...
 📌 ID: 6408a30b1815ce1e1d87731a
 📻 Waiting for task to output...
-🧾 200 → Hello from Green Cloud!
+🧾 200 → Hello from GreenCloud!
 $ █
 ```
 
@@ -107,7 +107,7 @@ $ gccli fx result
 👷 Validating inputs...
 🔖 ID → 6408a30b1815ce1e1d87731a
 📻 Waiting for task to output...
-🧾 200 → Hello from Green Cloud!
+🧾 200 → Hello from GreenCloud!
 $ █
 ```
 

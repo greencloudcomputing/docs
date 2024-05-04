@@ -39,7 +39,7 @@ GLOBAL OPTIONS:
 
 ## `login`
 
-Use this command to allow you to interact with the Green Cloud API. You will need you API Key which is in the Green Cloud Account section to be able to login.
+Use this command to allow you to interact with the GreenCloud API. You will need you API Key which is in the GreenCloud Account section to be able to login.
 
 ```
 $ gccli login --help
@@ -232,7 +232,7 @@ $ gccli status
 
 ## `function`
 
-This command will simply return all the sub commands that are available in the Green Cloud CLI.
+This command will simply return all the sub commands that are available in the GreenCloud CLI.
 
 ```
 $ gccli function --help
@@ -312,7 +312,7 @@ $ gccli function init
 
 ### `function start`
 
-This subcommand will attempt to start your function locally on your machine. You must make sure that you have docker installed and running. If the function is already running, Green Cloud will stop the function, rebuild it and start it again.
+This subcommand will attempt to start your function locally on your machine. You must make sure that you have docker installed and running. If the function is already running, GreenCloud will stop the function, rebuild it and start it again.
 
 ```
 $ gccli function start --help
@@ -386,7 +386,7 @@ $ gccli function edit
 
 ### `function invoke`
 
-The invoke subcommand allows you to call your function ( once it has been deployed into Green Cloud - see the deploy subcommand for more information ) and pass Body and Query Parameters to your function.
+The invoke subcommand allows you to call your function ( once it has been deployed into GreenCloud - see the deploy subcommand for more information ) and pass Body and Query Parameters to your function.
 
 ```
 $ gccli function invoke --help
@@ -459,7 +459,7 @@ OPTIONS:
 
 ### `function deploy`
 
-When you are happy with your function and ready to register it into Green Cloud - you use this command to build the container again and then publish it into the GreenCloud registry.
+When you are happy with your function and ready to register it into GreenCloud - you use this command to build the container again and then publish it into the GreenCloud registry.
 
 ```
 $ gccli function deploy --help
@@ -529,7 +529,7 @@ $ gccli function public
 
 ### `function delete`
 
-This command will delete the function from the list of functions in your account. You will be prompted to ensure you are sure that this is what you want to do. Remember - this will NOT delete your source code but simply the Green Cloud configuration that enables you to run that function on the internet. You must be in same directory as the function you wish to delete AND the .gcfunction file must be present. It is also possible to delete the function with an ID and passing the -i parameter.
+This command will delete the function from the list of functions in your account. You will be prompted to ensure you are sure that this is what you want to do. Remember - this will NOT delete your source code but simply the GreenCloud configuration that enables you to run that function on the internet. You must be in same directory as the function you wish to delete AND the .gcfunction file must be present. It is also possible to delete the function with an ID and passing the -i parameter.
 
 ```
 $ gccli function delete --help
@@ -566,7 +566,7 @@ $ gccli function delete
 
 ### `function restore`
 
-This is a VERY powerful and useful command. You can restore you Green Cloud function onto any machine. The command has some extra sub parameters that you can pass to either create the directory, the template or just the .gcfunction file.
+This is a VERY powerful and useful command. You can restore your GreenCloud function onto any machine. The command has some extra sub parameters that you can pass to either create the directory, the template or just the .gcfunction file.
 
 ```
 $ gccli function restore --help
@@ -602,7 +602,7 @@ $ gccli function restore -i 6477283e599b4ee92e5171231
 
 ## `update`
 
-This is another very nice feature of GreenCloud. We work hard to maintain the integrity of the Green Cloud system. As such we will check the version of the CLI that is interacting with the API and will stop out of date CLI's from interacting with the API. Run this command and it will automagically download the latest version and have it ready for use once it has completed. Nice :).
+This is another very nice feature of GreenCloud. We work hard to maintain the integrity of the GreenCloud system. As such we will check the version of the CLI that is interacting with the API and will stop out of date CLI's from interacting with the API. Run this command and it will automatically download the latest version and have it ready for use once it has completed. Nice :).
 
 ```
 $ gccli update --help

@@ -18,7 +18,7 @@ import CLIWindow from '@site/src/components/CLIWindow';
 
 You've downloaded the CLI tool and are ready to start. Before you can get going you need to sign into the account.
 
-If you have not created a Green Cloud account yet then you can do so [here](https://app.greencloudcomputing.io/signup)
+If you have not created a GreenCloud account yet then you can do so [here](https://app.greencloudcomputing.io/signup)
 
 If all is in place simply type `gccli login` :
 
@@ -37,7 +37,7 @@ $ █
 
 </CLIWindow>
 
-You are now good to go and get started with Green Cloud functions! 🎉️
+You are now good to go and get started with GreenCloud functions! 🎉️
 
 ### Logging out
 
