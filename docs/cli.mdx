@@ -240,28 +240,28 @@ $ gccli function --help
 
 ```
 NAME:
-  gccli function - manage functions
+  gccli function - manages functions
 
 USAGE:
   gccli function command [command options] [arguments...]
 
 COMMANDS:
   init     generates a new function with the data provided
-  info     show information of current function
-  lang     list all available languages for function
+  info     shows information of current function
+  lang     lists all available languages for function
   start    starts function image to test locally
-  logs     display logs of local function
-  stop     stop function container running
-  edit     change name/description of current function
-  invoke   invoke a remote function
+  logs     displays logs of local function
+  stop     stops function container running
+  edit     changes name/description of current function
+  invoke   invokes a remote function
   result   gets result of task
   deploy   builds and pushes multi-arch container images
-  public   create public endpoint to invoke directly
-  list     list all functions
-  delete   delete function
-  restore  restore function by ID
-  sync     sync function from server
-  tasks    list all tasks
+  public   creates public endpoint to invoke directly
+  list     lists all functions
+  delete   deletes function
+  restore  restores function by ID
+  sync     syncs function from server
+  tasks    lists all tasks
 
 OPTIONS:
   --help, -h  show help
@@ -269,7 +269,7 @@ OPTIONS:
 
 ### `function init`
 
-This sud command of the function command initiates the configuration process of creating a new function.
+This subcommand of the function command initiates the configuration process of creating a new function.
 
 ```
 $ gccli function init --help
@@ -426,7 +426,7 @@ $ gccli function invoke
 
 ### `function result`
 
-Use this function sub command to obtain the results from a particular call. Every call in GreenCloud is assigned an ID. See above the 'ID:' section in the invoke response. Use this ID to get the results from your function.
+Use this function subcommand to obtain the results from a particular call. Every call in GreenCloud is assigned an ID. See above the 'ID:' section in the invoke response. Use this ID to get the results from your function.
 
 ```
 $ gccli function result --help

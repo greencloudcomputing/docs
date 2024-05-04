@@ -14,7 +14,7 @@ Welcome to the documentation on the GreenCloud Dispatcher. The Dispatcher can be
 -   Developers can send many HTTP requests and await the responses.
 -   The Dispatcher acts as a broker - matching up the incoming requests with the most appropriate node to handle the work load.
 
-In time Green Cloud will have multiple dispatchers around the globe. Our vision is to host small centers that will be powered by onsite renewable energy. With our paradigm of farming out work load to members we anticipate that our energy requirements for Dispatcher will be dramatically less than the current modern data center.
+In time GreenCloud will have multiple dispatchers around the globe. Our vision is to host small centers that will be powered by onsite renewable energy. With our paradigm of farming out work load to members we anticipate that our energy requirements for Dispatcher will be dramatically less than the current modern data center.
 
 The Dispatcher consists of a suite of microservices all working together to perform the collective tasks that make up the Dispatcher. This includes but is not limited to -:
 
@@ -24,11 +24,11 @@ The Dispatcher consists of a suite of microservices all working together to perf
 -   Invoice - a Micro service for handling all Invoice details.
 -   Node - is responsible for all the interactions with the nodes.
 -   Function - looks after all the functions that are created/running.
--   Payment - we pay our members for being part of Green Cloud - this microservices handles this.
+-   Payment - we pay our members for being part of GreenCloud - this microservices handles this.
 -   Endpoint - TODO ⚠️
 -   Task - TODO ⚠️
 -   Tag - TODO ⚠️
--   Dispatcher - The service that allocates the workload across the Green Cloud network.
+-   Dispatcher - The service that allocates the workload across the GreenCloud network.
 
 In detail the dispatcher can be thought of as an intelligent queue. People offering their machines for use arrive and depart depedent on three conditions -:
 
