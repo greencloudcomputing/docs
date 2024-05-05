@@ -10,7 +10,7 @@ const FeatureList = [
     description: (
       <>
         <Translate>
-          Learn about the API that we have created at Green Cloud.
+          Learn about the API that we have created at GreenCloud.
         </Translate>
       </>
     ),
@@ -22,8 +22,8 @@ const FeatureList = [
       <>
         <Translate>
           We created a powerful command line tool that allows you to control all
-          of your Green Cloud assets. Its fully documentated on this site and
-          its the fastest way to get started with Green Cloud!
+          of your GreenCloud assets. Its fully documentated on this site and
+          its the fastest way to get started with GreenCloud!
         </Translate>
       </>
     ),
@@ -34,9 +34,9 @@ const FeatureList = [
     description: (
       <>
         <Translate>
-        Green Cloud is a new way to perform serverless compute with the least
+        GreenCloud is a new way to perform serverless compute with the least
         amount of Carbon. As such this section is full of useful topics that
-        will help you get the best out of your Green Cloud account!
+        will help you get the best out of your GreenCloud account!
         </Translate>
       </>
     ),
