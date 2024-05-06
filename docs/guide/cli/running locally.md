@@ -11,7 +11,7 @@ sidebar_position: 7
 
 :::
 
-During the creation of Green Cloud we realised that the software developer would need a method by which they could test their software locally first before publishing it into the Green Cloud.
+During the creation of GreenCloud we realised that the software developer would need a method by which they could test their software locally first before publishing it into the GreenCloud.
 
 To do this we make use of Docker and a special command in the CLI.
 

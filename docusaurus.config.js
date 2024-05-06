@@ -6,7 +6,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula")
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: "Green Cloud Computing",
+    title: "GreenCloud Computing",
     tagline: "pioneering the green computing revolution",
     url: "https://docs.greencloud.dev",
     baseUrl: "/",
@@ -62,9 +62,9 @@ const config = {
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             navbar: {
-                title: "Green Cloud",
+                title: "GreenCloud",
                 logo: {
-                    alt: "Green Cloud Computing",
+                    alt: "GreenCloud Computing",
                     src: "img/GC-Logo.svg",
                 },
                 items: [

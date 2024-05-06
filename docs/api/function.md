@@ -15,7 +15,7 @@ A Function consists of -:
 1. Name - a non unique character string used to represent the function.
 2. Language - the language that the function is written in.
 
-    At the time of writing Green Cloud supports -:
+    At the time of writing GreenCloud supports -:
 
     GoLang, Node JS, Python, C#, Ruby
 
@@ -24,7 +24,7 @@ A Function consists of -:
 ## Create
 
 :::info
-Use this endpoint to create a function to use in the Green Cloud system. The response from a succesful call is an HTTP 201 in which the body of the response contains the ID of the newly created function.
+Use this endpoint to create a function to use in the GreenCloud system. The response from a succesful call is an HTTP 201 in which the body of the response contains the ID of the newly created function.
 :::
 
 #### Endpoint
@@ -177,7 +177,7 @@ Empty body
 ## List
 
 :::info
-Use this endpoint to get a list of functions in your Green Cloud account.
+Use this endpoint to get a list of functions in your GreenCloud account.
 :::
 
 #### Endpoint
@@ -235,7 +235,7 @@ Empty body
 ## List By Tag
 
 :::info
-Use this endpoint to get a list of functions by tag. Note that you need to pass the tag you are interested in as a query parameter. We introduced Tags into Green Cloud as a means to be able to better manage your Green Cloud assets. Please see the Tag documentation for more details.
+Use this endpoint to get a list of functions by tag. Note that you need to pass the tag you are interested in as a query parameter. We introduced Tags into GreenCloud as a means to be able to better manage your GreenCloud assets. Please see the Tag documentation for more details.
 :::
 
 #### Endpoint
@@ -297,7 +297,7 @@ Empty body
 ## Delete
 
 :::info
-Use this endpoint to delete a function from the Green Cloud system.
+Use this endpoint to delete a function from the GreenCloud system.
 :::
 
 #### Endpoint
@@ -331,7 +331,7 @@ Empty body
 ## Get Capabilities
 
 :::info
-Use this endpoint to get capabilities of a function on the Green Cloud system.
+Use this endpoint to get capabilities of a function on the GreenCloud system.
 :::
 
 #### Endpoint
@@ -371,7 +371,7 @@ Empty body
 ## Set Capabilities
 
 :::info
-In Green Cloud because of the disparate nature of the machines that will be connecting to the Dispatcher we use something called Capabailities to be able to clearly utilise the best suited machine to the computational task that the function requires. This is the purpose of Capabilities. In setting the capabilities of a function you can restrict the machines that that function executes on. The purpose of this is to run on the most optimal machine for the function.
+In GreenCloud, because of the disparate nature of the machines that will be connecting to the Dispatcher, we use something called Capabailities to be able to clearly utilise the best suited machine to the computational task that the function requires. This is the purpose of Capabilities. In setting the capabilities of a function you can restrict the machines that that function executes on. The purpose of this is to run on the most optimal machine for the function.
 :::
 
 #### Endpoint

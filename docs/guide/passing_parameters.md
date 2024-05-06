@@ -2,9 +2,9 @@
 sidebar_position: 8
 ---
 
-# How do I pass parameters to a Green Cloud function ?
+# How do I pass parameters to a GreenCloud function ?
 
-It's nice to have low carbon functions like those offered by Green Cloud however the real power of them comes from being able to pass information to them. In GreenCloud we have two methods for passing information into a function -:
+It's nice to have low carbon functions like those offered by GreenCloud however the real power of them comes from being able to pass information to them. In GreenCloud we have two methods for passing information into a function :-
 
 ### Query Parameters
 
@@ -18,7 +18,7 @@ An example is as follows -:
 
 Here we have an imaginary URL that is passing query parameters to the URL in the form of a name (parameter_name) and a value (parameter=value). 
 
-You can add more parmeters to the URL simply by using the '&' sign, here is an example -: 
+You can add more parmeters to the URL simply by using the '&' sign, here is an example :-
 
 ```
  https://www.imaginaryfunction.com?parameter_name=parameter_value&parameter_name2=parameter_value2
@@ -26,7 +26,7 @@ You can add more parmeters to the URL simply by using the '&' sign, here is an e
 
 To be able to call your function from a URL you will need to have created a public URL. 
 
-1. You can create this by making sure you have deployed your function into GreenCloud -:
+1. You can create this by making sure you have deployed your function into GreenCloud :-
 
 <cliWindow>
 
@@ -67,10 +67,10 @@ You will receive the parameters inside your function on the **QueryString** prop
 
 ### HTTP Body
 
-Similarly you can pass data into your function using the Body property of the Request type. Typically this is JSON data although it can be many things.
-It is up to the developer to extract the data from the Body into the format that you are expecting. Handling any error conditions that arise from improper data.
+Similarly you can pass data into your Function using the Body property of the Request type. Typically this is JSON data although it can be many things.
+It is up to the developer to extract the data from the Body into the format that you are expecting, handling any error conditions that arise from improper data.
 
-Below is the contents of the GO language Request struct type -:
+Below is the contents of the GO language Request struct type :-
 
 ```
 type Request struct {

@@ -18,7 +18,7 @@ The Create endpoint is used to create a new public endpoint for a given function
 :::
 
 :::tip
-GreenCloud understands that a publicly available URL will concern some of our users. To this end we have provided the ability to be able to delete publicly URL. This means that it is perfectly acceptable to create a URL, call it - get the results -and then delete it.
+GreenCloud understands that a publicly available URL will concern some of our users. To this end we have provided the ability to be able to delete the publicly available URL. This means that it is perfectly acceptable to create a URL, call it - get the results -and then delete it.
 :::
 
 #### Endpoint
@@ -137,7 +137,7 @@ Response could be any valid HTTP response returned by the underlying function.
 <TabItem value="Text">
 
 ```js title="Status: 200 OK"
-"Hello from Green Cloud!"
+"Hello from GreenCloud!"
 ```
 
 </TabItem>

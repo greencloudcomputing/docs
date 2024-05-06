@@ -17,7 +17,7 @@ In the near future, users will be able to schedule a function.
 
 ### Functions in the Cloud
 
-Functions are registered in Green Cloud by default. For local functions, click [here](#local-functions).
+Functions are registered in GreenCloud by default. For local functions, click [here](#local-functions).
 
 Once you are logged in, you can create a function by following these steps:
 
@@ -79,7 +79,7 @@ gccli fx init -n myFunction -l go -d 'my description' --offline
 
 ### 🔖 Available languages:
 
-Green Cloud supports the following languages at the time of writing:
+GreenCloud supports the following languages at the time of writing:
 
 -   🔆 GOLANG → go (1.18)
 -   🔆 PYTHON → py (3.7)

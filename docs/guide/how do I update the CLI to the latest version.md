@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# How do I update my Green Cloud CLI to the latest version?
+# How do I update my GreenCloud CLI to the latest version?
 
 On Linux and Mac OS based systems we have a really simple method to update the CLI to the latest, just run the command
 
@@ -25,4 +25,4 @@ $ █
 
 </cliWindow>
 
-This update method is not supported on Windows systems. You will need to visit the (download)[dl.greencloudcomputing.io] web site and select the latest version. We are in the process of changing this method to one where you can download the latest build directly from the account section of the dashboard web site!
+This update method is not supported on Windows systems. You will need to visit the [download](dl.greencloudcomputing.io) web site and select the latest version. We are in the process of changing this method to one where you can download the latest build directly from the account section of the dashboard web site.

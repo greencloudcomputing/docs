@@ -4,14 +4,14 @@ sidebar_position: 1
 
 # 🔒️ Authentication
 
-Green Cloud has built in Authentication from the ground up. From the early days we realised that security is a big part of a cloud system. As such we use industry strength encryption and STRONGLY encourage our users to use 2FA which dramatically reduces the chances of an attack on an account.
+GreenCloud has built in Authentication from the ground up. From the early days we realised that security is a big part of a cloud system. As such we use industry strength encryption and STRONGLY encourage our users to use 2FA which dramatically reduces the chances of an attack on an account.
 
 The first thing you will need to do is to Register an account.
 
 ## Register
 
 :::info
-Use this end point to register an account with Green Cloud. The succesful response is an HTTP 201 response. An email will be sent to the email address used, enabling them to complete the registration of their account.
+Use this end point to register an account with GreenCloud. The succesful response is an HTTP 201 response. An email will be sent to the email address used, enabling them to complete the registration of their account.
 :::
 
 #### Endpoint
@@ -26,12 +26,12 @@ Use this end point to register an account with Green Cloud. The succesful respon
 
 #### Request Body
 
-| Key        | Example        | Requirements                              |
-| ---------- | -------------- | ----------------------------------------- |
-| `name`     | Richard        | `required` `min=8` `containsany=!@#$%&\*` |
-| `surname`  | Hill           | `required` `alpha` `max=20`               |
-| `email`    | <sampleEmail/> | `required`                                |
-| `password` | Hello123!      | `required` `min=8` `containsany=!@#$%&*`  |
+| Key        | Example        | Requirements                              							  |
+| ---------- | -------------- | --------------------------------------------------------------------- |
+| `name`     | Richard        | `required` `min=8` 						 						   	  |
+| `surname`  | Hill           | `required` `alpha` `max=20`          							      |
+| `email`    | <sampleEmail/> | `required`                              							  |
+| `password` | Hello123!      | `required` `min=8` `max=128` `containsany=0-9` `containsany=!@#$%&*`  |
 
 #### Example Request
 
