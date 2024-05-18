@@ -11,7 +11,7 @@ The first thing you will need to do is to Register an account.
 ## Register
 
 :::info
-Use this end point to register an account with GreenCloud. The succesful response is an HTTP 201 response. An email will be sent to the email address used, enabling them to complete the registration of their account.
+Use this endpoint to register an account with GreenCloud. The succesful response is an HTTP 201 response. An email will be sent to the email address used, enabling them to complete the registration of their account.
 :::
 
 #### Endpoint
@@ -173,7 +173,7 @@ After successful login, the user receives an Access Token and a Refresh Token. T
 ## API KEY
 
 :::info
-To use the Command Line Interface (CLI), users need to obtain their API key. The API key is required when logging into the CLI tool for the first time. It is this end point that allows that. Users can also obtain their API key from their GreenCloud web site [dashboard](https://app.greencloudcomputing.io/dashboard).
+To use the Command Line Interface (CLI), users need to obtain their API key. The API key is required when logging into the CLI tool for the first time. It is this endpoint that allows that. Users can also obtain their API key from their GreenCloud web site [dashboard](https://app.greencloudcomputing.io/dashboard).
 :::
 
 #### Endpoint

@@ -12,11 +12,13 @@ There are some pre-requisites to getting going with the CLI tool :-
 
 -   You will also need a valid GreenCloud account (create one here) [GreenCloud - Sign Up](https://app.greencloudcomputing.io/signup)
 
--   You can download the CLI from -: [GreenCloud CLI Tool](https://dl.greencloudcomputing.io/gccli) - Make sure you select the correct version to download for your computer.
+-   You can download the CLI from -: [GreenCloud CLI Tool](https://app.greencloudcomputing.io/downloads) - Make sure you select the correct version to download for your computer.
 
 See the next section for details about installing the CLI. What follows are some basic rules for using the CLI Tool.
 
-The format of commands in the CLI are as follows :-
+### The format of commands in the CLI are as follows :-
+
+#### If you are working in the directory where gccli.exe is located -
 
 1. Display general CLI information by typing
 
@@ -39,3 +41,28 @@ Here is an example
 ```
 
 This will display all the parameters for that particular command and often an example usage of it as well.
+
+
+#### If you are not working in the directory where gccli.exe is located -
+
+1. Display general CLI information by typing
+
+```
+gccli
+```
+
+and pressing enter will display details of all the commands in the CLI
+
+2. Getting command specific help by adding --help after the command name.
+
+```
+gccli 'a command' --help
+```
+
+Here is an example
+
+```
+gccli function --help
+```
+
+This will display all the parameters for the function command and often an example usage of it as well.

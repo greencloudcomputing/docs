@@ -1,29 +1,129 @@
 ---
-sidebar_position: 5
+sidebar_position: 8
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# 🌱 Function
 
-# 🔗️ Endpoint
+In GreenCloud we operate a system that runs small functions repeatedly. These functions are based around containers that are delivered and executed on remote devices.
 
-Once you have created a GreenCloud function you can add an endpoint to it so that it may be called across the internet. This will be a publicly available web url that has some rules regarding its use and operation. Endpoints will be available until deleted.
+A Function can be created using the CLI and is generally not something that is viewed by the end user. The main purpose of the Function is to act as a logical construct to represent the software/code that the software developer has written.
 
-Each time you call the endpoint, we will store the results from each call. The results will initially be publicly available for 5 minutes. After this time period your results are still accessible but will require an authenticated call to access them.
+When a software developer asks to initiate a function - they will create a task which will also have a related Function to execute.
+
+A Function consists of -:
+
+1. Name - a non unique character string used to represent the function.
+2. Language - the language that the function is written in.
+
+    At the time of writing GreenCloud supports -:
+
+    GoLang, Node JS, Python, C#, Ruby
+
+    We are looking to add Rust, C / C++ and WASM in the near future.
 
 ## Create
 
 :::info
-The Create endpoint is used to create a new public endpoint for a given function. It returns a 201 response with an endpoint ID.
-:::
-
-:::tip
-GreenCloud understands that a publicly available URL will concern some of our users. To this end we have provided the ability to be able to delete the publicly available URL. This means that it is perfectly acceptable to create a URL, call it - get the results -and then delete it.
+Use this endpoint to create a function to use in the GreenCloud system. The response from a succesful call is an HTTP 201 in which the body of the response contains the ID of the newly created function.
 :::
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/v1/function/[functionId]/endpoint' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/function' method='POST'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+| `Content-Type`  | `application/json`   | true     |
+
+#### Request Body
+
+| Key           | Example                        | Requirements                          |
+| ------------- | ------------------------------ | ------------------------------------- |
+| `name`        | MyFunction                     | `required` `alphanum`                 |
+| `description` | My function description        | `optional` `printascii` `max=80`      |
+| `tag`         | [_tag id_, _tag id_, _tag id_] | `optional` `dive` `unique` `alphanum` |
+| `lang`        | go                             | `required` `oneof=go py js cs rb`     |
+| `type`        | docker                         | `required` `oneof=docker`             |
+
+#### Example Request
+
+```js
+{
+	"name": "MyFunction",
+	"description":"My function description",
+	"tag": ['63fe131f02975e4956238b39', '63fe131f02975e4956238b40'],
+	"lang": "go",
+	"type": "docker"
+}
+```
+
+#### Example Response
+
+```js title="Status: 201 Created"
+{
+	"id": "63f47d24dab5eb85451f3b61",
+}
+```
+
+## Edit
+
+:::info
+Use this endpoint to edit the meta data about a function. You will need to pass the id of the function on the URL. The parameters that you can edit are the name, description and tags of the function.
+:::
+
+#### Endpoint
+
+<endpoint href='https://api.greencloud.dev/v1/function/[functionId]' method='PATCH'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+| `Content-Type`  | `application/json`   | true     |
+
+#### Request Parameters
+
+| Value         | Example                  | Required |
+| ------------- | ------------------------ | -------- |
+| _function id_ | 63f47d24dab5eb85451f3b61 | true     |
+
+#### Request Body
+
+| Key           | Example                        | Requirements                          |
+| ------------- | ------------------------------ | ------------------------------------- |
+| `name`        | MyFunction                     | `optional` `alphanum`                 |
+| `description` | My function description        | `optional` `printascii` `max=80`      |
+| `tag`         | [_tag id_, _tag id_, _tag id_] | `optional` `dive` `unique` `alphanum` |
+
+#### Example Request
+
+```js
+{
+	"name": "MyFunction",
+	"description":"My function description",
+	"tag": ['63fe131f02975e4956238b39', '63fe131f02975e4956238b40'],
+}
+```
+
+#### Example Response
+
+```js title="Status: 204 No Content"
+Empty body
+```
+
+## Get
+
+:::info
+If you need to retrieve details about a particular function, use this endpoint by passing the function's ID as a URL parameter. The endpoint will provide you with a list of information related to the function.
+:::
+
+#### Endpoint
+
+<endpoint href='https://api.greencloud.dev/v1/function/[functionId]' method='GET'/>
 
 #### Request Headers
 
@@ -45,81 +145,50 @@ Empty body
 
 #### Example Response
 
-```js title="Status: 201 Created"
+```js title="Status: 200 OK"
 {
-	"id": "536a74fefb8847c19d21020f43b12f67", // endpoint id
+	"name": "MyFunction",
+	"description": "My function description",
+	"type": "docker",
+	"lang": "go",
+	"tags": [
+		{
+			"id": "63ed33eac79248a54ee04831",
+			"name": "greencloud",
+			"color": "#00ff80"
+		}
+	],
+   	"capabilities": {
+		"timeout": 10,
+		"cpuCount": 0,
+		"memSize": 0,
+		"networkLatency": 0,
+		"privileged": true
+	},
+	"metrics": {
+		"todaysTasks": 0,
+		"pendingTasks": 0,
+		"weekTasks": 0,
+		"completedTasks": 0
+	}
 }
 ```
 
-## Use
+## List
 
 :::info
-The Use endpoint is a flexible public endpoint that can run a predefined function and accepts optional query parameters and an optional JSON body. By passing data through these parameters, users can customize the behavior of the function being called and provide additional information to the API. It returns a 201 response with a task ID.
+Use this endpoint to get a list of functions in your GreenCloud account.
 :::
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/gc/[endpointId]?myParam=100' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/function/list' method='GET'/>
 
 #### Request Headers
 
-| Key            | Value              | Required |
-| -------------- | ------------------ | -------- |
-| `Content-Type` | `application/json` | optional |
-
-#### Request Parameters
-
-| Value         | Example                          | Required |
-| ------------- | -------------------------------- | -------- |
-| _endpoint id_ | f43a136defaa41f7b39045f514a2edb6 | true     |
-
-:::tip
-You may pass multiple query parameters to be consumed by the function.
-
-**Example**: /gc/[endpointId]?myParam1=100&myParam2=Green&myParam3=true
-:::
-
-#### Request Body
-
-:::tip
-You may pass any valid json in the request body to be consumed by the function.
-:::
-
-#### Example Request
-
-```js
-{
-  "name": "John Doe",
-  "age": 30,
-  "admin": true,
-  "address": {
-    "street": "123 Main St",
-    "city": "Anytown",
-    "state": "CA"
-  },
-  "hobbies": ["reading", "traveling", "hiking"]
-}
-```
-
-#### Example Response
-
-```js title="Status: 201 Created"
-{
-	"id": "63f47d24dab5eb85451f3b61", // task id
-}
-```
-
-## Get
-
-:::info
-
-The GET endpoint is used to retrieve the response of a previously executed function by its run ID. It returns a status 200 with an HTTP response returned by the function.
-
-:::
-
-#### Endpoint
-
-<endpoint href='https://api.greencloud.dev/gc/[runId]/result' method='GET'/>
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
 
 #### Example Request
 
@@ -127,43 +196,51 @@ The GET endpoint is used to retrieve the response of a previously executed funct
 Empty body
 ```
 
-:::tip
-Response could be any valid HTTP response returned by the underlying function.
-:::
+#### Example Response
 
-#### Example Responses
-
-<Tabs>
-<TabItem value="Text">
-
+<!-- prettier-ignore -->
 ```js title="Status: 200 OK"
-"Hello from GreenCloud!"
+[
+    {
+	id: "6404b3da46551827c611ffe5",
+        name: "MyFunction",
+        description: "My function description",
+        lang: "go",
+        tags: [
+            {
+                id: "63ed33eac79248a54ee04831",
+                name: "greencloud",
+                color: "#00ff80",
+            },
+        ],
+	createdAt: "1678029786"
+    },
+    {
+	id: "6404b3da46551827c611ffe6",
+        name: "MyFunction2",
+        description: "My 2nd function description",
+        lang: "go",
+        tags: [
+            {
+                id: "63ed33eac79248a54ee04831",
+                name: "greencloud",
+                color: "#00ff80",
+            },
+        ],
+	createdAt: "1676489715"
+    },
+]
 ```
 
-</TabItem>
-<TabItem value="JSON">
-
-```js title="Status: 200 OK"
-{
-  "Status": "OK",
-  "Active": true,
-  "Nodes":["west", "south"],
-  "Count":40
-}
-```
-
-</TabItem>
-</Tabs>
-
-## Delete
+## List By Tag
 
 :::info
-The Delete endpoint is used to delete the public endpoint for a given function. Endpoints don't expire. They need to be deleted if not needed anymore.
+Use this endpoint to get a list of functions by tag. Note that you need to pass the tag you are interested in as a query parameter. We introduced Tags into GreenCloud as a means to be able to better manage your GreenCloud assets. Please see the Tag documentation for more details.
 :::
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/v1/function/[functionId]/endpoint' method='DELETE'/>
+<endpoint href='https://api.greencloud.dev/v1/function/list?tag=[tagId]' method='GET'/>
 
 #### Request Headers
 
@@ -173,14 +250,165 @@ The Delete endpoint is used to delete the public endpoint for a given function. 
 
 #### Request Parameters
 
-| Value         | Example                          | Required |
-| ------------- | -------------------------------- | -------- |
-| _function id_ | f43a136defaa41f7b39045f514a2edb6 | true     |
+| Value    | Example                  | Required |
+| -------- | ------------------------ | -------- |
+| _tag id_ | 63f47d24dab5eb85451f3b61 | true     |
 
 #### Example Request
 
 ```js
 Empty body
+```
+
+<!-- prettier-ignore -->
+```js title="Status: 200 OK"
+[
+    {
+	id: "6404b3da46551827c611ffe5",
+        name: "MyFunction",
+        description: "My function description",
+        lang: "go",
+        tags: [
+            {
+                id: "63ed33eac79248a54ee04831",
+                name: "greencloud",
+                color: "#00ff80",
+            },
+        ],
+	createdAt: "1678029786"
+    },
+    {
+	id: "6404b3da46551827c611ffe6",
+        name: "MyFunction2",
+        description: "My 2nd function description",
+        lang: "go",
+        tags: [
+            {
+                id: "63ed33eac79248a54ee04831",
+                name: "greencloud",
+                color: "#00ff80",
+            },
+        ],
+	createdAt: "1676489715"
+    },
+]
+```
+
+## Delete
+
+:::info
+Use this endpoint to delete a function from the GreenCloud system.
+:::
+
+#### Endpoint
+
+<endpoint href='https://api.greencloud.dev/v1/function/[functionId]' method='DELETE'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+
+#### Request Parameters
+
+| Value         | Example                  | Required |
+| ------------- | ------------------------ | -------- |
+| _function id_ | 63f47d24dab5eb85451f3b61 | true     |
+
+#### Example Request
+
+```js
+Empty body
+```
+
+#### Example Response
+
+```js title="Status: 204 No Content"
+Empty body
+```
+
+## Get Capabilities
+
+:::info
+Use this endpoint to get capabilities of a function on the GreenCloud system.
+:::
+
+#### Endpoint
+
+<endpoint href='https://api.greencloud.dev/v1/function/[functionId]/capabilities' method='GET'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+
+#### Request Parameters
+
+| Value         | Example                  | Required |
+| ------------- | ------------------------ | -------- |
+| _function id_ | 63f47d24dab5eb85451f3b61 | true     |
+
+#### Example Request
+
+```js
+Empty body
+```
+
+#### Example Response
+
+```js title="Status: 200 OK"
+{
+	"timeout": 10
+	"cpuCount": 0,
+	"memSize": 0,
+	"networkLatency": 0,
+	"privileged": true
+}
+```
+
+## Set Capabilities
+
+:::info
+In GreenCloud, because of the disparate nature of the machines that will be connecting to the Dispatcher, we use something called Capabailities to be able to clearly utilise the best suited machine to the computational task that the function requires. This is the purpose of Capabilities. In setting the capabilities of a function you can restrict the machines that that function executes on. The purpose of this is to run on the most optimal machine for the function.
+:::
+
+#### Endpoint
+
+<endpoint href='https://api.greencloud.dev/v1/function/[functionId]/capabilities' method='POST'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+| `Content-Type`  | `application/json`   | true     |
+
+#### Request Parameters
+
+| Value         | Example                  | Required |
+| ------------- | ------------------------ | -------- |
+| _function id_ | 63f47d24dab5eb85451f3b61 | true     |
+
+#### Request Body
+
+| Key          | Example | Requirements                             |
+| ------------ | ------- | ---------------------------------------- |
+| `timeout`    | 10      | `optional` `numeric` `gte=10` `lte=120`  |
+| `cpuCount`   | 1       | `optional` `numeric` `gte=0` `lte=4`     |
+| `memSize`    | 1024    | `optional` `numeric` `gte=0` `lte=2048`  |
+| `privilaged` | true    | `optional` `bool`                        |
+
+#### Example Request
+
+```js
+{
+	"timeout": 10
+	"cpuCount": 1,
+	"memSize": 1024,
+	"privileged": true
+}
 ```
 
 #### Example Response

@@ -36,9 +36,9 @@ func main() {
 
 What we have done here is to create an executable entry point that calls the function you have created. (see the import handler statement that pulls your function into the executable).
 
-The next step is to set a break point in your code. For this example - set the break point on first line after **func main() {** line and start the debugger. We are using Visual Studio Code [here](https://learn.microsoft.com/en-us/visualstudio/debugger/using-breakpoints?view=vs-2022) is a link to some documentation on setting break points.
+The next step is to set a break point in your code. For this example - set the break point on first line after **func main() {** line and start the debugger. If you are using Visual Studio Code, [here](https://learn.microsoft.com/en-us/visualstudio/debugger/using-breakpoints?view=vs-2022) is a link to some documentation on setting break points.
 
-Now start the debugger! Execution will stop at the break point. You can now step over and into the code you have written, specifically stepping into your function which is the line 
+Now start the debugger! Execution will stop at the break point. You can now go over the code you have written in steps, specifically looking at the result of your function on the line 
 
 ```
 var resp, _ = function.Handle(req)

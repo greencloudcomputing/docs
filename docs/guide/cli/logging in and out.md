@@ -14,13 +14,19 @@ import CLIWindow from '@site/src/components/CLIWindow';
 
 :::
 
+:::info Working directory
+- All commands assume that you are not working in the directory where gccli.exe is located.
+- If you are working in the directory where gccli is located and wish to execute from the current directory rather than your `PATH` environment variable, prefix all gccli commands with ./  
+e.g. `./gccli login`
+:::
+
 ### Logging In
 
-You've downloaded the CLI tool and are ready to start. Before you can get going you need to sign into the account.
+You've downloaded the CLI tool and are ready to start. Before you can get going you need to sign into your account.
 
 If you have not created a GreenCloud account yet then you can do so [here](https://app.greencloudcomputing.io/signup)
 
-If all is in place simply type `gccli login` :
+If you have an account simply type `gccli login` :
 
 -   When prompted, enter your api key from your [dashboard](https://app.greencloudcomputing.io/dashboard)
 
@@ -41,7 +47,7 @@ You are now good to go and get started with GreenCloud functions! 🎉️
 
 ### Logging out
 
-If all is in place simply type `gccli logout` :
+When you are ready to logout, simply type `gccli logout` :
 
 -   Whem prompted, type `y`
 
@@ -50,8 +56,8 @@ If all is in place simply type `gccli logout` :
 ```text {1,3}
 $ gccli logout
 😔 Are you sure about logout?
-✋ Do you accept conditions? (y/n) → y
-🫤 Hope to see you back here soon!
+✋ Do you wish to continue? (y/n) → y
+👍 You are now logged out , see you soon 😎
 👉 Your opinion is important → hello@greencloudcomputing.io
 $ █
 ```

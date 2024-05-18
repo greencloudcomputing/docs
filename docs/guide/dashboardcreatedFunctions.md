@@ -10,16 +10,16 @@ If you have used the web site to create a function and you now want to work on t
 :::tip requirements
 - GreenCloud CLI tool [installed](https://dl.greencloudcomputing.io/gccli)
 - Logged into your account: [Use your api key](https://app.greencloudcomputing.io/account) 
-- The [Function ID](https://app.greencloudcomputing.io/functions). You can copy the Function ID to the clip board by clicking the clipboard icon next to the Function ID.
+- The [function ID](https://app.greencloudcomputing.io/functions). You can copy the function ID to the clip board by clicking the clipboard icon next to the function ID.
 :::
 
-Make sure you have all the requirements above in place and have created your Function using the dashboard. Next you simply need to run the following command 
+Make sure you have all the requirements above in place and have your function ID using the dashboard. Then simply need to run the following command 
 
 ```
 gccli fx restore -i 'ID'`
 ```
 
-Here is an example -:
+Here is an example :-
 
 <cliWindow>
 
@@ -34,4 +34,4 @@ $ gccli fx restore -i 643bcb966c251c33d4b20c28
 
 </cliWindow>
 
-Please note that once you have started working on your Function, GreenCloud does not handle source control. We prefer to let those people who are focussed on your source control needs, like GitHub, GitLab etc, handle them.
+Please note that once you have started working on your Function, GreenCloud does not handle source control. We prefer to let source control services, like GitHub, GitLab etc, handle them.
