@@ -232,9 +232,10 @@ $ gccli status
 
 </cliWindow>
 
-## `function`
+## `function, fx`
 
-This command will return all the function sub commands that are available in the GreenCloud CLI.
+
+This command will return all the function subcommands that are available in the GreenCloud CLI. 
 
 ```
 $ gccli function --help
@@ -285,11 +286,11 @@ USAGE:
   gccli function init -n NAME -l LANG -d 'DESCRIPTION'
 
 OPTIONS:
-  --lang value, -l value         language or template to use
-  --name value, -n value         name to be used in function
-  --description value, -d value  description of function
-  --offline, -o                  create function in offline mode (default: false)
-  --no-folder, --nf              use current folder (default: false)
+  --lang value, -l value         sets language or template to use
+  --name value, -n value         sets name to be used in function
+  --description value, -d value  sets description of function
+  --offline, -o                  creates function in offline mode (default: false)
+  --no-folder, --nf              uses current folder (default: false)
   --help, -h                     show help
 ```
 
@@ -312,6 +313,51 @@ $ gccli function init
 
 </cliWindow>
 
+
+
+### `function info`
+
+This subcommand of the function command shows information about the current function: ID, Name, Description, Language and Capabilities.
+
+```
+$ gccli function info --help
+```
+
+```
+NAME:
+  gccli function info - shows information about current function
+
+USAGE:
+  gccli function info
+
+OPTIONS:
+  --quiet -q  only print function ID
+  --help, happy             shows help
+```
+
+
+
+### `function lang`
+
+This subcommand of the function command lists all the available languages that can be used for your function.
+
+```
+$ gccli function lang --help
+```
+
+```
+NAME:
+  gccli function lang - lists all available languages for function
+
+USAGE:
+  gccli function lang
+
+OPTIONS:
+  --help, happy             shows help
+```
+
+
+
 ### `function start`
 
 This subcommand will attempt to start your function locally on your machine. You must make sure that you have docker installed and running. If the function is already running, GreenCloud will stop the function, rebuild it and start it again.
@@ -328,12 +374,12 @@ USAGE:
   gccli function start -p 8080 -t 10 -l
 
 OPTIONS:
-  --port value, -p value     port to expose the function (default: 8080)
-  --timeout value, -t value  maximum execution time in seconds (default: 10)
-  --logs, -l                 display logs (default: false)
-  --cpu, -c                  choose a cpu for function (default: 1)
-  --memory, -machine         choose memory for function (default: 256)
-  --help, -h                 show help
+  --port value, -p value     sets port to expose the function (default: 8080)
+  --timeout value, -t value  sets maximum execution time in seconds (default: 10)
+  --logs, -l                 sets displays logs (default: false)
+  --cpu, -c                  sets number of cpu cores used for function (default: 1)
+  --memory, -machine         sets megabytes of memory used for function (default: 256)
+  --help, -h                 shows help
 ```
 
 #### Example
@@ -362,15 +408,15 @@ This command will allow you to change the name and description of the function.
 
 ```
 NAME:
-  gccli function edit - change name/description of current function
+  gccli function edit - changes name/description of current function
 
 USAGE:
   gccli function edit -n NAME
 
 OPTIONS:
-  --name value, -n value         name to be used in function
-  --description value, -d value  description of function
-  --help, -h                     show help
+  --name value, -n value         sets name to be used in function
+  --description value, -d value  sets description of function
+  --help, -h                     shows help
 ```
 
 #### Example
@@ -390,7 +436,7 @@ $ gccli function edit
 
 ### `function invoke`
 
-The invoke subcommand allows you to call your function ( once it has been deployed into GreenCloud - see the deploy subcommand for more information ) and pass Body and Query Parameters to your function.
+The invoke subcommand allows you to call your function (once it has been deployed into GreenCloud - see the deploy subcommand for more information ) and pass Body and Query Parameters to your function.
 
 ```
 $ gccli function invoke --help
@@ -405,10 +451,10 @@ USAGE:
 
 OPTIONS:
   --id value, -i value     id of function to invoke
-  --body value, -b value   body to be sent to function
-  --query value, -q value  query params to be sent to function
-  --no-body   	do not send body to function (default: false)		both
-  --no-query  do not send query params to function (default: false)	both
+  --body value, -b value   set body to be sent to function
+  --query value, -q value  set query params to be sent to function
+  --no-body   	           do not send body to function (default: false)
+  --no-query               do not send query params to function (default: false)
   --help, -h               show help
 ```
 
@@ -432,10 +478,23 @@ $ gccli function invoke
 
 ### `function result`
 
-Use this function subcommand to obtain the results from a particular call. Every call in GreenCloud is assigned an ID. See above the 'ID:' section in the invoke response. Use this ID to get the results from your function.
+Use this function subcommand to obtain the results from a particular call. Every call in GreenCloud is assigned an ID. You can find the ID in the invoke response (See above). Use this ID to get the results from your function.
 
 ```
 $ gccli function result --help
+```
+
+
+```
+NAME:
+  gccli function result - gets result of a task using it's ID
+
+USAGE:
+  gccli function result -i ID
+
+OPTIONS:
+  --id value, -i value  ID of task
+  --help, -h            show help
 ```
 
 #### Example
@@ -450,18 +509,6 @@ $ gccli function result -i 647733866aa774b558101974
 ```
 
 </cliWindow>
-
-```
-NAME:
-  gccli function result - gets result of task
-
-USAGE:
-  gccli function result -i ID
-
-OPTIONS:
-  --id value, -i value  id of task
-  --help, -h            show help
-```
 
 ### `function deploy`
 
@@ -507,15 +554,15 @@ $ gccli function public --help
 
 ```
 NAME:
-  gccli function public - create public endpoint to invoke directly
+  gccli function public - create public endpoint to invoke to directly
 
 USAGE:
   gccli function public [command options] [arguments...]
 
 OPTIONS:
-  --id value, -i value  id of function
-  --delete, -d          delete existing endpoint (default: false)
-  --help, -h            show help
+  --id value, -i value  ID of function
+  --delete, -d          deletes existing endpoint (default: false)
+  --help, -h            shows help
 ```
 
 #### Example
@@ -526,16 +573,58 @@ $ gccli function public
 👷 Validating inputs...
 🚨 You must keep the public endpoint safe!
 🔗 Any existing endpoint will be revoked
-✋ Do you accept conditions? (y/n) → y
+✋ Do you wish to continue? (y/n) → y
 🤖 Public endpoint created successfully!
 🔗 https://api.greencloud.dev/gc/e1179ceba33144b7a214f92344590123
 ```
 
 </cliWindow>
 
+
+
+### `function public list`
+
+This command lists all the function's public endpoints.
+
+```
+$ gccli function public list --help
+```
+
+```
+NAME:
+  gccli function public list - lists all a given function's public endpoints
+
+USAGE:
+  gccli function public list [command options]
+
+OPTIONS:
+  --id value, -i value  ID of function
+  --help, -h            shows help
+```
+
+
+### `function list`
+
+This subcommand of the function command lists all the functions.
+
+```
+$ gccli function list --help
+```
+
+```
+NAME:
+  gccli function list - lists all functions
+
+USAGE:
+  gccli function list
+
+OPTIONS:
+  --help, happy             shows help
+```
+
 ### `function delete`
 
-This command will delete the function from the list of functions in your account. You will be prompted to ensure you are sure that this is what you want to do. Remember - this will NOT delete your source code but simply the GreenCloud configuration that enables you to run that function on the internet. You must be in same directory as the function you wish to delete AND the .gcfunction file must be present. It is also possible to delete the function with an ID and passing the -i parameter.
+This command will delete the function from the list of functions in your account. You will be prompted to confirm that this is what you want to do. Remember - this will NOT delete your source code but simply the GreenCloud configuration that enables you to run that function on the internet. You must be in same directory as the function you wish to delete AND the .gcfunction file must be present. It is also possible to delete the function with an ID and passing the -i parameter.
 
 ```
 $ gccli function delete --help
@@ -543,15 +632,15 @@ $ gccli function delete --help
 
 ```
 NAME:
-  gccli function delete - delete function
+  gccli function delete - deletes function
 
 USAGE:
   gccli function delete [command options] [arguments...]
 
 OPTIONS:
-  --id value, -i value  id of function
-  --force, -f           delete current folder (default: false)
-  --help, -h            show help
+  --id value, -i value  ID of function
+  --force, -f           deletes current folder (default: false)
+  --help, -h            shows help
 ```
 
 #### Example
@@ -564,7 +653,7 @@ $ gccli function delete
 😎 Function successfully stopped!
 🚚 All related data will be deleted
 🚨 This action cannot be undone!
-✋ Do you accept conditions? (y/n) → y
+✋ Do you wish to continue? (y/n) → y
 🔥 Function deleted successfully!
 ```
 
@@ -572,7 +661,7 @@ $ gccli function delete
 
 ### `function restore`
 
-This is a VERY powerful and useful command. You can restore your GreenCloud function onto any machine. The command has some extra sub parameters that you can pass to either create the directory, the template or just the .gcfunction file.
+This is a VERY powerful and useful command. You can restore your GreenCloud function onto any machine. The command has some extra sub parameters that you can pass to choose whether to create the directory, the template or just the .gcfunction file.
 
 ```
 $ gccli function restore --help
@@ -586,9 +675,9 @@ USAGE:
   gccli function restore -i ID
 
 OPTIONS:
-  --id value, -i value  id of function
-  --quiet, -q           only restore config file (default: false)
-  --help, -h            show help
+  --id value, -i value  ID of function
+  --quiet, -q           choose to only restore config file (default: false)
+  --help, -h            shows help
 ```
 
 #### Example
@@ -606,9 +695,138 @@ $ gccli function restore -i 6477283e599b4ee92e5171231
 
 </cliWindow>
 
+
+### `function sync`
+
+This command syncs the function from the server.
+
+```
+$ gccli function sync --help
+```
+
+```
+NAME:
+  gccli function sync - syncs function from server
+
+USAGE:
+  gccli function sync
+
+OPTIONS:
+  --help, -h            shows help
+```
+
+
+### `function tasks`
+
+This command lists all tasks of a function using it's ID.
+
+```
+$ gccli function tasks --help
+```
+
+```
+NAME:
+  gccli function tasks
+
+USAGE:
+  gccli function tasks -i ID
+
+OPTIONS:
+  --id value, -i value  ID of function
+  --help, -h            shows help
+```
+
+
+### `function builds`
+
+This command lists all builds of a given function using it's ID.
+
+```
+$ gccli function builds --help
+```
+
+```
+NAME:
+  gccli function builds - lists all function builds
+
+USAGE:
+  gccli function builds -i ID
+
+OPTIONS:
+  --id value, -i value  ID of function
+  --help, -h            shows help
+```
+
+
+### `function metrics`
+
+This command lists metrics of a given function using it's ID.
+
+```
+$ gccli function metrics --help
+```
+
+```
+NAME:
+  gccli function metrics - gets metrics of a function
+
+USAGE:
+  gccli function metrics -i ID
+
+OPTIONS:
+  --id value, -i value  ID of function
+  --help, -h            shows help
+```
+
+
+### `function capabilities`
+
+This command changes the capabilities of a given function. You must have docker running and must be in the function directory to use this command.
+
+```
+$ gccli function capabilities --help
+```
+
+```
+NAME:
+  gccli function capabilities - change capabilities of a function
+
+USAGE:
+  gccli function capabilities [command options] [argument]
+
+OPTIONS:
+  --timeout -t          sets maximum execution time in seconds
+  --cpu -c              sets number of cpu cores used (default: 1)
+  --memory -m           sets megabytes of memory used (default: 256)
+  --sync                sets active sync mode (default: false)
+  --help, -h            shows help
+```
+
+
+
+### `fix`
+
+This command repairs files to help solve build problems.
+
+```
+$ gccli fix --help
+```
+
+```
+NAME:
+  gccli fix - solves build problems
+
+USAGE:
+  gccli fix
+
+OPTIONS:
+  --help, -h            shows help
+```
+
+
 ## `update`
 
-This is another very nice feature of GreenCloud. We work hard to maintain the integrity of the GreenCloud system. As such we will check the version of the CLI that is interacting with the API and will stop out of date CLI's from interacting with the API. Run this command and it will automatically download the latest version and have it ready for use once it has completed. Nice :).
+This is another very nice feature of GreenCloud. We work hard to maintain the integrity of the GreenCloud system. As such we will check the version of the CLI that is interacting with the API and will stop out of date CLI's from interacting with the API. Run this command of Windows and it will direct you to where you can download the latest version. Make sure to then move it to the correct folder. Run this command on Linux or macOS and it will automatically download the latest version and have it ready for use once it has completed. Nice 😎
 
 ```
 $ gccli update --help
@@ -643,3 +861,25 @@ $ gccli update
 ## CLI usage
 
 See more about the usage through this [complete guide](category/the-mighty-cli).
+
+
+
+### `env`
+
+This command changes environment prod/stage
+
+```
+$ gccli env --help
+```
+
+```
+NAME:
+  gccli env - changes environment prod/stage
+
+USAGE:
+  gccli env [command options] [argument]
+
+OPTIONS:
+  --name -n             set name of environment prod/stage
+  --help, -h            shows help
+```
