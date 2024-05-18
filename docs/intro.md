@@ -31,4 +31,4 @@ We have split the documentation in to the main sections of the GreenCloud softwa
 
 #### Guide
 
--   In this section we go over some common issues and also techniques we have created when working with GreenCloud.
+-   In this section we go over how to solve some common issues and also techniques we have created when using GreenCloud.
