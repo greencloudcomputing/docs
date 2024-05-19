@@ -26,12 +26,17 @@ You can add more parmeters to the URL simply by using the '&' sign, here is an e
 
 To be able to call your function from a URL you will need to have created a public URL. 
 
+:::info
+You must be working in the directory where your function is located
+:::
+
+
 1. You can create this by making sure you have deployed your function into GreenCloud :-
 
 <cliWindow>
 
 ```text {1}
-$ ./gccli fx deploy
+ $  gccli fx deploy
 👷 Verifying configuration...
 📦️ Archs: AMD64,ARM64,ARM
 ⏳️ Process may take a while, please wait...
@@ -47,7 +52,7 @@ $ ./gccli fx deploy
 <cliWindow>
 
 ```text {1,7}
-$ ./gccli fx public
+ $ 	gccli fx public
 👷 Validating inputs...
 🚨 You must keep the public endpoint safe!
 🔗 Any existing endpoint will be revoked
@@ -59,7 +64,7 @@ $ ./gccli fx public
 </cliWindow>
 
 :::caution
-- Remember to keep this URL safe and use it wisely. 
+- Remember to keep this URL safe and use it wisely. The URL will expire after five minutes. 
 - GreenCloud are not responsible for how you use this URL. 
 :::
 

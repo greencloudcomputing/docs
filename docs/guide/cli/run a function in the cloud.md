@@ -98,7 +98,7 @@ $ █
 
 ### Get function result
 
-We may look up the result of a previously ran function by the id that was given during the invocation. Let's use the ID from the previous example to get the result of the function once again with the command `gccli fx result` . Enter the task id when prompted.
+We may look up the result of a previously run function by the ID that was given during the invocation. Let's use the ID from the previous example to get the result of the function once again with the command `gccli fx result` . Enter the task ID when prompted.
 
 <cliWindow>
 

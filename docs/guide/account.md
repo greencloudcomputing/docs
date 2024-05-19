@@ -21,16 +21,16 @@ You will need to enter your
 
 ## Sign In
 
-To sign in, to your GreenCloud account please visit [GreenCloud - Sign In](https://www.app.greencloudcomputing.io/signin) :
+To sign in to your GreenCloud account, please visit [GreenCloud - Sign In](https://www.app.greencloudcomputing.io/signin) :
 
 You will need to enter the following information
 
--   GreenCloud account name ( email address )
+-   GreenCloud account name (email address)
 -   GreenCloud account password
 
 ![login](./img/signin.png)
 
-Upon the correct entry of credentials you will be re-directed to the GreenCloud App dashboard to curate your account.
+Upon the correct entry of credentials you will be re-directed to the GreenCloud App dashboard to manage your account.
 
 ![dashboard](./img/dashboard.png)
 

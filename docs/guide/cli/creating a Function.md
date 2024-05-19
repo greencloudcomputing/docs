@@ -8,6 +8,7 @@ sidebar_position: 5
 
 -   The CLI [tool](Installing%20the%20CLI)
 -   Being logged in
+-   Docker being installed
 
 :::
 
@@ -25,9 +26,9 @@ Once you are logged in, you can create a function by following these steps:
 
 -   Navigate to the directory where you want the function to be located.
 -   Use the following command to create the function `gccli fx init`
--   Enter function name. `alphanumeric`
--   Enter one of the available languages. `go` `py` `js` `cs` `rb`
--   Enter description. `optional` `ascii` `max=80`
+-   Enter function name, this should be `alphanumeric`
+-   Enter one of the available languages `go` `py` `js` `cs` `rb` `rs`
+-   Enter description `optional` `ascii` `max=80`
 
 <cliWindow>
 
@@ -81,10 +82,11 @@ gccli fx init -n myFunction -l go -d 'my description' --offline
 
 GreenCloud supports the following languages at the time of writing:
 
--   🔆 GOLANG → go (1.18)
--   🔆 PYTHON → py (3.7)
--   🔆 NODEJS → js (16)
+-   🔆 GOLANG → go (1.21)
+-   🔆 PYTHON → py (3.12)
+-   🔆 NODEJS → js (18)
 -   🔆 CSHARP → cs (6)
 -   🔆 RUBY → rb (2.7.5)
+-   🔆 RUST → rb (1.7.8)
 
 We will be adding more as GreenCloud grows. To select the languages use the abbreviation. For example if you are going to write a function in GoLang use 'go'.

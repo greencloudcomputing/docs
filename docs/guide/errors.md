@@ -78,6 +78,6 @@ $ gccli fx list
 
 ```
 
-If you are using Linux or OSX simply run the 'update' command as instructed. If you are on a windows machine you will need to download the latest version of the CLI from [here](https://dl.greencloudcomputing.io/gccli)
+If you are using Linux or OSX simply run the 'update' command as instructed. If you are on a windows machine you will need to download the latest version of the CLI from [here](https://app.greencloudcomputing.io/downloads)
 
 </cliWindow>

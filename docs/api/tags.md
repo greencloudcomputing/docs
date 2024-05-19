@@ -8,13 +8,13 @@ We have introduced the idea of tags in GreenCloud. You may be familiar with this
 
 Example usages we see for this are -:
 
-1. You may have many functions in your GreenCloud account. Imagine searching 100 functions to find one, it could be tedious. Searching using a tag could reduce the number to sift through considerably.
+1. You may have many functions in your GreenCloud account. Imagine searching a hundred functions to find one, it could be tedious. Searching using a tag could reduce the number to sift through considerably.
 2. GreenCloud will in future consist of more services ( Storage and Database ) - as such we will allow tags on all resources. Being able to use the same tag name across different services will effectively organise your GreenCloud services.
 
 ## Create Tag
 
 :::info
-Call this end point to create a tag in GreenCloud. You pass the name and color in the body of the call. The response from the call is an HTTP 201 response along with a JSON object containig an ID attribute of the newly created tag.
+Call this endpoint to create a tag in GreenCloud. You pass the name and color in the body of the call. The response from the call is an HTTP 201 response along with a JSON object containig an ID attribute of the newly created tag.
 :::
 
 #### Endpoint
@@ -101,7 +101,7 @@ Empty body
 ## Edit A Tag
 
 :::info
-Use this end point to edit a tag. Pass the id of the tag on the URL along with the updated JSON object for the tag. Succesful update results in a 204 response from the server.
+Use this endpoint to edit a tag. Pass the id of the tag on the URL along with the updated JSON object for the tag. Succesful update results in a 204 response from the server.
 :::
 
 #### Endpoint

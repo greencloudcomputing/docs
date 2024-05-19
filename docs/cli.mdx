@@ -24,11 +24,11 @@ VERSION:
 COMMANDS:
   login         you must login to start using GreenCloud
   logout        logout to stop using GreenCloud CLI
-  node          manage node settings
-  info          get info from user
-  status        get all running function
-  function, fx  manage functions
-  update        check if a newer version is available
+  node          manages node settings
+  info          gets info from user
+  status        gets all running function
+  function, fx  manages functions
+  update        checks if a newer version is available
 
 GLOBAL OPTIONS:
   --help, -h     show help
@@ -436,7 +436,7 @@ $ gccli function edit
 
 ### `function invoke`
 
-The invoke subcommand allows you to call your function (once it has been deployed into GreenCloud - see the deploy subcommand for more information ) and pass Body and Query Parameters to your function.
+The invoke subcommand allows you to call your function (once it has been deployed into GreenCloud - see the deploy subcommand for more information) and pass Body and Query Parameters to your function.
 
 ```
 $ gccli function invoke --help
@@ -450,9 +450,9 @@ USAGE:
   gccli function invoke -i ID -b '{"key":"value"}'
 
 OPTIONS:
-  --id value, -i value     id of function to invoke
-  --body value, -b value   set body to be sent to function
-  --query value, -q value  set query params to be sent to function
+  --id value, -i value     ID of function to invoke
+  --body value, -b value   sets body to be sent to function
+  --query value, -q value  sets query params to be sent to function
   --no-body   	           do not send body to function (default: false)
   --no-query               do not send query params to function (default: false)
   --help, -h               show help

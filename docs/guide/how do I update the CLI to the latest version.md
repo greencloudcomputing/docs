@@ -25,4 +25,4 @@ $ █
 
 </cliWindow>
 
-This update method is not supported on Windows systems. You will need to visit the [download](https://dl.greencloudcomputing.io) web site and select the latest version. We are in the process of changing this method to one where you can download the latest build directly from the account section of the dashboard web site.
+This update method is not supported on Windows systems. You will need to visit the [download](https://app.greencloudcomputing.io/downloads) web site and select the latest version. We are in the process of changing this method to one where you can download the latest build directly from the account section of the dashboard web site.
