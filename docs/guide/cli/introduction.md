@@ -20,49 +20,182 @@ See the next section for details about installing the CLI. What follows are some
 
 #### If you are working in the directory where gccli.exe is located -
 
-1. Display general CLI information by typing
+
+1. Display general CLI information and details of all the commands in the CLI by typing
 
 ```
 ./gccli
 ```
 
-and pressing enter will display details of all the commands in the CLI
 
-2. Getting command specific help by adding --help after the command name.
+<cliWindow>
+
+```text {1}
+$ gccli
+NAME:
+   gccli - the future of clean, ethical cloud computing....
+
+USAGE:
+   gccli [global options] command [command options]
+
+VERSION:
+   24.05.15
+
+COMMANDS:
+   login         you must login to start using GreenCloud
+   logout        to stop using GreenCloud simply logout
+   node          manage node settings
+   info          get info from user
+   status        get all running function
+   function, fx  manage functions
+   update        check if a newer version is available
+
+GLOBAL OPTIONS:
+   --help, -h     show help
+   --version, -v  print the version
+```
+
+</cliWindow>
+
+---
+
+2. Get command specific help by adding --help after the command name. This will display all the parameters for that particular command and often an example usage of it as well.
 
 ```
 ./gccli 'a command' --help
 ```
 
-Here is an example
+&nbsp&nbspe.g.
 
 ```
 ./gccli function --help
 ```
 
-This will display all the parameters for that particular command and often an example usage of it as well.
+<cliWindow>
 
+```text {1}
+gccli function --help
+NAME:
+   gccli function - manage functions
 
+USAGE:
+   gccli function command [command options]
+
+COMMANDS:
+   init          generates a new function with the data provided
+   info          show information of current function
+   lang          list all available languages for function
+   start         starts function image to test locally
+   logs          display logs of local function
+   stop          stop function container running
+   edit          change name/description of current function
+   invoke        invoke a remote function
+   result        gets result of task
+   deploy        builds and pushes multi-arch container images
+   public        create public endpoint to invoke directly
+   list          list all functions
+   delete        delete function
+   restore       restore function by ID
+   sync          sync function from server
+   tasks         list all tasks
+   builds        list all builds
+   metrics       get metrics of function
+   capabilities  change capabilities of function
+
+OPTIONS:
+   --help, -h  show help
+
+```
+
+</cliWindow>
+
+---
 #### If you are not working in the directory where gccli.exe is located -
 
-1. Display general CLI information by typing
+1. Display general CLI information and details of all the commands in the CLI by typing
 
 ```
-gccli
+./gccli
 ```
 
-and pressing enter will display details of all the commands in the CLI
 
-2. Getting command specific help by adding --help after the command name.
+<cliWindow>
+
+```text {1}
+$ gccli
+NAME:
+   gccli - the future of clean, ethical cloud computing....
+
+USAGE:
+   gccli [global options] command [command options]
+
+VERSION:
+   24.05.15
+
+COMMANDS:
+   login         you must login to start using GreenCloud
+   logout        to stop using GreenCloud simply logout
+   node          manage node settings
+   info          get info from user
+   status        get all running function
+   function, fx  manage functions
+   update        check if a newer version is available
+
+GLOBAL OPTIONS:
+   --help, -h     show help
+   --version, -v  print the version
+```
+
+</cliWindow>
+
+---
+
+2. Get command specific help by adding --help after the command name. This will display all the parameters for that particular command and often an example usage of it as well.
 
 ```
-gccli 'a command' --help
+./gccli 'a command' --help
 ```
 
-Here is an example
+&nbsp&nbspe.g.
 
 ```
+./gccli function --help
+```
+
+<cliWindow>
+
+```text {1}
 gccli function --help
+NAME:
+   gccli function - manage functions
+
+USAGE:
+   gccli function command [command options]
+
+COMMANDS:
+   init          generates a new function with the data provided
+   info          show information of current function
+   lang          list all available languages for function
+   start         starts function image to test locally
+   logs          display logs of local function
+   stop          stop function container running
+   edit          change name/description of current function
+   invoke        invoke a remote function
+   result        gets result of task
+   deploy        builds and pushes multi-arch container images
+   public        create public endpoint to invoke directly
+   list          list all functions
+   delete        delete function
+   restore       restore function by ID
+   sync          sync function from server
+   tasks         list all tasks
+   builds        list all builds
+   metrics       get metrics of function
+   capabilities  change capabilities of function
+
+OPTIONS:
+   --help, -h  show help
+
 ```
 
-This will display all the parameters for the function command and often an example usage of it as well.
+</cliWindow>
