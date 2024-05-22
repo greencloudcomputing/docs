@@ -17,9 +17,14 @@ A Function consists of -:
 
     At the time of writing GreenCloud supports -:
 
-    GoLang, Node JS, Python, C#, Ruby
+-   🔆 GOLANG → go (1.21)
+-   🔆 PYTHON → py (3.12)
+-   🔆 NODEJS → js (18)
+-   🔆 CSHARP → cs (6)
+-   🔆 RUBY → rb (2.7.5)
+-   🔆 RUST → rs (1.7.8)
 
-    We are looking to add Rust, C / C++ and WASM in the near future.
+    We are looking to add C / C++ and WASM in the near future.
 
 ## Create
 

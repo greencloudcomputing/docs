@@ -32,7 +32,7 @@ You will need to enter the following information
 
 Upon the correct entry of credentials you will be re-directed to the GreenCloud App dashboard to manage your account.
 
-![dashboard](./img/dashboard.png)
+![dashboard](./img/dashboard-alternative.png)
 
 ## Reset Password
 
