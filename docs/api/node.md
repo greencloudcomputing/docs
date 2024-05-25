@@ -1,12 +1,10 @@
 ---
-sidebar_position: 3
+sidebar_position: 7
 ---
 
 # 📡 Node
 
-:::caution
-TODO: Waiting on node update
-:::
+A Node processes serverless GreenCloud function requests. Node commands allow you to create nodes and manage node settings.
 
 ## Create
 
@@ -73,7 +71,7 @@ HTTP 200
 
 Call this endpoint with the 'hash' of the node that you wish to remove. Call the list endpoint to find the list of nodes in the account, each node has an associated hash. If there is an associated node for the hash it is removed from the account and a 204 HTTP response is returned.
 
-#### Endpoint: [https://api.greencloud.dev/v1/node/hash_of_the_node](https://api.greencloud.dev/v1/node/hash_of_the_node)
+#### Endpoint: [https://api.greencloud.dev/v1/node/[hash_of_the_node]](https://api.greencloud.dev/v1/node/hash_of_the_node)
 
 ```js title="HTTP VERB"
 DELETE
@@ -99,7 +97,7 @@ HTTP 204
 
 If the node has been deleted, you can use the restore endpoint to enable it again on the account. Simply pass the hash of the node on the url and if it is found, it will be restored with a 200 HTTP response returned.
 
-#### Endpoint: [https://api.greencloud.dev/v1/node/hash_of_the_node](https://api.greencloud.dev/v1/node/hash_of_the_node)
+#### Endpoint: [https://api.greencloud.dev/v1/node/[hash_of_the_node]](https://api.greencloud.dev/v1/node/hash_of_the_node)
 
 ```js title="HTTP VERB"
 PATCH
