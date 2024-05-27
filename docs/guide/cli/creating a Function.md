@@ -68,7 +68,7 @@ $ █
 
 </cliWindow>
 
-For all the options, check out the [CLI api](../../cli#function-init)
+For all the options, check out the [CLI](../cli/creating%20a%20Function.md) api
 
 ### Local functions
 
