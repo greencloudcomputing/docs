@@ -4,15 +4,19 @@ sidebar_position: 10
 
 # ➡️ Trigger (function chain)
 
-::::info
+
 When you run a function a function in GreenCloud you may wish for it to cause another function to run afterwards automatically. You can do this by creating a trigger. Triggers have the option to allow you to pass the result from one function into the function which is automatically called afterwards.
 
-::::
+
 
 
 ## Create
 
+::::info
 Use this endpoint to create a trigger which causes a function to execute automatically after another function has been called. You have the option to include tags and a description.
+
+
+::::
 
 #### Endpoint
 
@@ -60,7 +64,10 @@ Use this endpoint to create a trigger which causes a function to execute automat
 
 ## Get
 
+::::info
 Use this endpoint to retrieve information about a trigger using it's Id.
+
+::::
 
 #### Endpoint
 
@@ -103,7 +110,10 @@ Empty body
 
 ## List
 
+::::info
 Use this endpoint to get a list of triggers in your GreenCloud account. You can include the function Id to find triggers for that specific function. If the list of triggers is larger than a single page of results you can choose which page of results to view using `page`. You can also limit the number of triggers listed using `limit`.
+
+::::
 
 #### Endpoint
 
@@ -166,7 +176,9 @@ Use this endpoint to get a list of triggers in your GreenCloud account. You can 
 
 ## Edit
 
+::::info
 Use this endpoint to edit a trigger. You have the option to include tags and a description.
+::::
 
 #### Endpoint
 
@@ -211,7 +223,9 @@ Use this endpoint to edit a trigger. You have the option to include tags and a d
 
 ## Delete
 
+::::info
 Use this endpoint to delete a trigger from the GreenCloud system.
+::::
 
 #### Endpoint
 
