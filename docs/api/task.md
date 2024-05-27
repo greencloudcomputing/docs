@@ -7,15 +7,11 @@ import TabItem from '@theme/TabItem';
 
 # 🧑‍💼 Task
 
-:::caution
-Missing intro
-:::
+A task represents a single execution of a function. Task commands allow you to create, list and view the results of your tasks.
 
 ## Create Task
 
-:::info
-TODO ⚠️
-:::
+Create a task to call an execution of a single function.
 
 #### Endpoint
 
@@ -66,9 +62,7 @@ You may pass any valid json in the request body to be consumed by the function.
 
 ## Get Task
 
-:::info
-TODO ⚠️
-:::
+Calling task with your task ID will return more detailed information about that task.
 
 #### Endpoint
 
@@ -114,9 +108,7 @@ Empty body
 
 ## List Tasks
 
-:::info
-TODO ⚠️
-:::
+List will list all your tasks with their progress and their HTTP Status.
 
 #### Endpoint
 
@@ -162,9 +154,7 @@ Empty body
 
 ## Result Tasks
 
-:::info
-TODO ⚠️
-:::
+Calling your task result with the task ID will return the result of the task function.
 
 #### Endpoint
 

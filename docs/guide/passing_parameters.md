@@ -64,7 +64,8 @@ You must be working in the directory where your function is located
 </cliWindow>
 
 :::caution
-- Remember to keep this URL safe and use it wisely. The URL will expire after five minutes. 
+- Remember to keep this URL safe and use it wisely.
+- The result returned to the URL will expire after five minutes. 
 - GreenCloud are not responsible for how you use this URL. 
 :::
 
