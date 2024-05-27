@@ -66,6 +66,7 @@ Use this endpoint to create a trigger which causes a function to execute automat
 
 ::::info
 Use this endpoint to retrieve information about a trigger using it's Id.
+These include the initial function ID, the subsequent function ID, the tags attached to the trigger, its status result, whether the results of the initial function are fed to the subsequent function, its description and when it was created.  
 
 ::::
 
