@@ -103,7 +103,7 @@ Empty body
 
 ## List
 
-Use this endpoint to get a list of triggers in your GreenCloud account. You can include the function Id to find triggers for that specific function.
+Use this endpoint to get a list of triggers in your GreenCloud account. You can include the function Id to find triggers for that specific function. If the list of triggers is larger than a single page of results you can choose which page of results to view using `page`. You can also limit the number of triggers listed using `limit`.
 
 #### Endpoint
 
@@ -141,7 +141,7 @@ Use this endpoint to get a list of triggers in your GreenCloud account. You can 
 ```js title="Status: 200 OK"
 {
   "pageCount": 1,
-  "pageSize": 2,
+  "pageSize": 1,
   "totalCount": 2,
   "results": [{
     "id": "65dd290735dd849401eacc8e",
