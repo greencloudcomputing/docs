@@ -5,7 +5,7 @@ sidebar_position: 10
 # ➡️ Trigger (function chain)
 
 
-When you run a function a function in GreenCloud you may wish for it to cause another function to run afterwards automatically. You can do this by creating a trigger. Triggers have the option to allow you to pass the result from one function into the function which is automatically called afterwards.
+When you run a function in GreenCloud you may wish for it to cause another function to run afterwards automatically. You can do this by creating a trigger. Triggers have the option to allow you to pass the result from one function into the function which is automatically called afterwards.
 
 
 
