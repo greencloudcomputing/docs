@@ -5,10 +5,23 @@ sidebar_position: 3
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+# 🌱 `function`
+
+Function commands allow you to create and manage your functions, run them locally before pushing to GreenCloud, deploy your functions to GreenCloud, list all your tasks and fetch the results of a task.
+
+:::tip Requirements
+
+Once you have created your function, you must be working within the function directory to use the function, fx subcommands.
+:::
+
+
 ## `function, fx`
 
+::::info
 
 This command will return all the function subcommands that are available in the GreenCloud CLI. 
+
+::::
 
 ```
 $ gccli function --help
@@ -22,22 +35,25 @@ USAGE:
   gccli function command [command options] [arguments...]
 
 COMMANDS:
-  init     generates a new function with the data provided
-  info     shows information about current function
-  lang     lists all available languages for function
-  start    starts function image to test locally
-  logs     displays logs of local function
-  stop     stops function container running
-  edit     changes name/description of current function
-  invoke   invokes a remote function
-  result   gets result of task
-  deploy   builds and pushes multi-arch container images
-  public   creates public endpoint to invoke directly
-  list     lists all functions
-  delete   deletes function
-  restore  restores function by ID
-  sync     syncs function from server
-  tasks    lists all tasks
+  init          generates a new function with the data provided
+  info          shows information about current function
+  lang          lists all available languages for function
+  start         starts function image to test locally
+  logs          displays logs of local function
+  stop          stops function container running
+  edit          changes name/description of current function
+  invoke        invokes a remote function
+  result        gets result of task
+  deploy        builds and pushes multi-arch container images
+  public        creates public endpoint to invoke directly
+  list          lists all functions
+  delete        deletes function
+  restore       restores function by ID
+  sync          syncs function from server
+  tasks         lists all tasks
+  builds        lists all builds
+  metrics       gets metrics of function
+  capabilities  changes capabilities
 
 OPTIONS:
   --help, -h  show help
@@ -45,7 +61,10 @@ OPTIONS:
 
 ### `function init`
 
+::::info
 This subcommand of the function command initiates the configuration process of creating a new function.
+
+::::
 
 ```
 $ gccli function init --help
@@ -90,7 +109,11 @@ $ gccli function init
 
 ### `function info`
 
+::::info
+
 This subcommand of the function command shows information about the current function: ID, Name, Description, Language and Capabilities.
+
+::::
 
 ```
 $ gccli function info --help
@@ -112,7 +135,10 @@ OPTIONS:
 
 ### `function lang`
 
+::::info
 This subcommand of the function command lists all the available languages that can be used for your function.
+
+::::
 
 ```
 $ gccli function lang --help
@@ -133,7 +159,11 @@ OPTIONS:
 
 ### `function start`
 
+::::info
 This subcommand will attempt to start your function locally on your machine. You must make sure that you have docker installed and running. If the function is already running, GreenCloud will stop the function, rebuild it and start it again.
+
+::::
+
 
 ```
 $ gccli function start --help
@@ -171,13 +201,66 @@ $ gccli function start
 
 </cliWindow>
 
+
+### `function logs`
+
+::::info
+This subcommand will display logs of the local function.
+
+::::
+
+
+```
+$ gccli function logs --help
+```
+
+```
+NAME:
+  gccli function logs - displays logs of local function
+
+USAGE:
+  gccli function logs [command options]
+
+OPTIONS:
+  --help, -h                 shows help
+```
+
+
+### `function stop`
+
+::::info
+This subcommand will stop your running function container.
+
+::::
+
+
+```
+$ gccli function stop --help
+```
+
+```
+NAME:
+  gccli function stop - stops function container running
+
+USAGE:
+  gccli function stop
+
+OPTIONS:
+  --help, -h                 shows help
+```
+
 ### `function edit`
+
+::::info
+This command will allow you to change the name and description of the function.
+
+::::
 
 ```
 $ gccli function edit --help
 ```
 
-This command will allow you to change the name and description of the function.
+
 
 ```
 NAME:
@@ -209,7 +292,10 @@ $ gccli function edit
 
 ### `function invoke`
 
+::::info
 The invoke subcommand allows you to call your function (once it has been deployed into GreenCloud - see the deploy subcommand for more information) and pass Body and Query Parameters to your function.
+
+::::
 
 ```
 $ gccli function invoke --help
@@ -251,7 +337,12 @@ $ gccli function invoke
 
 ### `function result`
 
+
+::::info
 Use this function subcommand to obtain the results from a particular call. Every call in GreenCloud is assigned an ID. You can find the ID in the invoke response (See above). Use this ID to get the results from your function.
+
+::::
+
 
 ```
 $ gccli function result --help
@@ -285,7 +376,10 @@ $ gccli function result -i 647733866aa774b558101974
 
 ### `function deploy`
 
+::::info
 When you are happy with your function and ready to register it into GreenCloud - you use this command to build the container again and then publish it into the GreenCloud registry.
+
+::::
 
 ```
 $ gccli function deploy --help
@@ -319,7 +413,11 @@ $ gccli function deploy
 
 ### `function public`
 
+::::info
 Use this command carefully! This where GreenCloud starts to get cool! Using this command you generate a public URL that you can call and pass Query Parameters and Body Payloads into.
+
+::::
+
 
 ```
 $ gccli function public --help
@@ -357,7 +455,10 @@ $ gccli function public
 
 ### `function public list`
 
+::::info
 This command lists all the function's public endpoints.
+
+::::
 
 ```
 $ gccli function public list --help
@@ -378,7 +479,11 @@ OPTIONS:
 
 ### `function list`
 
+::::info
 This subcommand of the function command lists all the functions.
+
+::::
+
 
 ```
 $ gccli function list --help
@@ -397,7 +502,11 @@ OPTIONS:
 
 ### `function delete`
 
+::::info
 This command will delete the function from the list of functions in your account. You will be prompted to confirm that this is what you want to do. Remember - this will NOT delete your source code but simply the GreenCloud configuration that enables you to run that function on the internet. You must be in same directory as the function you wish to delete AND the .gcfunction file must be present. It is also possible to delete the function with an ID and passing the -i parameter.
+
+::::info
+
 
 ```
 $ gccli function delete --help
@@ -434,7 +543,12 @@ $ gccli function delete
 
 ### `function restore`
 
+
+::::info
 This is a VERY powerful and useful command. You can restore your GreenCloud function onto any machine. The command has some extra sub parameters that you can pass to choose whether to create the directory, the template or just the .gcfunction file.
+
+::::
+
 
 ```
 $ gccli function restore --help
@@ -471,7 +585,12 @@ $ gccli function restore -i 6477283e599b4ee92e5171231
 
 ### `function sync`
 
+::::info
+
 This command syncs the function from the server.
+
+::::
+
 
 ```
 $ gccli function sync --help
@@ -491,7 +610,12 @@ OPTIONS:
 
 ### `function tasks`
 
+::::info
+
 This command lists all tasks of a function using it's ID.
+
+::::info
+
 
 ```
 $ gccli function tasks --help
@@ -512,7 +636,12 @@ OPTIONS:
 
 ### `function builds`
 
+
+::::info
 This command lists all builds of a given function using it's ID.
+
+::::
+
 
 ```
 $ gccli function builds --help
@@ -533,7 +662,12 @@ OPTIONS:
 
 ### `function metrics`
 
+
+::::info
 This command lists metrics of a given function using it's ID.
+
+::::
+
 
 ```
 $ gccli function metrics --help
@@ -554,7 +688,11 @@ OPTIONS:
 
 ### `function capabilities`
 
+::::info
 This command changes the capabilities of a given function. You must have docker running and must be in the function directory to use this command.
+
+::::
+
 
 ```
 $ gccli function capabilities --help

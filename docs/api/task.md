@@ -11,7 +11,11 @@ A task represents a single execution of a function. Task commands allow you to c
 
 ## Create Task
 
+::::info
+
 Create a task to call an execution of a single function.
+
+::::
 
 #### Endpoint
 
@@ -62,7 +66,11 @@ You may pass any valid json in the request body to be consumed by the function.
 
 ## Get Task
 
+::::info
+
 Calling task with your task ID will return more detailed information about that task.
+
+::::
 
 #### Endpoint
 
@@ -108,7 +116,10 @@ Empty body
 
 ## List Tasks
 
+::::info
 List will list all your tasks with their progress and their HTTP Status.
+
+::::
 
 #### Endpoint
 
@@ -154,7 +165,11 @@ Empty body
 
 ## Result Tasks
 
+::::info
+
 Calling your task result with the task ID will return the result of the task function.
+
+::::
 
 #### Endpoint
 

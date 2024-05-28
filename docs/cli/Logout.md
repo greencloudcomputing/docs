@@ -5,7 +5,12 @@ sidebar_position: 5
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+# 🔒 `logout`
+
+::::info
 This command clears your access token from the system. You will be prompted that you are sure about logging out.
+
+::::
 
 ```
 $ gccli logout --help
