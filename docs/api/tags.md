@@ -14,7 +14,7 @@ Example usages we see for this are -:
 ## Create Tag
 
 :::info
-Call this endpoint to create a tag in GreenCloud. You pass the name and color in the body of the call. The response from the call is an HTTP 201 response along with a JSON object containig an ID attribute of the newly created tag.
+Call this endpoint to create a tag in GreenCloud. You pass the name and color in the body of the call. The response from the call is an HTTP 201 response along with a JSON object containing an ID attribute of the newly created tag.
 :::
 
 #### Endpoint
