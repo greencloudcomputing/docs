@@ -7,7 +7,9 @@ import TabItem from '@theme/TabItem';
 
 # 🧑 Account
 
-## Get
+You can retrieve your user information and manage your account settings with calls to the user endpoint.
+
+## User
 
 :::info
 This endpoint allows authenticated users to get their account information.

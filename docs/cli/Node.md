@@ -5,9 +5,17 @@ sidebar_position: 6
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+# 📡 node
+
+These commands allow you to add nodes to your GreenCloud account and manage your node settings.
+
 ## `node`
 
+::::info
+
 This command allows you to manage your node settings by adding a node and listing your existing nodes.
+
+::::
 
 ```
 $ gccli node --help
@@ -30,7 +38,12 @@ OPTIONS:
 
 ### `node add`
 
-This command allows you to add a node to your account.
+::::info
+
+This subcommand allows you to add a node to your account by providing an IP address of the device you wish to use. You 
+
+::::
+
 
 ```
 $ gccli node add --help
@@ -51,7 +64,12 @@ OPTIONS:
 
 ### `node list`
 
+::::info
+
 This command lists all nodes on your account.
+
+::::
+
 
 ```
 $ gccli node list --help

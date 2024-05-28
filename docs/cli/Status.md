@@ -5,10 +5,11 @@ sidebar_position: 7
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## `status`
+# 📢 status
 
+::::info
 This command will give you more detailed information about the status of any functions that are running locally on your machine before pushing them into the cloud.
-
+::::
 ```
 $ gccli status --help
 ```

@@ -6,7 +6,10 @@ sidebar_position: 2
 
 GreenCloud has built in Authentication from the ground up. From the early days we realised that security is a big part of a cloud system. As such we use industry strength encryption and STRONGLY encourage our users to use 2FA which dramatically reduces the chances of an attack on an account.
 
+
+:::tip Requirements
 The first thing you will need to do is to Register an account.
+:::
 
 ## Register
 

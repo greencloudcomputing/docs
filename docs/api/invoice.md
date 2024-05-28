@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # 🧾 Invoice
 
-User may access to their invoices with the Invoice endpoint.
+User may access their invoices with the Invoice endpoint.
 
 ## Get Invoice
 
