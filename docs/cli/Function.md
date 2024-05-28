@@ -5,7 +5,7 @@ sidebar_position: 3
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# 🌱 function
+# 🌱 `function`
 
 Function commands allow you to create and manage your functions, run them locally before pushing to GreenCloud, deploy your functions to GreenCloud, list all your tasks and fetch the results of a task.
 

@@ -5,7 +5,7 @@ sidebar_position: 4
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# 🔓 login
+# 🔓 `login`
 
 ::::info
 Use this command to allow you to interact with the GreenCloud API. You will need your API Key which is in your GreenCloud Account section to be able to login.

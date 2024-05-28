@@ -5,7 +5,7 @@ sidebar_position: 6
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# 📡 node
+# 📡 `node`
 
 These commands allow you to add nodes to your GreenCloud account and manage your node settings.
 

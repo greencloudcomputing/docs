@@ -5,7 +5,7 @@ sidebar_position: 4
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# 📄 info
+# 📄 `info`
 
 ::::info
 This command will return your GreenCloud ID, the account you are logged into and your server information.
