@@ -2,6 +2,8 @@
 sidebar_position: 8
 ---
 
+import BrowserWindow from '@site/src/components/BrowserWindow';
+
 # 💾 Storing files in GreenCloud
 
 ## How does it work?
@@ -12,7 +14,7 @@ GreenCloud ensures your files are private by masking important information. File
 
 ## Creating a storage function
 
-1. Use the gccli command
+#### 1. Use the gccli command
 
 ```
 gccli fx init
@@ -38,7 +40,45 @@ $ gccli fx init
 
 </cliWindow>
 
-2. Write your code to create storage and then store your information within.
+#### 2. Open your created function.
+
+#### Example
+
+```go
+
+package function
+
+import (
+	"net/http"
+
+	handler "github.com/openfaas/templates-sdk/go-http"
+)
+
+// Handle a function invocation
+func Handle(req handler.Request) (handler.Response, error) {
+	var err error
+
+	body := req.Body
+	headers := http.Header{
+		"Content-Type": []string{req.Header.Get("Content-Type")},
+	}
+
+	if len(body) == 0 {
+		body = []byte("Hello from GO by GreenCloud!")
+		headers.Set("Content-Type", "text/plain; charset=utf-8")
+	}
+
+	return handler.Response{
+		Body:       body,
+		StatusCode: http.StatusOK,
+		Header:     headers,
+	}, err
+}
+
+```
+
+
+#### 3. Write your code to create storage and then store your information within.
 
 #### Example
 
@@ -48,51 +88,42 @@ package function
 
 import (
 	"encoding/base64"
-	"fmt"
-	"io"
 	"net/http"
-	"os"
 
 	handler "github.com/openfaas/templates-sdk/go-http"
 )
 
+// Handle a function invocation
 func Handle(req handler.Request) (handler.Response, error) {
 	var err error
 
-	// Open the image file
-	file, err := os.Open("./img/Screenshot 2023-11-22 210028.png")
-	if err != nil {
-		return handler.Response{}, err
-	}
-	defer file.Close()
-
-	// Read the image into a byte slice
-	imgBytes, err := io.ReadAll(file)
-	if err != nil {
-		return handler.Response{}, err
-	}
-
-	// Convert the byte slice to a base64 string
-	encoded := base64.StdEncoding.EncodeToString(imgBytes)
-
-	// Create an HTML img tag with the base64 string
-	imgTag := fmt.Sprintf("<img src=\"data:image/png;base64,%s\">", encoded)
-
-	// Set the Content-Type header to text/html
+	body := req.Body
 	headers := http.Header{
-		"Content-Type": []string{"text/html; charset=utf-8"},
+		"Content-Type": []string{req.Header.Get("Content-Type")},
 	}
+
+	if len(body) == 0 {
+		body = []byte("Hello from GO by GreenCloud!")
+		headers.Set("Content-Type", "text/plain; charset=utf-8")
+	}
+
+	text := []byte("I am a storage Test!")
+
+	// set storage
+	newStorage := base64.StdEncoding.EncodeToString([]byte("{\"admin\":1,\"password\":\"rich\"}"))
+	headers.Set("GC-Storage", newStorage)
 
 	return handler.Response{
-		Body:       []byte(imgTag),
+		Body:       []byte(text),
 		StatusCode: http.StatusOK,
 		Header:     headers,
-	}, nil
+	}, err
 }
+
 
 ```
 
-3. Deploy your code to GreenCloud
+#### 4. Deploy your code to GreenCloud
 
 <cliWindow>
 
@@ -108,7 +139,7 @@ func Handle(req handler.Request) (handler.Response, error) {
 
 </cliWindow>
 
-4. Create a public endpoint
+#### 5. Create a public endpoint URL.
 
 <cliWindow>
 
@@ -124,9 +155,31 @@ func Handle(req handler.Request) (handler.Response, error) {
 
 </cliWindow>
 
-5. Access your public endpoint using the link provided.
+#### 6. Access your public endpoint using the link provided.
 
-6. Make sure to delete the endpoint when it is no longer needed.
+#### Example
+
+<BrowserWindow url="https://api.greencloud.dev/gc/6655ff265b7bb1846afb0f6a">
+
+⏳ Your function is queued up and will be executed in due time.
+
+The result will be available for the next 5 minutes at the link below.
+
+https://api.greencloud.dev/gc/6656ef17f9440e67ae781692/result
+
+</BrowserWindow>
+
+#### 7. Follow the result link to retrieve your result.
+
+#### Example
+
+<BrowserWindow url="https://api.greencloud.dev/gc/6656ef17f9440e67ae781692/result">
+
+I am a storage Test!
+
+</BrowserWindow>
+
+#### 8. Make sure to delete the endpoint when it is no longer needed.
 
 #### Example
 
