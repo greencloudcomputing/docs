@@ -136,7 +136,7 @@ func Handle(req handler.Request) (handler.Response, error) {
 <cliWindow>
 
 ```text {1}
- $ 	gccli fx public
+ $ gccli fx public
 👷 Validating inputs...
 🚨 You must keep the public endpoint safe!
 ✋ Do you wish to continue? (y/n) → y
