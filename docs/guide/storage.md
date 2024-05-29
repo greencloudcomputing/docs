@@ -139,7 +139,6 @@ func Handle(req handler.Request) (handler.Response, error) {
  $ 	gccli fx public
 👷 Validating inputs...
 🚨 You must keep the public endpoint safe!
-🔗 Any existing endpoint will be revoked
 ✋ Do you wish to continue? (y/n) → y
 🤖 Public endpoint created successfully!
 🔗 https://api.greencloud.dev/gc/6655ff265b7bb1846afb0f6a
