@@ -120,7 +120,7 @@ func Handle(req handler.Request) (handler.Response, error) {
 <cliWindow>
 
 ```text {1}
- $  gccli fx deploy
+ $ gccli fx deploy
 👷 Verifying configuration...
 📦️ Archs: AMD64,ARM64,ARM
 ⏳️ Process may take a while, please wait...
