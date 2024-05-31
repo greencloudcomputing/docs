@@ -36,7 +36,7 @@ Use this endpoint to create a trigger which causes a function to execute automat
 | -------------   | ------------------------------ | ------------------------------------- |
 | `functionId`    | 664f8feb91f33bfb994dcfd2       | `required` `string` `functionId`      |
 | `nextId`        | 664f8feb91f33bfb994dcfd3       | `required` `string` `functionId`      |
-| `status`		  | 200							   | `integer` `httpcode`				   |
+| `status`		    | 200							               | `integer` `httpcode`				           |
 | `tag`           | [_tag id_, _tag id_, _tag id_] | `optional` `dive` `unique` `alphanum` |
 | `includeResult` | true                           | `required` `bool`                     |
 | `description`   | saveResultToStorage            | `optional` `printascii` `max=256`     |
@@ -84,9 +84,9 @@ These include the initial function ID, the subsequent function ID, the tags atta
 
 #### Request Parameters
 
-| Key             | Example                        | Requirements                          |
-| -------------   | ------------------------------ | ------------------------------------- |
-| _function Id_   | 664f8feb91f33bfb994dcfd2       | `functionId`      					   |
+| Key             | Example                       | Requirements                          |
+| -------------   | ----------------------------- | ------------------------------------- |
+| _trigger Id_   | 664f8feb91f33bfb994dcfd2       | `triggerId`              					    |
 
 #### Example Request
 
