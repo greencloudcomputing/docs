@@ -97,21 +97,25 @@ import (
 func Handle(req handler.Request) (handler.Response, error) {
 	var err error
 
+	//	body := req.Body
 	headers := http.Header{
-		"Content-Type": []string{"text/plain; charset=utf-8"},
+		"Content-Type": []string{req.Header.Get("Content-Type")},
 	}
 
 	// set storage
-	newStorage := base64.StdEncoding.EncodeToString([]byte("{\"admin\":1,\"password\":\"rich\"}"))
+	newStorage := base64.StdEncoding.EncodeToString([]byte("I am a storage Test!"))
 	headers.Set("GC-Storage", newStorage)
 
+	// get storage
+	storage := req.Header.Get("GC-Storage")
+	text, _ := base64.StdEncoding.DecodeString(storage)
+
 	return handler.Response{
-		Body:       []byte("I am a storage Test!"),
+		Body:       text,
 		StatusCode: http.StatusOK,
 		Header:     headers,
 	}, err
 }
-
 
 ```
 
