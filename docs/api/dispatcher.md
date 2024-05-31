@@ -26,7 +26,7 @@ The Dispatcher consists of a suite of microservices all working together to perf
 -   Tag - allows you to attach a specific meta data marker to a function. These can then be filtered to allow you to quickly search, sort and group required functions. Tags are specific to your account.
 -   Dispatcher - The service that allocates the workload across the GreenCloud network.
 
-In detail, the dispatcher can be thought of as an intelligent queue. When people offer their machines for use, their machine is added to and stays in the queue if it meets the following conditions -:
+In detail, the dispatcher can be thought of as an intelligent queue. When people offer their machines for use, their machines become Nodes. They are added to and stay in the Node queue if they meet the following conditions -:
 
 1. They are available for work.
 2. They are not currently processing work.
