@@ -21,7 +21,7 @@ The Dispatcher consists of a suite of microservices all working together to perf
 -   Node - is responsible for all the interactions with the nodes.
 -   Function - looks after all the functions that are created/running.
 -   Payment - we pay our members for being part of GreenCloud - this microservices handles this.
--   Endpoint - enables you to be able to call your functions using https protocol. Endpoints can be configured according to your preferences, such as allowing you to set when they can be accessed, what IP can access them, how many times it can be accessed a day.
+-   Endpoint - enables you to be able to call your functions using https protocol. Endpoints can be configured according to your preferences, such as allowing you to set when they can be accessed, what IP can access them, how many times they can be accessed a day.
 -   Task - returns the result of a call to a single function.
 -   Tag - allows you to attach a specific meta data marker to a function. These can then be filtered to allow you to quickly search, sort and group required functions. Tags are specific to your account.
 -   Dispatcher - The service that allocates the workload across the GreenCloud network.
