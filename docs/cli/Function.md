@@ -66,6 +66,12 @@ This subcommand of the function command initiates the configuration process of c
 
 ::::
 
+::::tip tip
+
+When choosing your language make sure to use lowercase (this is different than when creating a function via a call to the API).
+
+::::
+
 ```
 $ gccli function init --help
 ```

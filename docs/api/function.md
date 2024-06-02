@@ -32,6 +32,14 @@ A Function consists of -:
 Use this endpoint to create a function to use in the GreenCloud system. The response from a succesful call is an HTTP 201 in which the body of the response contains the ID of the newly created function.
 :::
 
+::::tip tip
+
+When choosing your language 'lang' make sure to use uppercase (this is different to creating a function via the CLI).
+
+When setting your 'type' make sure to use uppercase as well.
+
+::::
+
 #### Endpoint
 
 <endpoint href='https://api.greencloud.dev/v1/function' method='POST'/>
@@ -50,8 +58,8 @@ Use this endpoint to create a function to use in the GreenCloud system. The resp
 | `name`        | MyFunction                     | `required` `alphanum`                 |
 | `description` | My function description        | `optional` `printascii` `max=80`      |
 | `tag`         | [_tag id_, _tag id_, _tag id_] | `optional` `dive` `unique` `alphanum` |
-| `lang`        | go                             | `required` `oneof=go py js cs rb`     |
-| `type`        | docker                         | `required` `oneof=docker`             |
+| `lang`        | GO                             | `required` `oneof=GO PY JS CS RB RS`  |
+| `type`        | DOCKER                         | `required` `oneof=DOCKER`             |
 
 #### Example Request
 
@@ -60,8 +68,8 @@ Use this endpoint to create a function to use in the GreenCloud system. The resp
 	"name": "MyFunction",
 	"description":"My function description",
 	"tag": ['63fe131f02975e4956238b39', '63fe131f02975e4956238b40'],
-	"lang": "go",
-	"type": "docker"
+	"lang": "GO",
+	"type": "DOCKER"
 }
 ```
 
@@ -303,7 +311,7 @@ Empty body
 
 ::::info
 
-Use this endpoint to pause the exectution of your function and all calls to it. This is useful if you ...
+Use this endpoint to pause or unpause the exectution of your function and all calls to it. This is useful if for example you want to want to pause your function while you make updates to it, or 
 
 ::::
 
