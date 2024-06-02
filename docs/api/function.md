@@ -299,6 +299,44 @@ Empty body
 ]
 ```
 
+## Toggle Pause
+
+::::info
+
+Use this endpoint to pause the exectution of your function and all calls to it. This is useful if you ...
+
+::::
+
+#### Endpoint
+
+<endpoint href='https://api.greencloud.dev/v1/function/[functionId]/togglePause' method='POST'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+
+
+#### Request Parameters
+
+| Value         | Example                  | Required |
+| ------------- | ------------------------ | -------- |
+| _function id_ | 63f47d24dab5eb85451f3b61 | true     |
+
+#### Example Request
+
+```js
+Empty body
+```
+
+#### Example Response
+
+```js title="Status: 204 No Content"
+Empty body
+```
+
+
 ## Delete
 
 :::info
