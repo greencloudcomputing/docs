@@ -30,12 +30,6 @@ Once you are logged in, you can create a function by following these steps:
 -   Enter one of the available languages `go` `py` `js` `cs` `rb` `rs`
 -   Enter description `optional` `ascii` `max=80`
 
-::::tip tip
-
-When choosing a language make sure to use lowercase (this is different than when creating a function via calls to the API).
-
-::::
-
 <cliWindow>
 
 ```text {1,3,4,5}
