@@ -84,9 +84,9 @@ These include the initial function ID, the subsequent function ID, the tags atta
 
 #### Request Parameters
 
-| Key             | Example                        | Requirements                          |
-| -------------   | ------------------------------ | ------------------------------------- |
-| _function Id_   | 664f8feb91f33bfb994dcfd2       | `functionId`      					   |
+| Key             | Example                       | Requirements                          |
+| -------------   | ----------------------------- | ------------------------------------- |
+| _trigger Id_    | 664f8feb91f33bfb994dcfd2      |  `triggerId`              			  |
 
 #### Example Request
 
@@ -131,7 +131,7 @@ Use this endpoint to get a list of triggers in your GreenCloud account. You can 
 
 | Key           | Example                  | Requirements                                      |
 | ------------- | -------------------------| ------------------------------------------------- |
-| `page`        | 1                        | `optional` `min=1` `integer` `default 1`         |
+| `page`        | 1                        | `optional` `min=1` `integer` `default 1`          |
 | `limit`       | 3                        | `optional` `min=3` `max=20` `integer` `default 10`|
 | `functionId`  | 664f8feb91f33bfb994dcfd3 | `optional`                                        |
 
