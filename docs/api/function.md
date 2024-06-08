@@ -311,7 +311,7 @@ Empty body
 
 ::::info
 
-Use this endpoint to pause or unpause the exectution of your function and all calls to it. This is useful if for example you want to want to pause your function while you make updates to it, or 
+Use this endpoint to pause or unpause the execution of your function and all calls to it. This is useful if for example, you want to want to pause your function while you make updates to it, or 
 
 ::::
 
