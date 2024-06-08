@@ -311,7 +311,7 @@ Empty body
 
 ::::info
 
-Use this endpoint to pause or unpause the execution of your function and all calls to it. This is useful if for example, you want to want to pause your function while you make updates to it, or 
+Use this endpoint to pause or unpause the execution of your function and all calls to it. This is useful if, for example, you want to want to pause your function while you make updates to it, or you have collected sample data for a specific time period and want to pause your function until your next data collection period. If you have created a public URL this will not be accessible while your function is paused, but will resume when you unpause your function.
 
 ::::
 
