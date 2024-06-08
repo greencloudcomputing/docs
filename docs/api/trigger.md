@@ -36,7 +36,7 @@ Use this endpoint to create a trigger which causes a function to execute automat
 | -------------   | ------------------------------ | ------------------------------------- |
 | `functionId`    | 664f8feb91f33bfb994dcfd2       | `required` `string` `functionId`      |
 | `nextId`        | 664f8feb91f33bfb994dcfd3       | `required` `string` `functionId`      |
-| `status`		    | 200							               | `integer` `httpcode`				           |
+| `status`		  | 200							   | `integer` `httpcode`				   |
 | `tag`           | [_tag id_, _tag id_, _tag id_] | `optional` `dive` `unique` `alphanum` |
 | `includeResult` | true                           | `required` `bool`                     |
 | `description`   | saveResultToStorage            | `optional` `printascii` `max=256`     |
@@ -86,7 +86,7 @@ These include the initial function ID, the subsequent function ID, the tags atta
 
 | Key             | Example                       | Requirements                          |
 | -------------   | ----------------------------- | ------------------------------------- |
-| _trigger Id_   | 664f8feb91f33bfb994dcfd2       | `triggerId`              					    |
+| _trigger Id_    | 664f8feb91f33bfb994dcfd2      |  `triggerId`              			  |
 
 #### Example Request
 
@@ -131,7 +131,7 @@ Use this endpoint to get a list of triggers in your GreenCloud account. You can 
 
 | Key           | Example                  | Requirements                                      |
 | ------------- | -------------------------| ------------------------------------------------- |
-| `page`        | 1                        | `optional` `min=1` `integer` `default 1`         |
+| `page`        | 1                        | `optional` `min=1` `integer` `default 1`          |
 | `limit`       | 3                        | `optional` `min=3` `max=20` `integer` `default 10`|
 | `functionId`  | 664f8feb91f33bfb994dcfd3 | `optional`                                        |
 

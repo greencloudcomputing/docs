@@ -47,14 +47,14 @@ GreenCloud understands that a publicly available URL will concern some of our us
 
 #### Request Body
 
-| Key             | Example                                                             | Requirements                                                |
-| -------------   | ------------------------------------------------------------------- | ------------------------------------------------------------|
-| `description`   | collectMetricsData                                                  | `optional` `printascii` `max=256`                           |
-| `tag`           | [_tag id_, _tag id_, _tag id_]                                      | `optional` `dive` `unique` `mongodb`                        |
-| `dailyLimit`    | 1000                                                                | `optional` `int` `gte=-1` `numeric`                         |
-| `origin`		    | https://greencloud.dev                                              | `optional` `unique` `dive` `http_url` `startswith=https://` |
-| `ip`            | ["172.19.0.1", "192.168.0.1"]                                       | `optional` `unique` `dive` `ipv4`                           |
-| `timeLimit`      | {"from": "09:00", "to": "18:00", "timezone": "America/New_York"}   | `optional` `string` `time` `timezone`                       |
+| Key             | Example                                                          | Requirements                                                |
+| --------------- | ---------------------------------------------------------------- | ----------------------------------------------------------- |
+| `description`   | collectMetricsData                                               | `optional` `printascii` `max=256`                           |
+| `tag`           | [_tag id_, _tag id_, _tag id_]                                   | `optional` `dive` `unique` `mongodb`                        |
+| `dailyLimit`    | 1000                                                             | `optional` `int` `gte=-1` `numeric`                         |
+| `origin`		  | https://greencloud.dev                                           | `optional` `unique` `dive` `http_url` `startswith=https://` |
+| `ip`            | ["172.19.0.1", "192.168.0.1"]                                    | `optional` `unique` `dive` `ipv4`                           |
+| `timeLimit`     | {"from": "09:00", "to": "18:00", "timezone": "America/New_York"} | `optional` `string` `time` `timezone`                       |
 
 
 #### Example Request
@@ -105,13 +105,13 @@ Use this to edit your existing public endpoint using its ID. It returns a 204 re
 #### Request Body
 
 | Key             | Example                                                             | Requirements                                                |
-| -------------   | ------------------------------------------------------------------- | ------------------------------------------------------------|
+| -------------   | ------------------------------------------------------------------- | ----------------------------------------------------------- |
 | `description`   | DatabaseEntry                                                       | `optional` `printascii` `max=256`                           |
 | `tag`           | [_tag id_, _tag id_, _tag id_]                                      | `optional` `dive` `unique` `mongodb`                        |
 | `dailyLimit`    | 1000                                                                | `optional` `int` `gte=-1` `numeric`                         |
-| `origin`		    | https://greencloud.dev                                              | `optional` `unique` `dive` `http_url` `startswith=https://` |
+| `origin`		  | https://greencloud.dev                                              | `optional` `unique` `dive` `http_url` `startswith=https://` |
 | `ip`            | ["172.19.0.1", "192.168.0.1"]                                       | `optional` `unique` `dive` `ipv4`                           |
-| `timeLimit`      | {"from": "09:00", "to": "18:00", "timezone": "America/New_York"}   | `optional` `string` `time` `timezone`                       |
+| `timeLimit`     | {"from": "09:00", "to": "18:00", "timezone": "America/New_York"}    | `optional` `string` `time` `timezone`                       |
 
 
 #### Example Request
