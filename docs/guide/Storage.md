@@ -318,10 +318,13 @@ I am a storage Test!
 
 <BrowserWindow url="https://api.greencloud.dev/gc/6656ef17f9440e67ae781692/result">
 
+```JSON
 {
     "password": "root",
     "user": "root"
 }
+
+```
 
 </BrowserWindow>
 
