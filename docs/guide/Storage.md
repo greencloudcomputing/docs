@@ -10,7 +10,7 @@ import BrowserWindow from '@site/src/components/BrowserWindow';
 
 ## How does it work?
 
-GreenCloud allows you to create a storage function where you can store files up to 16mb in size.  
+GreenCloud allows you to create a storage function where you can store files up to 1mb in size.  
 
 GreenCloud ensures your files are private by masking important information. Files are broken down across multiple server nodes to ensure security.  
 
