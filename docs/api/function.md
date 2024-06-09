@@ -32,6 +32,14 @@ A Function consists of -:
 Use this endpoint to create a function to use in the GreenCloud system. The response from a succesful call is an HTTP 201 in which the body of the response contains the ID of the newly created function.
 :::
 
+::::tip tip
+
+When choosing your language 'lang' make sure to use uppercase (this is different to creating a function via the CLI).
+
+When setting your 'type' make sure to use uppercase as well.
+
+::::
+
 #### Endpoint
 
 <endpoint href='https://api.greencloud.dev/v1/function' method='POST'/>
@@ -50,8 +58,8 @@ Use this endpoint to create a function to use in the GreenCloud system. The resp
 | `name`        | MyFunction                     | `required` `alphanum`                 |
 | `description` | My function description        | `optional` `printascii` `max=80`      |
 | `tag`         | [_tag id_, _tag id_, _tag id_] | `optional` `dive` `unique` `alphanum` |
-| `lang`        | go                             | `required` `oneof=go py js cs rb`     |
-| `type`        | docker                         | `required` `oneof=docker`             |
+| `lang`        | GO                             | `required` `oneof=GO PY JS CS RB RS`  |
+| `type`        | DOCKER                         | `required` `oneof=DOCKER`             |
 
 #### Example Request
 
@@ -60,8 +68,8 @@ Use this endpoint to create a function to use in the GreenCloud system. The resp
 	"name": "MyFunction",
 	"description":"My function description",
 	"tag": ['63fe131f02975e4956238b39', '63fe131f02975e4956238b40'],
-	"lang": "go",
-	"type": "docker"
+	"lang": "GO",
+	"type": "DOCKER"
 }
 ```
 
@@ -298,6 +306,44 @@ Empty body
     },
 ]
 ```
+
+## Toggle Pause
+
+::::info
+
+Use this endpoint to pause or unpause the execution of your function and all calls to it. This is useful if, for example, you want to want to pause your function while you make updates to it, or you have collected sample data for a specific time period and want to pause your function until your next data collection period. If you have created a public URL this will not be accessible while your function is paused, but will resume when you unpause your function.
+
+::::
+
+#### Endpoint
+
+<endpoint href='https://api.greencloud.dev/v1/function/[functionId]/togglePause' method='POST'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+
+
+#### Request Parameters
+
+| Value         | Example                  | Required |
+| ------------- | ------------------------ | -------- |
+| _function id_ | 63f47d24dab5eb85451f3b61 | true     |
+
+#### Example Request
+
+```js
+Empty body
+```
+
+#### Example Response
+
+```js title="Status: 204 No Content"
+Empty body
+```
+
 
 ## Delete
 

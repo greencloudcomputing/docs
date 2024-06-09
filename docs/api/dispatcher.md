@@ -21,17 +21,19 @@ The Dispatcher consists of a suite of microservices all working together to perf
 -   Node - is responsible for all the interactions with the nodes.
 -   Function - looks after all the functions that are created/running.
 -   Payment - we pay our members for being part of GreenCloud - this microservices handles this.
--   Endpoint - enables you to be able to call your functions using https protocol. Endpoints can be configured according to your preferences.
+-   Endpoint - enables you to be able to call your functions using https protocol. Endpoints can be configured according to your preferences, such as allowing you to set when they can be accessed, what IP can access them, how many times they can be accessed a day.
 -   Task - returns the result of a call to a single function.
--   Tag - allows you to attach a specific meta data marker to a function. These can then be filtered to allow you to quickly search, sort and group required functions. Tags are specific to your account.S
+-   Tag - allows you to attach a specific meta data marker to a function. These can then be filtered to allow you to quickly search, sort and group required functions. Tags are specific to your account.
 -   Dispatcher - The service that allocates the workload across the GreenCloud network.
 
-In detail the dispatcher can be thought of as an intelligent queue. People offering their machines for use arrive and depart dependent on three conditions -:
+In detail, the dispatcher can be thought of as an intelligent queue. When people offer their machines for use, their machines become Nodes. They are added to and stay in the Node queue if they meet the following conditions -:
 
 1. They are available for work.
-2. They are un-available for work as they are currently processing work.
-3. They are un-available for work as they are not producing or running on renewable energy.
+2. They are not currently processing work.
+3. They are producing or running on renewable energy.
 
-The dispatcher checks the queue for incoming work loads. Should it find a request for work - it then checks its Node queue and allocates the work load to the most appropriate node to perform that task (achieved through a capabilities check).
+If any of these conditions is not met the machine will be removed from the queue until all the conditions are met.
+
+The dispatcher checks the queue for incoming work loads. Should it find a request for work - it then checks its Node queue and allocates the work load to the most appropriate Node to perform that task (achieved through a capabilities check).
 
 The workload is allocated - the Node is removed from the queue and the Dispatcher repeats the process for the next piece of work in the queue. This makes for a very rapid system of work allocation. Another way of viewing how the Dispatcher works is as a broker. "I have some work - who is available to perform it?"
