@@ -323,7 +323,6 @@ I am a storage Test!
     "password": "root",
     "user": "root"
 }
-
 ```
 
 </BrowserWindow>
@@ -334,7 +333,7 @@ I am a storage Test!
 
 <BrowserWindow url="https://api.greencloud.dev/gc/6656ef17f9440e67ae781692/result">
 
-![gc-logo](gc-centered.png)
+![gc-logo](../img/gc-centered.png)
 
 </BrowserWindow>
 
