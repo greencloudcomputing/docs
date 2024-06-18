@@ -5,6 +5,7 @@ sidebar_position: 8
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import BrowserWindow from '@site/src/components/BrowserWindow';
+import CroppedLogo from '/img/gc-centered-Cropped.png';
 
 # 💾 Storing files in GreenCloud
 
@@ -333,7 +334,7 @@ I am a storage Test!
 
 <BrowserWindow url="https://api.greencloud.dev/gc/6656ef17f9440e67ae781692/result">
 
-![gc-logo](../img/gc-centered.png)
+<img src={CroppedLogo} alt="Cropped GreenCloud Logo" style={{ width: '40%' }} />
 
 </BrowserWindow>
 
