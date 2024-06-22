@@ -163,6 +163,56 @@ Empty body
 ]
 ```
 
+## Get CSV Tasks
+
+::::info
+
+Calling task csv with the function ID will return a CSV with the results of your tasks related to that function. You can pass in optional date parameters to restrict your tasks to a date range, or you can pass in schedule Id to limit tasks to a given schedule.
+
+::::
+
+#### Endpoint
+
+<endpoint href='https://api.greencloud.dev/v1/task/[functionId]/csv' method='GET'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+
+#### Request Parameters
+
+| Key             | Example                                                            | Requirements                                               |
+| --------------- | ------------------------------------------------------------------ | -----------------------------------------------------------|
+| `showPlain`     | true				                                               | `optional` `boolean` `default: false`                      |
+| `functionId`    | 6405848581b16f7a07cd4c48	                                       | `optional` `string` `mongodb`                      		|
+| `scheduledId`   | 6677391a241c7178b29e4a4a                                           | `optional` `string` `mongodb`                         		|
+| `dateSince`	  | 2016-01-02				                                           | `optional` `string` `datetime` `yyyy-mm-dd`				|
+| `dateUntil`     | 2021-03-24					                                       | `optional` `string` `datetime` `yyyy-mm-dd`                |
+
+#### Example Request
+
+```js
+	{
+	"showPlain": "true",
+	"functionId": "6405848581b16f7a07cd4c48"
+	"scheduleId": "6677391a241c7178b29e4a4a"
+	"dateSince": "2006-01-02"
+	"dateUntil": "2025-24-03"
+	}
+```
+
+#### Example Responses
+
+|ID							|IssuedAt				|Status		|ContentType		|Body					|
+|---------------------------|-----------------------|-----------|-------------------|-----------------------|
+|66773caefe3f89cf057bedcf	|2024-06-22T21:05:48Z	|200		|text/plain			|I am a storage Test!	|
+|66773cddfe3f89cf057bedd0	|2024-06-22T21:06:34Z	|200		|text/plain			|I am a storage Test!	|
+|66773ce2fe3f89cf057bedd2	|2024-06-22T21:06:39Z	|200		|text/plain			|I am a storage Test!	|
+|66773ce0fe3f89cf057bedd1	|2024-06-22T21:06:40Z	|200		|text/plain			|I am a storage Test!	|
+
+
 ## Result Tasks
 
 ::::info
@@ -185,7 +235,8 @@ Calling your task result with the task ID will return the result of the task fun
 
 | Value     | Example                  | Required |
 | --------- | ------------------------ | -------- |
-| _task id_ | 6405942c9956fae80d7e0e91 | true     |
+| _task id_ | 6405942c9956fae80d7e0e91 | true     |						
+
 
 #### Example Request
 
