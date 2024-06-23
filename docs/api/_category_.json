@@ -3,6 +3,6 @@
   "position": 4,
   "link": {
     "type": "generated-index",
-    "description": "Here you will find a complete set of API documentation for the GreenCloud platform"
+    "description": "Here you will find a complete set of API documentation for the GreenCloud platform. The base URL for the API is https://api.greencloud.dev/v1 . The base URL to access your created public endpoints is https://api.greencloud.dev/gc ."
   }
 }
