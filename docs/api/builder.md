@@ -11,7 +11,7 @@ Use this endpoint to send your function to GreenCloud so it can build and deploy
 :::
 
 ::::tip tip
-Make sure to choose your architecture type as a parameter when sending your function for it to be built.
+Make sure to include the architecture type as a parameter when sending your function for it to be built.
 
 When sending your function to be build via the API you must zip the contents of the function folder first. 
 ::::
@@ -36,7 +36,7 @@ You must zip the contents of the function folder rather than the function folder
 
 | Key             | Example                         | Requirements                              |
 | --------------- | --------------------------------| ------------------------------------------|
-| `arch`          | amd64                           | `required` `oneof amd64 arm64`            | 
+| `arch`          | amd64                           | `required` `amd64`                        | 
 
 #### Request Body
 
