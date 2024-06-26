@@ -10,7 +10,7 @@ You can call this endpoint to download the GreenCloud Command Line Interface (gc
 ## Get
 
 :::info
-This will redirect you to the correct link to download the CLI .
+This will redirect you to the correct link to download the CLI.
 :::
 
 :::caution Caution
@@ -38,10 +38,10 @@ See [installing the CLI](https://docs.greencloud.dev/guide/cli/installing%20the%
 
 #### Request Parameters
 
-| Key             | Example                                                            | Requirements                                                |
-| --------------- | ------------------------------------------------------------------ | ----------------------------------------------------------- |
-| os			  | "windows"														   | `required` `string` `oneof darwin linux windows`			 |
-| arch			  |	"amd64"															   | `required` `string` `oneof amd64 arm64`					 |
+| Key             | Example                          | Requirements                                                |
+| --------------- | ---------------------------------| ----------------------------------------------------------- |
+| os			  | "windows"						 | `required` `string` `oneof darwin linux windows`		  	   |
+| arch			  |	"amd64"							 | `required` `string` `oneof amd64 arm64`				   	   |
 
 #### Example Request
 
