@@ -59,7 +59,7 @@ You must zip the contents of the function folder rather than the function folder
 ## Get
 
 :::info
-If you need to retrieve details about your build, use this endpoint by passing the build ID as a URL parameter. The endpoint will provide you with a list of information related to build of the function.
+If you need to retrieve details about your build, use this endpoint by passing the build ID as a URL request parameter. The endpoint will provide you with a list of information related to build of the function.
 :::
 
 #### Endpoint
@@ -100,7 +100,7 @@ Empty body
 ## List
 
 :::info
-Use this endpoint to get a list of functions in your GreenCloud account. You can set optional paramaters to choose which page of results to view, how many results to view and which specific function you want to inspect.
+Use this endpoint to get a list of functions in your GreenCloud account. You can set optional parameters to choose which page of results to view, how many results to view and which specific function you want to inspect.
 :::
 
 #### Endpoint
