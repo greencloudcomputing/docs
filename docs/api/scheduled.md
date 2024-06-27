@@ -28,7 +28,7 @@ Use this endpoint to create a schedule for your GreenCloud function using CRON. 
 | Key           | Example                        | Requirements                                 |
 | ------------- | ------------------------------ | -------------------------------------        |
 | `functionId`  | "63f47d24dab5eb85451f3b61"     | `required` `string` `mongodb`                |
-| `cron`        | "* * 5 2 *"                    | `required` `string` `cron`                   |
+| `cron`        | "\* \* 5 2 \*"                    | `required` `string` `cron`                   |
 | `timezone`    | "UTC"                          | `required` `string` `timezone`               |
 | `description` | "Feb schedule"                 | `optional` `string` `printascii` `max=256`   |
 
@@ -54,12 +54,12 @@ Use this endpoint to create a schedule for your GreenCloud function using CRON. 
 ## Edit
 
 :::info
-Use this endpoint to edit the meta data about a function. You will need to pass the id of the function on the URL. The parameters that you can edit are the name, description and tags of the function.
+Use this endpoint and the schedule ID to edit a schedule for your GreenCloud function using CRON and disable or enable it. The response from a succesful call is an HTTP 204.
 :::
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/v1/function/[functionId]' method='PATCH'/>
+<endpoint href='https://api.greencloud.dev/v1/scheduled/[scheduledId]' method='PATCH'/>
 
 #### Request Headers
 
@@ -72,41 +72,45 @@ Use this endpoint to edit the meta data about a function. You will need to pass 
 
 | Value         | Example                  | Required |
 | ------------- | ------------------------ | -------- |
-| _function id_ | 63f47d24dab5eb85451f3b61 | true     |
+| _scheduled id_| 65d0f0313668b35c0e57726c | true     |
 
 #### Request Body
 
-| Key           | Example                        | Requirements                          |
-| ------------- | ------------------------------ | ------------------------------------- |
-| `name`        | MyFunction                     | `optional` `alphanum`                 |
-| `description` | My function description        | `optional` `printascii` `max=80`      |
-| `tag`         | [_tag id_, _tag id_, _tag id_] | `optional` `dive` `unique` `alphanum` |
+| Key           | Example                        | Requirements                                 |
+| ------------- | ------------------------------ | -------------------------------------        |
+| `active`		| true							 | `required` `boolean`							| 
+| `cron`        | " \* 2 \* 2 \* "                  | `required` `string` `cron`                   |
+| `timezone`    | "UTC"                          | `required` `string` `timezone`               |
+| `description` | "Feb schedule"                 | `optional` `string` `printascii` `max=256`   |
 
 #### Example Request
 
 ```js
 {
-	"name": "MyFunction",
-	"description":"My function description",
-	"tag": ['63fe131f02975e4956238b39', '63fe131f02975e4956238b40'],
+	"active": "true",
+	"cron": "* 2 * 2 *",
+	"timezone": "UTC",
+	"description": "02:00 Feb schedule"
 }
 ```
 
 #### Example Response
 
 ```js title="Status: 204 No Content"
-Empty body
+{
+	No Body
+}
 ```
 
 ## Get
 
 :::info
-If you need to retrieve details about a particular function, use this endpoint by passing the function's ID as a URL parameter. The endpoint will provide you with a list of information related to the function.
+If you need to retrieve details about a particular schedule, use this endpoint by passing the schedules's ID as a URL parameter. The endpoint will provide you with a list of information related to the schedule.
 :::
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/v1/function/[functionId]' method='GET'/>
+<endpoint href='https://api.greencloud.dev/v1/scheduled/[scheduledId]' method='GET'/>
 
 #### Request Headers
 
@@ -116,9 +120,9 @@ If you need to retrieve details about a particular function, use this endpoint b
 
 #### Request Parameters
 
-| Value         | Example                  | Required |
-| ------------- | ------------------------ | -------- |
-| _function id_ | 63f47d24dab5eb85451f3b61 | true     |
+| Value         | Example                   | Required |
+| ------------- | ------------------------  | -------- |
+| _scheduled id_ | 65d0f0313668b35c0e57726c | true     |
 
 #### Example Request
 
@@ -130,29 +134,15 @@ Empty body
 
 ```js title="Status: 200 OK"
 {
-	"name": "MyFunction",
-	"description": "My function description",
-	"type": "docker",
-	"lang": "go",
-	"tags": [
-		{
-			"id": "63ed33eac79248a54ee04831",
-			"name": "greencloud",
-			"color": "#00ff80"
-		}
-	],
-   	"capabilities": {
-		"timeout": 10,
-		"cpuCount": 0,
-		"memSize": 0,
-		"networkLatency": 0,
-		"privileged": true
-	},
-	"metrics": {
-		"todaysTasks": 0,
-		"pendingTasks": 0,
-		"weekTasks": 0,
-		"completedTasks": 0
+	"active": false,
+	"functionId": "65cbc89aaa892059d49e06cf",
+	"cron": "*/2 * * * *",
+	"timezone": "UTC",
+	"description": "Feb schedule",
+  	"inlinePayload": { 
+		"query": "aaaa=1&add=95",
+		"body": "ewoJImFkbWluIjogMSwKCSJwYXNzd29yZCI6ICJkYXNAYWEiCn0=",
+		"contentType": "application/json"
 	}
 }
 ```
@@ -160,12 +150,12 @@ Empty body
 ## List
 
 :::info
-Use this endpoint to get a list of functions in your GreenCloud account.
+Use this endpoint to get a list of your GreenCloud function schedules. You can include optional request parameters to set which page of results to view, how many results to view, the specific function whose schedules you would like to view and the specific timezones you would like to view.
 :::
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/v1/function/list' method='GET'/>
+<endpoint href='https://api.greencloud.dev/v1/scheduled/list' method='GET'/>
 
 #### Request Headers
 
@@ -173,231 +163,54 @@ Use this endpoint to get a list of functions in your GreenCloud account.
 | --------------- | -------------------- | -------- |
 | `Authorization` | _Valid Access Token_ | true     |
 
-#### Example Request
-
-```js
-Empty body
-```
-
-#### Example Response
-
-<!-- prettier-ignore -->
-```js title="Status: 200 OK"
-[
-    {
-	id: "6404b3da46551827c611ffe5",
-        name: "MyFunction",
-        description: "My function description",
-        lang: "go",
-        tags: [
-            {
-                id: "63ed33eac79248a54ee04831",
-                name: "greencloud",
-                color: "#00ff80",
-            },
-        ],
-	createdAt: "1678029786"
-    },
-    {
-	id: "6404b3da46551827c611ffe6",
-        name: "MyFunction2",
-        description: "My 2nd function description",
-        lang: "go",
-        tags: [
-            {
-                id: "63ed33eac79248a54ee04831",
-                name: "greencloud",
-                color: "#00ff80",
-            },
-        ],
-	createdAt: "1676489715"
-    },
-]
-```
-
-## List By Tag
-
-:::info
-Use this endpoint to get a list of functions by tag. Note that you need to pass the tag you are interested in as a query parameter. We introduced Tags into GreenCloud as a means to be able to better manage your GreenCloud assets. Please see the Tag documentation for more details.
-:::
-
-#### Endpoint
-
-<endpoint href='https://api.greencloud.dev/v1/function/list?tag=[tagId]' method='GET'/>
-
-#### Request Headers
-
-| Key             | Value                | Required |
-| --------------- | -------------------- | -------- |
-| `Authorization` | _Valid Access Token_ | true     |
-
-#### Request Parameters
-
-| Value    | Example                  | Required |
-| -------- | ------------------------ | -------- |
-| _tag id_ | 63f47d24dab5eb85451f3b61 | true     |
+#### Request Body
+ 
+| Key          | Example                   | Requirements                          				|
+| -------------| ------------------------- | -------------------------------------------------  |
+| `page`	   | 1                         | `optional` `min=1` `integer` `default 1`			|
+| `limit`      | 3                         | `optional` `min=3` `max=999` `integer` `default 10`|
+| `functionId` | "664f8feb91f33bfb994dcfd3"| `optional` `string` `mongodb`						|
+| `timezone`   | "UTC"					   | `optional` `timezone`								|
 
 #### Example Request
 
 ```js
-Empty body
-```
-
-<!-- prettier-ignore -->
-```js title="Status: 200 OK"
-[
-    {
-	id: "6404b3da46551827c611ffe5",
-        name: "MyFunction",
-        description: "My function description",
-        lang: "go",
-        tags: [
-            {
-                id: "63ed33eac79248a54ee04831",
-                name: "greencloud",
-                color: "#00ff80",
-            },
-        ],
-	createdAt: "1678029786"
-    },
-    {
-	id: "6404b3da46551827c611ffe6",
-        name: "MyFunction2",
-        description: "My 2nd function description",
-        lang: "go",
-        tags: [
-            {
-                id: "63ed33eac79248a54ee04831",
-                name: "greencloud",
-                color: "#00ff80",
-            },
-        ],
-	createdAt: "1676489715"
-    },
-]
-```
-
-## Toggle Pause
-
-::::info
-
-Use this endpoint to pause or unpause the execution of your function and all calls to it. This is useful if, for example, you want to want to pause your function while you make updates to it, or you have collected sample data for a specific time period and want to pause your function until your next data collection period. If you have created a public URL this will not be accessible while your function is paused, but will resume when you unpause your function.
-
-::::
-
-#### Endpoint
-
-<endpoint href='https://api.greencloud.dev/v1/function/[functionId]/togglePause' method='POST'/>
-
-#### Request Headers
-
-| Key             | Value                | Required |
-| --------------- | -------------------- | -------- |
-| `Authorization` | _Valid Access Token_ | true     |
-
-
-#### Request Parameters
-
-| Value         | Example                  | Required |
-| ------------- | ------------------------ | -------- |
-| _function id_ | 63f47d24dab5eb85451f3b61 | true     |
-
-#### Example Request
-
-```js
-Empty body
-```
-
-#### Example Response
-
-```js title="Status: 204 No Content"
-Empty body
-```
-
-
-## Delete
-
-:::info
-Use this endpoint to delete a function from the GreenCloud system.
-:::
-
-#### Endpoint
-
-<endpoint href='https://api.greencloud.dev/v1/function/[functionId]' method='DELETE'/>
-
-#### Request Headers
-
-| Key             | Value                | Required |
-| --------------- | -------------------- | -------- |
-| `Authorization` | _Valid Access Token_ | true     |
-
-#### Request Parameters
-
-| Value         | Example                  | Required |
-| ------------- | ------------------------ | -------- |
-| _function id_ | 63f47d24dab5eb85451f3b61 | true     |
-
-#### Example Request
-
-```js
-Empty body
-```
-
-#### Example Response
-
-```js title="Status: 204 No Content"
-Empty body
-```
-
-## Get Capabilities
-
-:::info
-Use this endpoint to get capabilities of a function on the GreenCloud system.
-:::
-
-#### Endpoint
-
-<endpoint href='https://api.greencloud.dev/v1/function/[functionId]/capabilities' method='GET'/>
-
-#### Request Headers
-
-| Key             | Value                | Required |
-| --------------- | -------------------- | -------- |
-| `Authorization` | _Valid Access Token_ | true     |
-
-#### Request Parameters
-
-| Value         | Example                  | Required |
-| ------------- | ------------------------ | -------- |
-| _function id_ | 63f47d24dab5eb85451f3b61 | true     |
-
-#### Example Request
-
-```js
-Empty body
-```
-
-#### Example Response
-
-```js title="Status: 200 OK"
 {
-	"timeout": 10
-	"cpuCount": 0,
-	"memSize": 0,
-	"networkLatency": 0,
-	"privileged": true
+	"page": 2,
+	"limit": 2,
+	"functionId": "664f8feb91f33bfb994dcfd3",
+	"timezone": "UTC"
 }
 ```
 
-## Set Capabilities
+#### Example Response
+
+<!-- prettier-ignore -->
+```js title="Status: 200 OK"
+{
+  "pageCount": 1,
+  "pageSize": 10,
+  "totalCount": 1,
+  "results": [{
+    "id": "65671af3affc592219eaec9e",
+    "active": false,
+    "functionId": "664f8feb91f33bfb994dcfd3",
+    "cron": "*/3 * * * *",
+    "timezone": "Europe/London",
+    "description": "this is for ID $656"
+   }]
+}
+```
+
+## Payload
 
 :::info
-In GreenCloud, because of the disparate nature of the machines that will be connecting to the Dispatcher, we use something called Capabailities to be able to clearly utilise the best suited machine to the computational task that the function requires. This is the purpose of Capabilities. In setting the capabilities of a function you can restrict the machines that that function executes on. The purpose of this is to run on the most optimal machine for the function.
+Use this endpoint with your schedule Id as a request parameter to set the payload for your function when called by your specified schedule. 
 :::
 
 #### Endpoint
 
-<endpoint href='https://api.greencloud.dev/v1/function/[functionId]/capabilities' method='POST'/>
+<endpoint href='https://api.greencloud.dev/v1/scheduled/[scheduledId]/payload' method='PUT'/>
 
 #### Request Headers
 
@@ -406,34 +219,97 @@ In GreenCloud, because of the disparate nature of the machines that will be conn
 | `Authorization` | _Valid Access Token_ | true     |
 | `Content-Type`  | `application/json`   | true     |
 
-#### Request Parameters
-
-| Value         | Example                  | Required |
-| ------------- | ------------------------ | -------- |
-| _function id_ | 63f47d24dab5eb85451f3b61 | true     |
-
 #### Request Body
 
-| Key          | Example | Requirements                             |
-| ------------ | ------- | ---------------------------------------- |
-| `timeout`    | 10      | `optional` `numeric` `gte=10` `lte=120`  |
-| `cpuCount`   | 1       | `optional` `numeric` `gte=0` `lte=4`     |
-| `memSize`    | 1024    | `optional` `numeric` `gte=0` `lte=2048`  |
-| `privilaged` | true    | `optional` `bool`                        |
+| Key           | Example                        | Requirements                                 |
+| ------------- | ------------------------------ | -------------------------------------        |
 
 #### Example Request
 
 ```js
 {
-	"timeout": 10
-	"cpuCount": 1,
-	"memSize": 1024,
-	"privileged": true
+	"date: 09-20-2024",
+	"inventory": 65
 }
 ```
 
 #### Example Response
 
-```js title="Status: 204 No Content"
+```js title="Status: 204 No Body"
+{
+	No body
+}
+```
+
+## Try
+
+Use this endpoint to test your schedule.
+
+#### Endpoint
+
+<endpoint href='https://api.greencloud.dev/v1/scheduled/[scheduledId]/try' method='POST'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+| `Content-Type`  | `application/json`   | true     |
+
+#### Request Body
+
+| Key           | Example                        | Requirements                                 |
+| ------------- | ------------------------------ | -------------------------------------        |
+
+#### Example Request
+
+```js
+{
+	Empty Body
+}
+```
+
+#### Example Response
+
+```js title="Status: 201 Created"
+{
+	"id": "65ccd7c8ba61bd944165fc1a"
+}
+```
+
+
+
+## Delete
+
+:::info
+Use this endpoint to delete a schedule from your GreenCloud function.
+:::
+
+#### Endpoint
+
+<endpoint href='https://api.greencloud.dev/v1/scheduled/[scheduledId]' method='DELETE'/>
+
+#### Request Headers
+
+| Key             | Value                | Required |
+| --------------- | -------------------- | -------- |
+| `Authorization` | _Valid Access Token_ | true     |
+
+#### Request Parameters
+
+| Value         | Example                   | Required |
+| ------------- | ------------------------  | -------- |
+| _scheduled id_ | 63f47d24dab5eb85451f3b61 | true     |
+
+#### Example Request
+
+```js
 Empty body
 ```
+
+#### Example Response
+
+```js title="Status: 204 No Content"
+No Body
+```
+
