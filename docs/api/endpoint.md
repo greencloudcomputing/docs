@@ -261,7 +261,7 @@ This is used to retrieve a list of your public endpoints including their IDs, de
 {
 	"page": 2,
 	"limit": 2,
-	"functionId": "664f8feb91f33bfb994dcfd2",
+	"functionId": "664f8feb91f33bfb994dcfd2"
 }
 ```
 
@@ -372,7 +372,7 @@ You may pass any valid json in the request body to be consumed by the function.
 
 ```js title="Status: 201 Created"
 {
-	"id": "63f47d24dab5eb85451f3b61", // task id
+	"id": "63f47d24dab5eb85451f3b61" // task id
 }
 ```
 
