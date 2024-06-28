@@ -14,7 +14,7 @@ export default function DocPage(props) {
         apiInfoDiv.className = 'api-info';
         apiInfoDiv.innerHTML = `
           <p>
-            The base URL for the API is <a href="https://api.greencloud.dev/v1">https://api.greencloud.dev/v1</a>
+            The base URL for the API is <a href="https://api.greencloud.dev/v1/">https://api.greencloud.dev/v1/</a>
             </p>
             <p>
             The base URL to access your created public endpoints is <a href="https://api.greencloud.dev/gc">https://api.greencloud.dev/gc</a>
