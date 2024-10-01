@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# 📊 metrics
+# 📊 Metrics
 
 ## Get
 
